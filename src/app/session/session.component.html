@@ -1,5 +1,10 @@
-<div class='card'>
-    <div class='card-header bg-primary text-white'>
-        Get token! (SessionComponent here)
+<nav class="navbar navbar-light bg-light">
+    <div class="font-italic text-danger">
+        No current access token
     </div>
-</div>
+    <form id="accessTokenForm" class="form-inline">
+        <input id="inputClientID" class="form-control mr-sm-2" type="text" placeholder="Client ID" aria-label="Client ID">
+        <input id="inputSecretKey" class="form-control mr-sm-2" type="password" placeholder="Secret Key" aria-label="Secret Key">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Get Access Token</button>
+    </form>
+  </nav>
