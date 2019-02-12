@@ -1,10 +1,10 @@
 <nav class="navbar navbar-light bg-light">
     <div class="{{accessTokenGranted ? 'font-italic text-success' : 'font-italic text-danger'}}">
-        {{accessTokenGranted ? accessTokenGrantedMessage : accessTokenNotGrantedMessage}}
+        {{accessTokenGranted ? accessTokenGrantedMessage + ': ' + accessToken : accessTokenNotGrantedMessage}}
     </div>        
     <form id="accessTokenForm" class="form-inline">
         <input id="inputClientID" name="clientId" class="form-control mr-sm-2" type="text" [(ngModel)]="clientId" placeholder="Client ID" aria-label="Client ID">
-        <input id="inputSecretKey" name="secretKey" class="form-control mr-sm-2" type="password" [(ngModel)]="secretKey" placeholder="Secret Key" aria-label="Secret Key">
+        <input id="inputClientSecret" name="clientSecret" class="form-control mr-sm-2" type="password" [(ngModel)]="clientSecret" placeholder="Client Secret" aria-label="Client Secret">
         <button id="buttonGetAccessToken" class="btn btn-outline-primary my-2 my-sm-0" type="submit" (click)="getAccessToken()">Get Access Token</button>
     </form>    
   </nav>
