@@ -13,7 +13,9 @@ export class SessionComponent implements OnInit {
     accessTokenNotGrantedMessage = 'No current access token';
     accessTokenGrantedMessage = 'Access token granted';
     accessTokenGranted = false;
+    spotifyAccessToken: ISpotifyAccessToken;
     accessToken: string;
+    errorMessage: string;
 
     constructor(private _spotifyService: SpotifyService) {
     }
@@ -23,13 +25,18 @@ export class SessionComponent implements OnInit {
     }
 
     getAccessToken(): void {
-        const spotifyAccessToken = this._spotifyService.authenticate(this.clientId, this.clientSecret);
-        this.accessToken = spotifyAccessToken.accessToken;
-        this.accessTokenGranted = !this.accessTokenGranted;
+        this._spotifyService.authenticate(this.clientId, this.clientSecret).subscribe(
+            spotifyAccessToken => {
+                this.spotifyAccessToken = spotifyAccessToken
+                this.accessToken = this.spotifyAccessToken.accessToken;
+                this.accessTokenGranted = true;
 
-        console.log('Spotify Access Token: ' + spotifyAccessToken.accessToken);
-        console.log('Expires In: ' + spotifyAccessToken.expiresIn);
-        console.log('Scope: ' + spotifyAccessToken.scope);
-        console.log('Token Type: ' + spotifyAccessToken.tokenType);
+                console.log('Spotify Access Token: ' + this.spotifyAccessToken.accessToken);
+                console.log('Expires In: ' + this.spotifyAccessToken.expiresIn);
+                console.log('Scope: ' + this.spotifyAccessToken.scope);
+                console.log('Token Type: ' + this.spotifyAccessToken.tokenType);
+            },
+            error => this.errorMessage = <any>error
+        );      
     }
 }
