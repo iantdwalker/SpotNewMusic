@@ -21,13 +21,13 @@ export class SessionComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log('Session component initialised');
+        // init code can go here
     }
 
     getAccessToken(): void {
         this._spotifyService.authenticate(this.clientId, this.clientSecret).subscribe(
             spotifyAccessToken => {
-                this.spotifyAccessToken = spotifyAccessToken
+                this.spotifyAccessToken = spotifyAccessToken;
                 this.accessToken = this.spotifyAccessToken.accessToken;
                 this.accessTokenGranted = true;
 
@@ -36,7 +36,10 @@ export class SessionComponent implements OnInit {
                 console.log('Scope: ' + this.spotifyAccessToken.scope);
                 console.log('Token Type: ' + this.spotifyAccessToken.tokenType);
             },
-            error => this.errorMessage = <any>error
-        );      
+            error => {
+                this.errorMessage = <any>error;
+                console.log('getAccessToken ERROR: ' + this.errorMessage);
+            }
+        );
     }
 }

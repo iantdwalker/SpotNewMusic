@@ -1,0 +1,6 @@
+https://github.com/spotify/web-api/issues/616
+https://daveceddia.com/access-control-allow-origin-cors-errors-in-angular/
+
+Using Node.js to create a server-based auth (as per Spotify guidelines):
+https://github.com/spotify/web-api-auth-examples - github code samples
+https://developer.spotify.com/documentation/web-api/quick-start/ - walk through guide
