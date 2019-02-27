@@ -5,7 +5,7 @@ import { SpotifyService } from '../shared/services/spotify.service';
 @Component ({
     selector: 'app-session',
     templateUrl: './session.component.html',
-    styleUrls: ['./session.component.sass']
+    styleUrls: ['./session.component.css']
 })
 export class SessionComponent implements OnInit {    
     accessTokenNotGrantedMessage: string = 'No current access token';
