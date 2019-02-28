@@ -8,7 +8,7 @@ import { SpotifyService } from '../shared/services/spotify.service';
     styleUrls: ['./session.component.css']
 })
 export class SessionComponent implements OnInit {
-    accessTokenNotGrantedMessage: string = 'No current access token';
+    accessTokenNotGrantedMessage: string = 'No access token';
     accessTokenGrantedMessage: string = 'Access token granted for one hour';
     accessTokenGranted: boolean = false;
     spotifyAccessToken: ISpotifyAccessToken;
