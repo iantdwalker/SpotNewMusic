@@ -1,10 +1,10 @@
-<nav class="navbar bg-dark">
-    <!--<div class="container">-->
-        <div class="row">
-            <div class="col-sm">
+<!-- <div class="container-fluid bg-dark">
+        <div class="row"> -->
+                
+            <!-- <div class="col-sm">
                 <img class="resize" alt="Spotify Logo" src="assets/images/spotify-icon-18.png">
                 <div class="text-light">
-                    Spot New Music!
+                    Spot New Music
                 </div>
             </div>
             
@@ -12,12 +12,17 @@
                 <div class="{{accessTokenGranted ? 'font-italic text-success' : 'font-italic text-danger'}}">
                         {{accessTokenGranted ? accessTokenGrantedMessage : accessTokenNotGrantedMessage}}
                 </div>        
-                <form id="accessTokenForm" class="form-inline">
-                    <!--<input id="inputClientID" name="clientId" class="form-control mr-sm-2" type="text" [(ngModel)]="clientId" placeholder="Client ID" aria-label="Client ID">
-                    <input id="inputClientSecret" name="clientSecret" class="form-control mr-sm-2" type="password" [(ngModel)]="clientSecret" placeholder="Client Secret" aria-label="Client Secret">-->
+                <form id="accessTokenForm" class="form-inline">                    
                     <button id="buttonGetClientCredentialsAccessToken" class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="getClientCredentialsAccessToken()">Get Access Token</button>
                 </form>
-            </div>
-        </div>
-    <!--</div>-->
-</nav>
+            </div> -->
+        <!-- </div>
+</div> -->
+
+<div class="container-fluid bg-dark">
+        <div class="row">
+                <div class="col-3 bg-success">.col-3</div>
+                <div class="col-6 bg-warning">.col-6</div>
+                <div class="col-3 bg-success">.col-3</div>
+              </div>
+</div>

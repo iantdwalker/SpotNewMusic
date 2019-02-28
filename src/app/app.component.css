@@ -1,0 +1,21 @@
+.app-component-container {
+    background-color: orange;
+}
+
+.app-component-column {
+    background-color: pink;
+}
+
+.session-component-selector {
+    background-color: blue;
+    height: 10%;    
+}
+
+.artist-search-component-selector {
+    background-color: red;
+    height: 30%;    
+}
+
+.related-artists-component-selector {
+    background-color: green;
+}

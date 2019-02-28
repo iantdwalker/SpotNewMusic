@@ -1,7 +1,17 @@
-<div style="text-align:center" class="bg-dark">
-  <app-session></app-session>    
-  <app-artist-search></app-artist-search>
-  <app-related-artists></app-related-artists>  
+<div class="container-fluid h-100 app-component-container">
+  <div class="row h-100">
+    <div class="col-12 d-flex flex-column h-100 app-component-column">
+      <div class="row session-component-selector">
+        <app-session></app-session>
+      </div>
+      <div class="row artist-search-component-selector">
+        <app-artist-search></app-artist-search>
+      </div>
+      <div class="row flex-grow-1 related-artists-component-selector">
+        <app-related-artists></app-related-artists>
+      </div>     
+    </div>
+  </div>    
 </div>
 
 <router-outlet></router-outlet>
