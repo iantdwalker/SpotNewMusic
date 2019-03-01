@@ -1,4 +1,56 @@
 img {
     width: 100%;
     max-width: 75px;
+  } 
+
+  .ian {
+    background-color: blue;
   }
+
+  .ian2 {
+    background-color: pink;
+  }
+  
+  .no-padding {
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+  }
+
+  .no-margin {
+    margin-bottom: 0%;
+    margin-top: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+
+/*
+####################################################
+M E D I A  Q U E R I E S
+####################################################
+*/
+
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Bootstrap 4 breakpoints
+*/
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {  
+  .responsive-heading {font-size: 16px;}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {  
+  .responsive-heading {font-size: 30px;}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  .responsive-heading {font-size: 40px;}
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+  .responsive-heading {font-size: 48px;}
+}
