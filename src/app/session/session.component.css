@@ -1,15 +1,7 @@
 img {
     width: 100%;
     max-width: 75px;
-  } 
-
-  .ian {
-    background-color: blue;
-  }
-
-  .ian2 {
-    background-color: pink;
-  }
+  }   
   
   .no-padding {
     padding-left: 0%;
