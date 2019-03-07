@@ -8,6 +8,7 @@ import { SpotifyService } from '../shared/services/spotify.service';
     styleUrls: ['./artist-search.component.css']
 })
 export class ArtistSearchComponent {
+    artistSearchString: string = '';
     
     constructor(private _spotifyService: SpotifyService) {
     }
@@ -16,7 +17,8 @@ export class ArtistSearchComponent {
         // init code can go here
     }
 
-    doSearch(): void {
-        console.log('In doSearch() method..')
+    onEnter(value: string): void {
+        this.artistSearchString = value;
+        console.log('In onEnter() method..search string: ' + this.artistSearchString);
     }
 }

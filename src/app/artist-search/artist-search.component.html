@@ -2,16 +2,14 @@
     <div class="col-3 mtb-2"></div>
     <div class="col-6 mtb-2">        
         <div class="d-flex justify-content-center h-100">
-            <div class="searchbar ">
-                
+            <div class="searchbar ">                
                     <input class="search_input"
-                            type="text"
-                            name="searchArtistsInput"
-                            (search)="doSearch()"
-                            placeholder="Search Artists..."
-                            aria-label="Search Artists">
+                            type="search"
+                            name="q"
+                            #searchArtistsInput (keyup.enter)="onEnter(searchArtistsInput.value)"
+                            placeholder="Search artists..."
+                            aria-label="Search artists">
                     <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-                
             </div>
         </div>        
     </div>
