@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { ISpotifyAccessToken } from 'src/app/shared/model/spotifyAccessToken';
+import { ISpotifyAccessToken } from 'src/app/shared/model/Authentication/spotifyAccessToken';
 
 @Injectable({
     providedIn: 'root'

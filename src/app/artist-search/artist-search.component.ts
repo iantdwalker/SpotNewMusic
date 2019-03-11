@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ISpotifyAccessToken } from '../shared/model/spotifyAccessToken';
+import { ISpotifyAccessToken } from '../shared/model/Authentication/spotifyAccessToken';
 import { SpotifyService } from '../shared/services/spotify.service';
 
 @Component ({
@@ -17,8 +17,8 @@ export class ArtistSearchComponent {
         // init code can go here
     }
 
-    onEnter(value: string): void {
+    onSearchArtistEnterKeyPress(value: string): void {
         this.artistSearchString = value;
-        console.log('In onEnter() method..search string: ' + this.artistSearchString);
+        console.log('In onSearchArtistEnterKeyPress() method..search string: ' + this.artistSearchString);        
     }
 }

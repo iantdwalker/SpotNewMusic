@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ISpotifyAccessToken } from '../shared/model/spotifyAccessToken';
+import { ISpotifyAccessToken } from '../shared/model/Authentication/spotifyAccessToken';
 import { SpotifyService } from '../shared/services/spotify.service';
 
 @Component ({

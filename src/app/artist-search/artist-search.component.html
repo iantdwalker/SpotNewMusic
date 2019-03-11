@@ -6,10 +6,11 @@
                     <input class="search_input"
                             type="search"
                             name="q"
-                            #searchArtistsInput (keyup.enter)="onEnter(searchArtistsInput.value)"
+                            #searchArtistsInput (keyup.enter)="onSearchArtistEnterKeyPress(searchArtistsInput.value)"
                             placeholder="Search artists..."
                             aria-label="Search artists">
-                    <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                    <!--<a href="#" class="search_icon"><i class="fas fa-search"></i></a>-->
+                    <div class="search_icon fas fa-search"></div>
             </div>
         </div>        
     </div>
