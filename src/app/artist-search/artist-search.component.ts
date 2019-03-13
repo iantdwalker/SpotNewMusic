@@ -19,6 +19,7 @@ export class ArtistSearchComponent {
 
     onSearchArtistEnterKeyPress(value: string): void {
         this.artistSearchString = value;
-        console.log('In onSearchArtistEnterKeyPress() method..search string: ' + this.artistSearchString);        
+        console.log('In onSearchArtistEnterKeyPress() method..search string: ' + this.artistSearchString);
+        this._spotifyService.getArtist(this.artistSearchString);
     }
 }
