@@ -9,6 +9,7 @@ import { SpotifyService } from '../shared/services/spotify.service';
 })
 export class ArtistSearchComponent {
     artistSearchString: string = '';
+    errorMessage: string;
     
     constructor(private _spotifyService: SpotifyService) {
     }
@@ -17,9 +18,17 @@ export class ArtistSearchComponent {
         // init code can go here
     }
 
-    onSearchArtistEnterKeyPress(value: string): void {
+    onSearchArtistsEnterKeyPress(value: string): void {
         this.artistSearchString = value;
-        console.log('In onSearchArtistEnterKeyPress() method..search string: ' + this.artistSearchString);
-        this._spotifyService.getArtist(this.artistSearchString);
+        console.log('In onSearchArtistsEnterKeyPress() method..search string: ' + this.artistSearchString);
+        this._spotifyService.getArtists(this.artistSearchString).subscribe(
+            artists => {
+                console.log('ARTISTS COUNT: ' + artists.length);
+            },
+            error => {
+                this.errorMessage = <any>error;
+                console.log('onSearchArtistsEnterKeyPress ERROR: ' + this.errorMessage);
+            }
+        );
     }
 }
