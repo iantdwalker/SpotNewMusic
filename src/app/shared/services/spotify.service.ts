@@ -33,14 +33,12 @@ export class SpotifyService {
     }
     
     getArtists(artistSearchTerm: string) {
-        console.log('getArtist search term: ' + artistSearchTerm);
-        console.log('getArtist token value: ' + this._spotifyAccessToken.access_token);
-
         artistSearchTerm = artistSearchTerm.trim();
 
         const httpParams = new HttpParams()
             .set('q', artistSearchTerm)
-            .set('type', 'artist');
+            .set('type', 'artist')
+            .set('limit', '1');
         
         const httpOptions = {
             headers: new HttpHeaders({
@@ -51,7 +49,7 @@ export class SpotifyService {
 
         return this.http.get<IArtist[]>(this._spotifySearchUrl, httpOptions).pipe(
             map(res => {
-                console.log('getArtist artists found: ' + res);
+                console.log('getArtist artists found: ' + JSON.stringify(res));
                 return res;
             }),
             catchError(this.handleError));

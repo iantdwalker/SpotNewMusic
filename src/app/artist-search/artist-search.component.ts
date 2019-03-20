@@ -20,7 +20,6 @@ export class ArtistSearchComponent {
 
     onSearchArtistsEnterKeyPress(value: string): void {
         this.artistSearchString = value;
-        console.log('In onSearchArtistsEnterKeyPress() method..search string: ' + this.artistSearchString);
         this._spotifyService.getArtists(this.artistSearchString).subscribe(
             artists => {
                 console.log('ARTISTS COUNT: ' + artists.length);
