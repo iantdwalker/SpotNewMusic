@@ -2,7 +2,7 @@
     <div class="col-3 mtb-2"></div>
     <div class="col-6 mtb-2">        
         <div class="d-flex justify-content-center h-100">
-            <div class="searchbar ">                
+            <div class="searchbar">                
                     <input class="search_input"
                             type="search"
                             name="q"
@@ -11,6 +11,28 @@
                             aria-label="Search artists">
                     <!--<a href="#" class="search_icon"><i class="fas fa-search"></i></a>-->
                     <div class="search_icon fas fa-search"></div>
+            </div>            
+        </div>        
+    </div>
+    <div class="col-3 mtb-2"></div>
+</div>
+<div class="row">
+    <div class="col-3 mtb-2"></div>
+    <div class="col-6 mtb-2">        
+        <div class="d-flex justify-content-center h-100">
+            <div>
+                <p class="text-light no-margin responsive-heading">
+                    image here
+                </p>
+                <!--<img src='{{selectedArtist.images[0]}}' />-->
+            </div>
+            <div *ngIf='selectedArtist'>
+                <p class="text-light no-margin responsive-heading">
+                    Name: {{selectedArtist.name}}
+                </p>
+                <p class="text-light no-margin responsive-heading">
+                    pop rating: {{selectedArtist.popularity}}
+                </p>
             </div>
         </div>        
     </div>

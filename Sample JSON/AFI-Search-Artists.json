@@ -1,0 +1,50 @@
+{
+	"artists":
+	{
+		"href": "https://api.spotify.com/v1/search?query=afi&type=artist&offset=0&limit=1",
+		"items":
+		[
+			{
+				"external_urls":
+				{
+					"spotify": "https://open.spotify.com/artist/19I4tYiChJoxEO5EuviXpz"
+				},
+				"followers":
+				{
+					"href": null,
+					"total": 470354
+				},
+				"genres": ["emo","pop punk","punk","screamo","skate punk"],
+				"href": "https://api.spotify.com/v1/artists/19I4tYiChJoxEO5EuviXpz",
+				"id": "19I4tYiChJoxEO5EuviXpz",
+				"images":
+				[
+					{
+						"height": 640,
+						"url": "https://i.scdn.co/image/81317be6e6173588b10283f72e76e671acdf966e",
+						"width": 640
+					},
+					{
+						"height": 320,
+						"url": "https://i.scdn.co/image/0f0a317706120b4c71cdb625d52944d2af42dd9d",
+						"width": 320
+					},
+					{
+						"height": 160,
+						"url": "https://i.scdn.co/image/a94992ca43c83547a9e33643875404756e2a9a49",
+						"width": 160
+					}
+				],
+				"name": "AFI",
+				"popularity": 64,
+				"type": "artist",
+				"uri": "spotify:artist:19I4tYiChJoxEO5EuviXpz"
+			}
+		],
+		"limit": 1,
+		"next": "https://api.spotify.com/v1/search?query=afi&type=artist&offset=1&limit=1",
+		"offset": 0,
+		"previous": null,
+		"total": 35
+	}
+}

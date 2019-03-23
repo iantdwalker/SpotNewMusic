@@ -3,14 +3,14 @@ import { IFollower } from './follower';
 import { IImage } from './image';
 
 export interface IArtist {
-    external_urls: Array<IExternalUrl>;
-    followers: Array<IFollower>;
+    external_urls: IExternalUrl;
+    followers: IFollower;
     genres: Array<string>;
     href: string;
     id: string;
     images: Array<IImage>;
     name: string;
-    popularity: string;
+    popularity: number;
     type: string;
     uri: string;
 }

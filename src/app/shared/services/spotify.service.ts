@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { ISpotifyAccessToken } from 'src/app/shared/model/Authentication/spotifyAccessToken';
-import { IArtist } from '../model/Artist/artist';
+import { ISearchedArtists } from '../model/Artist/searchedArtists';
 
 @Injectable({
     providedIn: 'root'
@@ -20,37 +20,37 @@ export class SpotifyService {
         // Create a GET request to the SpotNewMusic-Server Node.js server
         /* return this.http.get<ISpotifyAccessToken>(this._clientCredentialsAccessTokenUrl).pipe(
             catchError(this.handleError)
-        ); */       
+        ); */
 
-        //https://codecraft.tv/courses/angular/http/http-with-observables/       
+        // https://codecraft.tv/courses/angular/http/http-with-observables/
 
         return this.http.get<ISpotifyAccessToken>(this._clientCredentialsAccessTokenUrl).pipe(
-            map(res => {
-                this._spotifyAccessToken = res;
-                return res;
+            map(response => {
+                this._spotifyAccessToken = response;
+                return response;
             }),
-            catchError(this.handleError));            
+            catchError(this.handleError));
     }
-    
-    getArtists(artistSearchTerm: string) {
+
+    getArtists(artistSearchTerm: string): Observable<ISearchedArtists> {
         artistSearchTerm = artistSearchTerm.trim();
 
         const httpParams = new HttpParams()
             .set('q', artistSearchTerm)
             .set('type', 'artist')
             .set('limit', '1');
-        
-        const httpOptions = {
-            headers: new HttpHeaders({
-              'Authorization': 'Bearer ' + this._spotifyAccessToken.access_token
-            }),
-            params: httpParams
-          };
 
-        return this.http.get<IArtist[]>(this._spotifySearchUrl, httpOptions).pipe(
-            map(res => {
-                console.log('getArtist artists found: ' + JSON.stringify(res));
-                return res;
+        const httpHeaders = new HttpHeaders()
+            .set('Authorization', 'Bearer ' + this._spotifyAccessToken.access_token);
+
+        const httpOptions = {
+            headers: httpHeaders,
+            params: httpParams
+        };
+
+        return this.http.get<ISearchedArtists>(this._spotifySearchUrl, httpOptions).pipe(
+            map(response => {
+                return response;
             }),
             catchError(this.handleError));
     }
