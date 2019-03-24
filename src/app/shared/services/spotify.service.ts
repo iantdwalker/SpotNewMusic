@@ -17,11 +17,6 @@ export class SpotifyService {
     }
 
     getClientCredentialsAccessToken(): Observable<ISpotifyAccessToken> {
-        // Create a GET request to the SpotNewMusic-Server Node.js server
-        /* return this.http.get<ISpotifyAccessToken>(this._clientCredentialsAccessTokenUrl).pipe(
-            catchError(this.handleError)
-        ); */
-
         // https://codecraft.tv/courses/angular/http/http-with-observables/
 
         return this.http.get<ISpotifyAccessToken>(this._clientCredentialsAccessTokenUrl).pipe(

@@ -1,4 +1,4 @@
-.searchbar{
+.searchbar {
     margin-bottom: auto;
     margin-top: auto;
     height: 60px;    
@@ -6,9 +6,9 @@
     border-color: green;
     border-style: solid;
     padding: 10px;
-    }
+}
 
-    .search_input{
+.search_input {
     color: white;
     border: 0;
     outline: 0;
@@ -17,21 +17,21 @@
     caret-color:transparent;
     line-height: 40px;
     transition: width 0.4s linear;
-    }
+}
 
-    .searchbar:hover > .search_input{
+.searchbar:hover > .search_input {
     padding: 0 10px;
     width: 450px;
     caret-color:green;
     transition: width 0.4s linear;
-    }
+}
 
-    .searchbar:hover > .search_icon{
+.searchbar:hover > .search_icon {
     background: #343a40;
     color: green;
-    }
+}
 
-    .search_icon{
+.search_icon {
     height: 40px;
     width: 40px;
     float: right;
@@ -40,4 +40,80 @@
     align-items: center;
     border-radius: 50%;
     color:green;
-    }
+}
+
+.imagebox {
+    background: #343a40;
+    padding: 0px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .imagebox img {
+    opacity: 1;
+    transition: 0.5s opacity;
+    border-radius: 50%;
+  }
+  
+  .imagebox .imagebox-desc1 {
+    opacity: 0;
+    background-color: #343a40;
+    bottom: 0px;
+    color: white;
+    font-size: 1.5em;
+    left: 0px;
+    padding: 10px 15px;
+    position: absolute;
+    transition: 0.5s padding;
+    text-align: center;
+    width: 100%;  
+  }
+  
+  .imagebox-desc2 {
+    opacity: 0;
+    background-color: #343a40;
+    bottom: 0px;
+    color: white;
+    font-size: 1.2em;
+    left: 0px;
+    padding: 10px 15px;
+    position: absolute;
+    transition: 0.5s padding;
+    text-align: center;
+    width: 100%;  
+  }
+  
+  .imagebox:hover img {
+    opacity: 0.9;
+  }
+  
+  .imagebox:hover .imagebox-desc1 {
+    padding-bottom: 20%;
+    opacity: 0.5;
+  }
+  
+  .imagebox:hover .imagebox-desc2 {
+    padding-bottom: 15%;
+    opacity: 0.5;
+  }
+
+/* img {
+    border-radius: 50%;
+}
+
+
+.container {
+    position: relative;
+}
+
+
+.text-block {
+    position: relative;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  } */
