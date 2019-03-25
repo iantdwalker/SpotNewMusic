@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row row-searchBar">
     <div class="col-3 mtb-2"></div>
     <div class="col-6 mtb-2">        
         <div class="d-flex justify-content-center h-100">
@@ -16,36 +16,16 @@
     </div>
     <div class="col-3 mtb-2"></div>
 </div>
-<div class="row">
-    <div class="col-3 mtb-2"></div>
-    <div class="col-6 mtb-2">        
-        <!-- <div class="d-flex justify-content-center h-100" *ngIf='selectedArtist'>
-            <div>
-                <img src='{{selectedArtist.images[1].url}}' alt='artist' />
-            </div>
-            <div>
-                <p class="text-light no-margin responsive-heading">
-                    Name: {{selectedArtist.name}}
-                </p>
-                <p class="text-light no-margin responsive-heading">
-                    pop rating: {{selectedArtist.popularity}}
-                </p>
-            </div>
-        </div> -->
-        <!-- <div class="d-flex justify-content-center h-100 container" *ngIf='selectedArtist'>
-            <img src='{{selectedArtist.images[1].url}}' alt='artist' width="70" height="70" />
-            <div class="text-block">
-                <h4>Nature</h4>
-                <p>What a beautiful sunrise</p>
-            </div>            
-        </div> -->
-        <div class='imagebox' *ngIf='selectedArtist'>
+<div class="row row-selectedArtist">
+    <div class="col-4 mtb-2"></div>
+    <div class="col-4 mtb-2">        
+        <div class='d-flex justify-content-center h-100 imagebox' *ngIf='selectedArtist'>
             <a href='#hola'>
-                <img src='{{selectedArtist.images[1].url}}' alt='artist' class="category-banner img-responsive">
-                <span class="imagebox-desc1">Lorem ipsum dolor sit amet!</span>
-                <span class="imagebox-desc2">something else</span>
+                <img src='{{selectedArtist.images[1].url}}' alt='artist' class='category-banner img-responsive'>
+                <label class='imagebox-artistName'>{{selectedArtist.name}}</label>                               
+                <label class='imagebox-artistDesc'>Popularity rating: {{selectedArtist.popularity}}%<br>{{selectedArtist.genres}}</label>
             </a>
-        </div>        
+        </div>
     </div>
-    <div class="col-3 mtb-2"></div>
+    <div class="col-4 mtb-2"></div>
 </div>
