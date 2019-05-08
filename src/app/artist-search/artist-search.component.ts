@@ -11,6 +11,7 @@ export class ArtistSearchComponent implements OnInit {
     artistSearchString: string = '';
     errorMessage: string;
     selectedArtist: IArtist;
+    canSearch: boolean = false;
 
     constructor(private _spotifyService: SpotifyService) {
     }
