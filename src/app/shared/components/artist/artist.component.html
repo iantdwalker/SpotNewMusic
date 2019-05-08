@@ -1,0 +1,13 @@
+<div class="row row-artist">
+    <div class="col-4 mtb-2"></div>
+    <div class="col-4 mtb-2">        
+        <div class='d-flex justify-content-center h-100 imagebox' *ngIf='artist'>
+            <a href='#hola'>
+                <img src='{{artist.images[1].url}}' alt='artist' class='category-banner img-responsive'>
+                <label class='imagebox-artistName'>{{artist.name}}</label>                               
+                <label class='imagebox-artistDesc'>Popularity rating: {{artist.popularity}}%<br>{{artist.genres}}</label>
+            </a>
+        </div>
+    </div>
+    <div class="col-4 mtb-2"></div>
+</div>
