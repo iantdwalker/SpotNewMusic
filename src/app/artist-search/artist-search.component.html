@@ -16,16 +16,4 @@
     </div>
     <div class="col-3 mtb-2"></div>
 </div>
-<div class="row row-selectedArtist">
-    <div class="col-4 mtb-2"></div>
-    <div class="col-4 mtb-2">        
-        <div class='d-flex justify-content-center h-100 imagebox' *ngIf='selectedArtist'>
-            <a href='#hola'>
-                <img src='{{selectedArtist.images[1].url}}' alt='artist' class='category-banner img-responsive'>
-                <label class='imagebox-artistName'>{{selectedArtist.name}}</label>                               
-                <label class='imagebox-artistDesc'>Popularity rating: {{selectedArtist.popularity}}%<br>{{selectedArtist.genres}}</label>
-            </a>
-        </div>
-    </div>
-    <div class="col-4 mtb-2"></div>
-</div>
+<app-artist [artist]='selectedArtist'></app-artist>
