@@ -19,6 +19,6 @@ export class ArtistComponent implements OnInit, OnChanges {
     
     ngOnChanges(): void {
         // container change code can go here - such as when the artists-search comp sets a new selectedArtist
-        //console.log('ngOnChanges fired');
+        //console.log('ngOnChanges fired from ArtistComponent');
     }
 }

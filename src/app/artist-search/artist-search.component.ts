@@ -13,7 +13,7 @@ export class ArtistSearchComponent implements OnInit {
     errorMessage: string;
     selectedArtist: IArtist;
     canSearch: boolean = false;
-    //relatedArtists: IArtist[];
+    relatedArtists: IArtist[];
 
     constructor(private _spotifyService: SpotifyService) {
     }
@@ -28,11 +28,23 @@ export class ArtistSearchComponent implements OnInit {
             searchedArtists => {
                 if (searchedArtists.artists.items.length >= 1) {
                     this.selectedArtist = searchedArtists.artists.items[0];
+                    this._spotifyService.getRelatedArtists(this.selectedArtist.id).subscribe(
+                        relatedArtists => {
+                            if (relatedArtists.artists.length >= 1) {
+                                this.relatedArtists = relatedArtists.artists;
+                                console.log('Related artists JSON: ' + JSON.stringify(this.relatedArtists));
+                            }
+                        },
+                        error => {
+                            this.errorMessage = <any>error;
+                            console.log('onSearchArtistsEnterKeyPress getRelatedArtists ERROR: ' + this.errorMessage);
+                        }
+                    );
                 }
             },
             error => {
                 this.errorMessage = <any>error;
-                console.log('onSearchArtistsEnterKeyPress ERROR: ' + this.errorMessage);
+                console.log('onSearchArtistsEnterKeyPress getArtists ERROR: ' + this.errorMessage);
             }
         );
 

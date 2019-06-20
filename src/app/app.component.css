@@ -13,10 +13,10 @@
 
 .artist-search-component-selector {
     background-color: red;
-    height: 30%;    
+    height: 90%;    
 }
 
-.related-artists-component-selector {
+/* .related-artists-component-selector {
     background-color: green;
     height: 60%;
-}
+} */
