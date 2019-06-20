@@ -5,14 +5,16 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { ISpotifyAccessToken } from 'src/app/shared/model/Authentication/spotifyAccessToken';
 import { ISearchedArtists } from '../model/Artist/searchedArtists';
 import { isNullOrUndefined } from 'util';
+import { IRelatedArtists } from '../model/Artist/relatedArtists';
 
 @Injectable({
     providedIn: 'root'
 })
 export class SpotifyService {
     _clientCredentialsAccessTokenUrl: string = 'http://localhost:8888/clientCredentialsAccessToken';
-    _spotifySearchUrl: string = 'https://api.spotify.com/v1/search';
     _spotifyAccessToken: ISpotifyAccessToken;
+    _spotifySearchUrl: string = 'https://api.spotify.com/v1/search';
+    _spotifyRelatedArtistsUrl: string = 'https://api.spotify.com/v1/artists/{id}/related-artists';
 
     constructor(private http: HttpClient) {
     }
@@ -45,6 +47,24 @@ export class SpotifyService {
         };
 
         return this.http.get<ISearchedArtists>(this._spotifySearchUrl, httpOptions).pipe(
+            map(response => {
+                return response;
+            }),
+            catchError(this.handleError));
+    }
+
+    getRelatedArtists(artistId: string): Observable<IRelatedArtists> {
+        artistId = artistId.trim();
+        var getRelatedArtistsUrl = this._spotifyRelatedArtistsUrl.replace('{id}', artistId);
+
+        const httpHeaders = new HttpHeaders()
+            .set('Authorization', 'Bearer ' + this._spotifyAccessToken.access_token);
+
+        const httpOptions = {
+            headers: httpHeaders            
+        };
+
+        return this.http.get<IRelatedArtists>(getRelatedArtistsUrl, httpOptions).pipe(
             map(response => {
                 return response;
             }),
