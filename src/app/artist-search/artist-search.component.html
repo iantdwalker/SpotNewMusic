@@ -1,3 +1,4 @@
+<!--Artist search box-->
 <div class="row row-searchBar">
     <div class="col-3 mtb-2"></div>
     <div class="col-6 mtb-2">        
@@ -16,5 +17,14 @@
     </div>
     <div class="col-3 mtb-2"></div>
 </div>
+
+<!--Selected Artist-->
 <app-artist [artist]='selectedArtist'></app-artist>
-<!--here should go a loop through the RelatedArtists array and create an app-artist element for each one-->
+
+<!--Related Artists: 3 items per row-->
+<div class="row">
+    <div class="col-4 col-sm-4 col-md-4 col-lg-4" *ngFor='let relatedArtist of relatedArtists'>
+        <app-artist [artist]='relatedArtist'></app-artist>
+    </div>
+</div>
+

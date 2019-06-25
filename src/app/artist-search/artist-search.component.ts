@@ -31,8 +31,7 @@ export class ArtistSearchComponent implements OnInit {
                     this._spotifyService.getRelatedArtists(this.selectedArtist.id).subscribe(
                         relatedArtists => {
                             if (relatedArtists.artists.length >= 1) {
-                                this.relatedArtists = relatedArtists.artists;
-                                console.log('Related artists JSON: ' + JSON.stringify(this.relatedArtists));
+                                this.relatedArtists = relatedArtists.artists;                                
                             }
                         },
                         error => {
