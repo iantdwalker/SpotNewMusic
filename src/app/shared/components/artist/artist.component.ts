@@ -9,6 +9,7 @@ import { IArtist } from '../../../shared/model/Artist/artist';
 })
 export class ArtistComponent implements OnInit, OnChanges {
     @Input() artist: IArtist;
+    @Input() showLargeArtistImage: boolean;
     
     constructor(private _spotifyService: SpotifyService) {
     }

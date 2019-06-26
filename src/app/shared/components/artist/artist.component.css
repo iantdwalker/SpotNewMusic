@@ -6,15 +6,18 @@
 
 /* Artist */
 
-.myImg {
+.image {
   width: 200px;
   height: 200px;
 }
 
+.largeImage {
+  width: 250px;
+  height: 250px;
+}
 
 .imagebox {
-  background: #343a40;
-  /*background: pink;*/
+  background: #343a40;  
   padding: 0px;
   margin: 0px;
   position: relative;

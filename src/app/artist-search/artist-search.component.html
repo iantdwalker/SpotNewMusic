@@ -20,11 +20,9 @@
 
 <!--Selected Artist-->
 <div class="row">
-    <div class="col-3 mtb-2"></div>
-    <div class="col-6 mtb-2">
-        <app-artist [artist]='selectedArtist'></app-artist>
-    </div>
-    <div class="col-3 mtb-2"></div>
+    <div class="col-12 mtb-2 d-flex justify-content-center">
+        <app-artist [artist]='selectedArtist' [showLargeArtistImage]='true'></app-artist>
+    </div>    
 </div>
 
 <!--Related Artists: 6 items per row-->
@@ -33,4 +31,3 @@
         <app-artist [artist]='relatedArtist'></app-artist>
     </div>
 </div>
-
