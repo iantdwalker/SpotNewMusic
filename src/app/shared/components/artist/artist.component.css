@@ -6,8 +6,15 @@
 
 /* Artist */
 
+.myImg {
+  width: 200px;
+  height: 200px;
+}
+
+
 .imagebox {
   background: #343a40;
+  /*background: pink;*/
   padding: 0px;
   margin: 0px;
   position: relative;
@@ -18,7 +25,7 @@
   opacity: 1;
   transition: 0.5s opacity;
   border-radius: 50%;
-  width: 100%;
+  /*width: 100%;*/
 }
 
 .imagebox:hover img {

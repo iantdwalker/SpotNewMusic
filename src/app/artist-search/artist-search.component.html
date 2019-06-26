@@ -19,11 +19,17 @@
 </div>
 
 <!--Selected Artist-->
-<app-artist [artist]='selectedArtist'></app-artist>
-
-<!--Related Artists: 3 items per row-->
 <div class="row">
-    <div class="col-4 col-sm-4 col-md-4 col-lg-4" *ngFor='let relatedArtist of relatedArtists'>
+    <div class="col-3 mtb-2"></div>
+    <div class="col-6 mtb-2">
+        <app-artist [artist]='selectedArtist'></app-artist>
+    </div>
+    <div class="col-3 mtb-2"></div>
+</div>
+
+<!--Related Artists: 6 items per row-->
+<div class="row">
+    <div class="col-2 col-sm-2 col-md-2 col-lg-2" *ngFor='let relatedArtist of relatedArtists'>
         <app-artist [artist]='relatedArtist'></app-artist>
     </div>
 </div>
