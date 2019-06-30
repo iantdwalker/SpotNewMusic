@@ -13,7 +13,7 @@
 </div> -->
 
 <div class="row row-artist">         
-    <div class='imagebox' *ngIf='artist'>
+    <div class='imagebox' *ngIf='artist' (click)='onArtistClicked()'>
         <a href='#hola'>
             <img src='{{artist.images[1].url}}' alt='artist' class="img-fluid d-block mx-auto {{showLargeArtistImage ? 'largeImage' : 'image'}}">
             <label class='imagebox-artistName'>{{artist.name}}</label>                               

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { SpotifyService } from '../../../shared/services/spotify.service';
 import { IArtist } from '../../../shared/model/Artist/artist';
 
@@ -10,6 +10,7 @@ import { IArtist } from '../../../shared/model/Artist/artist';
 export class ArtistComponent implements OnInit, OnChanges {
     @Input() artist: IArtist;
     @Input() showLargeArtistImage: boolean;
+    @Output() notifyArtistClicked: EventEmitter<string> = new EventEmitter<string>();
     
     constructor(private _spotifyService: SpotifyService) {
     }
@@ -21,5 +22,9 @@ export class ArtistComponent implements OnInit, OnChanges {
     ngOnChanges(): void {
         // container change code can go here - such as when the artists-search comp sets a new selectedArtist
         //console.log('ngOnChanges fired from ArtistComponent');
+    }
+
+    onArtistClicked() {
+        this.notifyArtistClicked.emit(this.artist.name);
     }
 }

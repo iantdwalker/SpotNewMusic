@@ -9,7 +9,8 @@
                             name="q"
                             #searchArtistsInput (keyup.enter)="onSearchArtistsEnterKeyPress(searchArtistsInput.value)"
                             placeholder="Search artists..."
-                            aria-label="Search artists">
+                            aria-label="Search artists"
+                            value="{{artistSearchString}}">
                     <!--<a href="#" class="search_icon"><i class="fas fa-search"></i></a>-->
                     <div class="search_icon fas fa-search"></div>
             </div>            
@@ -28,6 +29,6 @@
 <!--Related Artists-->
 <div class="row">
     <div class="col-6 col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2" *ngFor='let relatedArtist of relatedArtists'>
-        <app-artist [artist]='relatedArtist'></app-artist>
+        <app-artist [artist]='relatedArtist' (notifyArtistClicked)='onNotifyArtistClicked($event)'></app-artist>
     </div>
 </div>

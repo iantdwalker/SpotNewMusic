@@ -23,7 +23,15 @@ export class ArtistSearchComponent implements OnInit {
     }
 
     onSearchArtistsEnterKeyPress(searchQuery: string): void {
-        this.artistSearchString = searchQuery;
+       this.performArtistSearch(searchQuery);
+    }
+
+    onNotifyArtistClicked(artistName: string): void {
+        this.performArtistSearch(artistName);
+    }
+
+    performArtistSearch(artistSearchTerm: string): void {
+        this.artistSearchString = artistSearchTerm;
         this._spotifyService.getArtists(this.artistSearchString).subscribe(
             searchedArtists => {
                 if (searchedArtists.artists.items.length >= 1) {
@@ -31,34 +39,20 @@ export class ArtistSearchComponent implements OnInit {
                     this._spotifyService.getRelatedArtists(this.selectedArtist.id).subscribe(
                         relatedArtists => {
                             if (relatedArtists.artists.length >= 1) {
-                                this.relatedArtists = relatedArtists.artists;                                
+                                this.relatedArtists = relatedArtists.artists;
                             }
                         },
                         error => {
                             this.errorMessage = <any>error;
-                            console.log('onSearchArtistsEnterKeyPress getRelatedArtists ERROR: ' + this.errorMessage);
+                            console.log('performArtistSearch getRelatedArtists ERROR: ' + this.errorMessage);
                         }
                     );
                 }
             },
             error => {
                 this.errorMessage = <any>error;
-                console.log('onSearchArtistsEnterKeyPress getArtists ERROR: ' + this.errorMessage);
+                console.log('performArtistSearch getArtists ERROR: ' + this.errorMessage);
             }
         );
-
-        //Sample call to the service to get the related artists for AFI
-        /* this._spotifyService.getRelatedArtists('19I4tYiChJoxEO5EuviXpz').subscribe(
-            relatedArtists => {
-                if (relatedArtists.artists.length >= 1) {
-                    this.relatedArtists = relatedArtists.artists;
-                    console.log('AFI Related artists: ' + JSON.stringify(this.relatedArtists));
-                }
-            },
-            error => {
-                this.errorMessage = <any>error;
-                console.log('onSearchArtistsEnterKeyPress ERROR: ' + this.errorMessage);
-            }
-        ); */
     }
 }
