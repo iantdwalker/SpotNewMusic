@@ -2,21 +2,23 @@
 
 .row-artist {
   margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* Artist */
 
 .image {
   width: 200px;
-  height: 200px;
+  height: 200px;  
 }
 
 .largeImage {
   width: 250px;
-  height: 250px;
+  height: 250px;  
 }
 
-.imagebox {
+.imageBox {
   background: #343a40;  
   padding: 0px;
   margin: 0px;
@@ -24,18 +26,17 @@
   text-align: center;  
 }
 
-.imagebox img {
+.imageBox img {
   opacity: 1;
   transition: 0.5s opacity;
   border-radius: 50%;
-  /*width: 100%;*/
 }
 
-.imagebox:hover img {
+.imageBox:hover img {
   opacity: 0.5;
 }
 
-.imagebox-artistName {
+.artistName {
   opacity: 0;
   background-color: #343a40;
   top: 0px;
@@ -51,12 +52,12 @@
   white-space: pre-wrap;
 }
 
-.imagebox:hover .imagebox-artistName {
+.imageBox:hover .artistName {
   padding-top: 5%;
   opacity: 0.9;
 }
 
-.imagebox-artistDesc {
+.artistDesc {
   opacity: 0;
   background-color: #343a40;
   bottom: 0px;
@@ -72,7 +73,7 @@
   white-space: pre-wrap;
 }
 
-.imagebox:hover .imagebox-artistDesc {
+.imageBox:hover .artistDesc {
   padding-bottom: 10%;
   opacity: 0.8;
 }
