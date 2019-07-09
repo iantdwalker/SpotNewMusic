@@ -13,10 +13,7 @@
             <label class="artistText">{{artist.name}}</label>
             <br/>
             <label class="popularityText">Popularity: {{artist.popularity}}%</label>
-            <label class="genresText">Rock Punk Metal Psychobilly Ska Rap</label>
-            <!-- <div *ngFor="let genre of artist.genres">
-                <label class="genresText">{{genre}}</label>
-            </div> -->            
+            <label class="genresText">{{artist.genres.toString() | convertToSpaces: ','}}</label>            
         </div>        
     </div>    
 </div>
