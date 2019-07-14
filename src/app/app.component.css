@@ -8,15 +8,10 @@
 
 .session-component-selector {
     background-color: blue;
-    height: 10%;    
+    height: 20%;    
 }
 
 .artist-search-component-selector {
     background-color: red;
-    height: 90%;    
+    height: 80%;    
 }
-
-/* .related-artists-component-selector {
-    background-color: green;
-    height: 60%;
-} */
