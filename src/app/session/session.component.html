@@ -19,12 +19,13 @@
             <button id="buttonGetClientCredentialsAccessToken"
                     class="btn btn-outline-success my-2 my-sm-0"
                     type="submit"
-                    (click)="getClientCredentialsAccessToken()">
+                    (click)="getClientCredentialsAccessToken()"
+                    *ngIf="!spotifyAccessToken">
                     Request Access Token
             </button>
         </form>        
-        <div class="mt-2 {{accessTokenGranted ? 'font-italic text-success' : 'font-italic text-danger'}}">
-                {{accessTokenGranted ? accessTokenGrantedMessage : accessTokenNotGrantedMessage}}
+        <div class="mt-2 {{spotifyAccessToken ? 'font-italic text-success' : 'font-italic text-danger'}}">
+                {{spotifyAccessToken ? accessTokenGrantedMessage : accessTokenNotGrantedMessage}}
         </div>
     </div>
 </div>

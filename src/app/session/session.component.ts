@@ -8,9 +8,8 @@ import { SpotifyService } from '../shared/services/spotify.service';
     styleUrls: ['./session.component.css']
 })
 export class SessionComponent implements OnInit {
-    accessTokenNotGrantedMessage: string = 'No access token';
-    accessTokenGrantedMessage: string = 'Access token granted for one hour';
-    accessTokenGranted: boolean = false;
+    accessTokenNotGrantedMessage = 'No access token';
+    accessTokenGrantedMessage = 'Access token granted for one hour';
     spotifyAccessToken: ISpotifyAccessToken;
     errorMessage: string;
 
@@ -25,11 +24,10 @@ export class SessionComponent implements OnInit {
         this._spotifyService.getClientCredentialsAccessToken().subscribe(
             spotifyAccessToken => {
                 this.spotifyAccessToken = spotifyAccessToken;
-                this.accessTokenGranted = true;
-                console.log('Spotify Access Token: ' + this.spotifyAccessToken.access_token);
-                console.log('Expires In: ' + this.spotifyAccessToken.expires_in);
-                console.log('Scope: ' + this.spotifyAccessToken.scope);
-                console.log('Token Type: ' + this.spotifyAccessToken.token_type);
+                // console.log('Spotify Access Token: ' + this.spotifyAccessToken.access_token);
+                // console.log('Expires In: ' + this.spotifyAccessToken.expires_in);
+                // console.log('Scope: ' + this.spotifyAccessToken.scope);
+                // console.log('Token Type: ' + this.spotifyAccessToken.token_type);
             },
             error => {
                 this.errorMessage = <any>error;
