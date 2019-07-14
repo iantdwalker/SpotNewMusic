@@ -17,7 +17,7 @@ export class SessionComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // init code can go here
+        this.getClientCredentialsAccessToken();
     }
 
     getClientCredentialsAccessToken(): void {
