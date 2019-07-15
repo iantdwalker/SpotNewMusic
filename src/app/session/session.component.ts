@@ -8,10 +8,12 @@ import { SpotifyService } from '../shared/services/spotify.service';
     styleUrls: ['./session.component.css']
 })
 export class SessionComponent implements OnInit {
-    accessTokenNotGrantedMessage = 'No access token';
-    accessTokenGrantedMessage = 'Access token granted for one hour';
+    accessTokenNotGrantedMessage = 'Spotify access token has expired or could not be granted';
+    accessTokenGrantedMessage = 'Spotify access token granted and will expire in: ';
     spotifyAccessToken: ISpotifyAccessToken;
     errorMessage: string;
+    accessTokenTimeLeft: number;
+    interval: any;   
 
     constructor(private _spotifyService: SpotifyService) {
     }
@@ -24,10 +26,8 @@ export class SessionComponent implements OnInit {
         this._spotifyService.getClientCredentialsAccessToken().subscribe(
             spotifyAccessToken => {
                 this.spotifyAccessToken = spotifyAccessToken;
-                // console.log('Spotify Access Token: ' + this.spotifyAccessToken.access_token);
-                // console.log('Expires In: ' + this.spotifyAccessToken.expires_in);
-                // console.log('Scope: ' + this.spotifyAccessToken.scope);
-                // console.log('Token Type: ' + this.spotifyAccessToken.token_type);
+                this.accessTokenTimeLeft = parseInt(this.spotifyAccessToken.expires_in);
+                this.startAccessTokenExpiryTimer();
             },
             error => {
                 this.errorMessage = <any>error;
@@ -35,4 +35,21 @@ export class SessionComponent implements OnInit {
             }
         );
     }
+
+    startAccessTokenExpiryTimer() {
+        this.interval = setInterval(() => {
+            if (this.accessTokenTimeLeft > 0) {
+                this.accessTokenTimeLeft--;
+            }
+            else {
+                this.stopAccessTokenExpiryTimer();
+                //console.log('Spotify access token has expired. Attempting to retrieve a new one...');
+                this.getClientCredentialsAccessToken();
+            }
+        }, 1000)
+      }
+
+      stopAccessTokenExpiryTimer() {
+        clearInterval(this.interval);
+      }
 }

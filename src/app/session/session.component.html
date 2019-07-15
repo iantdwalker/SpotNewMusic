@@ -15,7 +15,7 @@
     </div>
     <div class="col-4 mtb-2"></div>
     <div class="col-3 mt-2 text-right">        
-        <form id="accessTokenForm">
+        <!-- <form id="accessTokenForm">
             <button id="buttonGetClientCredentialsAccessToken"
                     class="btn btn-outline-success my-2 my-sm-0"
                     type="submit"
@@ -23,9 +23,9 @@
                     *ngIf="!spotifyAccessToken">
                     Request Access Token
             </button>
-        </form>        
+        </form> -->        
         <div class="mt-2 {{spotifyAccessToken ? 'font-italic text-success' : 'font-italic text-danger'}}">
-                {{spotifyAccessToken ? accessTokenGrantedMessage : accessTokenNotGrantedMessage}}
+                {{spotifyAccessToken ? accessTokenGrantedMessage+accessTokenTimeLeft : accessTokenNotGrantedMessage}}
         </div>
     </div>
 </div>

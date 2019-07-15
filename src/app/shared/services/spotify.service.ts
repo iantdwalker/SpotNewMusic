@@ -4,7 +4,6 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { ISpotifyAccessToken } from 'src/app/shared/model/Authentication/spotifyAccessToken';
 import { ISearchedArtists } from '../model/Artist/searchedArtists';
-import { isNullOrUndefined } from 'util';
 import { IRelatedArtists } from '../model/Artist/relatedArtists';
 
 @Injectable({
@@ -69,11 +68,7 @@ export class SpotifyService {
                 return response;
             }),
             catchError(this.handleError));
-    }
-
-    hasValidAccessToken(): boolean {
-        return !isNullOrUndefined(this._spotifyAccessToken);
-    }
+    }    
 
     private handleError(error: HttpErrorResponse) {
         const errorMessage = 'SpotifyService ERROR: ' + error.message;
