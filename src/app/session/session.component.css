@@ -1,7 +1,21 @@
 img {
     width: 100%;
     max-width: 75px;
-  }   
+  }
+  
+  .img-box {
+    background-color: aquamarine;    
+  }
+
+  .header-column {
+    background-color: pink;    
+  }
+
+  .txt-box {
+    background-color: aquamarine;
+    
+    text-align: right;
+  }
   
   .no-padding {
     padding-left: 0%;
@@ -27,6 +41,11 @@ M E D I A  Q U E R I E S
 ::::::::::::::::::::::::::::::::::::::::::::::::::::
 Bootstrap 4 breakpoints
 */
+/* X-Small devices (landscape phones, 0px and up) */
+@media (min-width: 0px) {  
+  .responsive-heading {font-size: 12px;}
+}
+
 /* Small devices (landscape phones, 544px and up) */
 @media (min-width: 544px) {  
   .responsive-heading {font-size: 16px;}
