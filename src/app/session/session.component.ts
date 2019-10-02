@@ -13,7 +13,7 @@ export class SessionComponent implements OnInit {
     spotifyAccessToken: ISpotifyAccessToken;
     errorMessage: string;
     accessTokenTimeLeft: number;
-    interval: any;   
+    interval: any;
 
     constructor(private _spotifyService: SpotifyService) {
     }
@@ -26,7 +26,7 @@ export class SessionComponent implements OnInit {
         this._spotifyService.getClientCredentialsAccessToken().subscribe(
             spotifyAccessToken => {
                 this.spotifyAccessToken = spotifyAccessToken;
-                this.accessTokenTimeLeft = parseInt(this.spotifyAccessToken.expires_in);
+                this.accessTokenTimeLeft = parseInt(this.spotifyAccessToken.expires_in, 10);
                 this.startAccessTokenExpiryTimer();
             },
             error => {
@@ -40,13 +40,11 @@ export class SessionComponent implements OnInit {
         this.interval = setInterval(() => {
             if (this.accessTokenTimeLeft > 0) {
                 this.accessTokenTimeLeft--;
-            }
-            else {
+            } else {
                 this.stopAccessTokenExpiryTimer();
-                //console.log('Spotify access token has expired. Attempting to retrieve a new one...');
                 this.getClientCredentialsAccessToken();
             }
-        }, 1000)
+        }, 1000);
       }
 
       stopAccessTokenExpiryTimer() {
