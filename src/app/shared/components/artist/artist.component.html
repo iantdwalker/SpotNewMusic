@@ -11,9 +11,9 @@
         <img src='{{artist.images[1].url}}' alt='artist' class="img-fluid d-block mx-auto {{showLargeArtistImage ? 'largeImage' : 'image'}}">
         <div class="{{showLargeArtistImage ? 'largeArtistDetails' : 'artistDetails'}}">
             <label class="artistText">{{artist.name}}</label>
+            <label class="genresText">{{artist.genres.toString() | convertToSpaces: ','}}</label>
             <br/>
-            <label class="popularityText">Popularity: {{artist.popularity}}%</label>
-            <label class="genresText">{{artist.genres.toString() | convertToSpaces: ','}}</label>            
+            <label class="popularityText">Popularity: {{artist.popularity}}%</label>                        
         </div>        
     </div>    
 </div>
