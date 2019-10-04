@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SessionComponent } from './session/session.component';
 import { ArtistSearchComponent } from './artist-search/artist-search.component';
-import { ArtistComponent } from './shared/components/artist/artist.component';
+import { ArtistComponent } from './artist/artist.component';
 import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
 
 @NgModule({

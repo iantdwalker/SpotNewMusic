@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
-import { SpotifyService } from '../../../shared/services/spotify.service';
-import { IArtist } from '../../../shared/model/Artist/artist';
+import { SpotifyService } from '../shared/services/spotify.service';
+import { IArtist } from '../shared/model/artist/artist';
 
 @Component ({
     selector: 'app-artist',
