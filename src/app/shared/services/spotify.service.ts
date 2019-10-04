@@ -10,17 +10,15 @@ import { IRelatedArtists } from '../model/Artist/relatedArtists';
     providedIn: 'root'
 })
 export class SpotifyService {
-    _clientCredentialsAccessTokenUrl: string = 'http://localhost:8888/clientCredentialsAccessToken';
+    _clientCredentialsAccessTokenUrl = 'http://localhost:8888/clientCredentialsAccessToken';
     _spotifyAccessToken: ISpotifyAccessToken;
-    _spotifySearchUrl: string = 'https://api.spotify.com/v1/search';
-    _spotifyRelatedArtistsUrl: string = 'https://api.spotify.com/v1/artists/{id}/related-artists';
+    _spotifySearchUrl = 'https://api.spotify.com/v1/search';
+    _spotifyRelatedArtistsUrl = 'https://api.spotify.com/v1/artists/{id}/related-artists';
 
     constructor(private http: HttpClient) {
     }
 
     getClientCredentialsAccessToken(): Observable<ISpotifyAccessToken> {
-        // https://codecraft.tv/courses/angular/http/http-with-observables/
-
         return this.http.get<ISpotifyAccessToken>(this._clientCredentialsAccessTokenUrl).pipe(
             map(response => {
                 this._spotifyAccessToken = response;
@@ -54,13 +52,13 @@ export class SpotifyService {
 
     getRelatedArtists(artistId: string): Observable<IRelatedArtists> {
         artistId = artistId.trim();
-        var getRelatedArtistsUrl = this._spotifyRelatedArtistsUrl.replace('{id}', artistId);
+        const getRelatedArtistsUrl = this._spotifyRelatedArtistsUrl.replace('{id}', artistId);
 
         const httpHeaders = new HttpHeaders()
             .set('Authorization', 'Bearer ' + this._spotifyAccessToken.access_token);
 
         const httpOptions = {
-            headers: httpHeaders            
+            headers: httpHeaders
         };
 
         return this.http.get<IRelatedArtists>(getRelatedArtistsUrl, httpOptions).pipe(
@@ -68,7 +66,7 @@ export class SpotifyService {
                 return response;
             }),
             catchError(this.handleError));
-    }    
+    }
 
     private handleError(error: HttpErrorResponse) {
         const errorMessage = 'SpotifyService ERROR: ' + error.message;

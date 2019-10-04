@@ -10,17 +10,16 @@ import { ISearchedArtists } from '../shared/model/Artist/searchedArtists';
     styleUrls: ['./artist-search.component.css']
 })
 export class ArtistSearchComponent implements OnInit {
-    artistSearchString: string = '';
+    artistSearchString = '';
     errorMessage: string;
     selectedArtist: IArtist;
-    canSearch: boolean = false;
+    canSearch = false;
     relatedArtists: IArtist[];
 
     constructor(private _spotifyService: SpotifyService) {
     }
 
     ngOnInit(): void {
-        // init code can go here
     }
 
     onSearchArtistsEnterKeyPress(searchQuery: string): void {
@@ -32,7 +31,7 @@ export class ArtistSearchComponent implements OnInit {
     }
 
     performArtistSearch(artistSearchTerm: string): void {
-        this.artistSearchString = artistSearchTerm;        
+        this.artistSearchString = artistSearchTerm;
         this._spotifyService.getArtists(this.artistSearchString).subscribe(
             searchedArtists => {
                 this.setArtists(searchedArtists);
@@ -45,7 +44,7 @@ export class ArtistSearchComponent implements OnInit {
     setArtists(searchedArtists: ISearchedArtists): void {
         if (searchedArtists.artists.items.length >= 1) {
             this.selectedArtist = searchedArtists.artists.items[0];
-            this.getRelatedArtists();            
+            this.getRelatedArtists();
         }
     }
 
@@ -69,34 +68,4 @@ export class ArtistSearchComponent implements OnInit {
         this.errorMessage = <any>error;
         console.log('performArtistSearch ERROR: ' + this.errorMessage);
     }
-
-    /* getArtistsComplete(): void {
-        console.log('getArtistsComplete called');
-    } */
-
-    /* performArtistSearch(artistSearchTerm: string): void {
-        this.artistSearchString = artistSearchTerm;
-        this._spotifyService.getArtists(this.artistSearchString).subscribe(
-            searchedArtists => {
-                if (searchedArtists.artists.items.length >= 1) {
-                    this.selectedArtist = searchedArtists.artists.items[0];
-                    this._spotifyService.getRelatedArtists(this.selectedArtist.id).subscribe(
-                        relatedArtists => {
-                            if (relatedArtists.artists.length >= 1) {
-                                this.relatedArtists = relatedArtists.artists;
-                            }
-                        },
-                        error => {
-                            this.errorMessage = <any>error;
-                            console.log('performArtistSearch getRelatedArtists ERROR: ' + this.errorMessage);
-                        }
-                    );
-                }
-            },
-            error => {
-                this.errorMessage = <any>error;
-                console.log('performArtistSearch getArtists ERROR: ' + this.errorMessage);
-            }
-        );
-    } */
 }

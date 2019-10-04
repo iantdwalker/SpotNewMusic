@@ -11,14 +11,13 @@ export class ArtistComponent implements OnInit, OnChanges {
     @Input() artist: IArtist;
     @Input() showLargeArtistImage: boolean;
     @Output() notifyArtistClicked: EventEmitter<string> = new EventEmitter<string>();
-    
+
     constructor(private _spotifyService: SpotifyService) {
     }
 
     ngOnInit(): void {
-        // init code can go here
     }
-    
+
     ngOnChanges(): void {
         // container change code can go here
     }
