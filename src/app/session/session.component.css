@@ -2,14 +2,6 @@ img {
     width: 100%;
     max-width: 75px;
   }
-  
-.img-box {
-  background-color: aquamarine;    
-}
-
-.header-column {
-  background-color: pink;    
-}
 
 .txt-box {
   text-align: right;
