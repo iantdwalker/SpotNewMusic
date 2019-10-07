@@ -1,25 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SpotifyService } from '../shared/services/spotify.service';
 import { IArtist } from '../shared/model/Artist/artist';
 import { IRelatedArtists } from '../shared/model/Artist/relatedArtists';
 import { ISearchedArtists } from '../shared/model/Artist/searchedArtists';
+import { Subscription } from 'rxjs';
 
 @Component ({
     selector: 'app-artist-search',
     templateUrl: './artist-search.component.html',
     styleUrls: ['./artist-search.component.css']
 })
-export class ArtistSearchComponent implements OnInit {
+export class ArtistSearchComponent implements OnInit, OnDestroy {
     artistSearchString = '';
     errorMessage: string;
     selectedArtist: IArtist;
     canSearch = false;
     relatedArtists: IArtist[];
+    getArtistSubscription: Subscription;
+    getRelatedArtistsSubscription: Subscription;
 
     constructor(private _spotifyService: SpotifyService) {
     }
 
     ngOnInit(): void {
+    }
+
+    ngOnDestroy(): void {
+        this.getArtistSubscription.unsubscribe();
+        this.getRelatedArtistsSubscription.unsubscribe();
     }
 
     onSearchArtistsEnterKeyPress(searchQuery: string): void {
@@ -32,7 +40,7 @@ export class ArtistSearchComponent implements OnInit {
 
     performArtistSearch(artistSearchTerm: string): void {
         this.artistSearchString = artistSearchTerm;
-        this._spotifyService.getArtists(this.artistSearchString)
+        this.getArtistSubscription = this._spotifyService.getArtists(this.artistSearchString)
             .subscribe(searchedArtists => this.setArtists(searchedArtists),
             error => this.performArtistSearchError(error));
     }
@@ -45,7 +53,7 @@ export class ArtistSearchComponent implements OnInit {
     }
 
     getRelatedArtists(): void {
-        this._spotifyService.getRelatedArtists(this.selectedArtist.id)
+        this.getRelatedArtistsSubscription = this._spotifyService.getRelatedArtists(this.selectedArtist.id)
             .subscribe(relatedArtists => this.setRelatedArtists(relatedArtists),
             error => this.performArtistSearchError(error));
     }
