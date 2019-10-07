@@ -1,17 +1,9 @@
-<!-- <div class="row row-artist">         
-    <div class='imageBox' *ngIf='artist' (click)='onArtistClicked()'>        
-        <img src='{{artist.images[1].url}}' alt='artist' class="img-fluid d-block mx-auto {{showLargeArtistImage ? 'largeImage' : 'image'}}">
-        <label class='artistName'>{{artist.name}}</label>                               
-        <label class='artistDesc'>Popularity rating: {{artist.popularity}}%<br>{{artist.genres}}</label>
-    </div>    
-</div> -->
-
 <div class="row row-artist" *ngIf='artist'>         
     <div class="{{showLargeArtistImage ? 'largeImageBox' : 'imageBox'}}" (click)='onArtistClicked()'>        
         <img src='{{artist.images[1].url}}' alt='artist' class="img-fluid d-block mx-auto {{showLargeArtistImage ? 'largeImage' : 'image'}}">
         <div class="{{showLargeArtistImage ? 'largeArtistDetails' : 'artistDetails'}}">
             <label class="artistText">{{artist.name}}</label>
-            <label class="genresText">{{artist.genres.toString() | convertToSpaces: ','}}</label>
+            <label class="genresText">{{artist.genres.toString() | limitItems: 3 | convertToSpaces: ','}}</label>
             <br/>
             <label class="popularityText">Popularity: {{artist.popularity}}%</label>                        
         </div>        

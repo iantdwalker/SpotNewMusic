@@ -9,6 +9,7 @@ import { SessionComponent } from './session/session.component';
 import { ArtistSearchComponent } from './artist-search/artist-search.component';
 import { ArtistComponent } from './artist/artist.component';
 import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
+import { LimitItemsPipe } from './shared/pipes/limit-items-pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
     SessionComponent,
     ArtistSearchComponent,
     ArtistComponent,
-    ConvertToSpacesPipe
+    ConvertToSpacesPipe,
+    LimitItemsPipe
   ],
   imports: [
     BrowserModule,
