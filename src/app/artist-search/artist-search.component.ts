@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { SpotifyService } from '../shared/services/spotify.service';
 import { IArtist } from '../shared/model/Artist/artist';
 import { IRelatedArtists } from '../shared/model/Artist/relatedArtists';
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
     templateUrl: './artist-search.component.html',
     styleUrls: ['./artist-search.component.css']
 })
-export class ArtistSearchComponent implements OnInit, OnDestroy {
+export class ArtistSearchComponent implements OnDestroy {
     artistSearchString = '';
     errorMessage: string;
     selectedArtist: IArtist;
@@ -20,9 +20,6 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     getRelatedArtistsSubscription: Subscription;
 
     constructor(private _spotifyService: SpotifyService) {
-    }
-
-    ngOnInit(): void {
     }
 
     ngOnDestroy(): void {
@@ -42,7 +39,7 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
         this.artistSearchString = artistSearchTerm;
         this.getArtistSubscription = this._spotifyService.getArtists(this.artistSearchString)
             .subscribe(searchedArtists => this.setArtists(searchedArtists),
-            error => this.performArtistSearchError(error));
+            error => this.onArtistSearchError(error));
     }
 
     setArtists(searchedArtists: ISearchedArtists): void {
@@ -55,7 +52,7 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     getRelatedArtists(): void {
         this.getRelatedArtistsSubscription = this._spotifyService.getRelatedArtists(this.selectedArtist.id)
             .subscribe(relatedArtists => this.setRelatedArtists(relatedArtists),
-            error => this.performArtistSearchError(error));
+            error => this.onArtistSearchError(error));
     }
 
     setRelatedArtists(relatedArtists: IRelatedArtists): void {
@@ -64,8 +61,8 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
         }
     }
 
-    performArtistSearchError(error: any): void {
+    onArtistSearchError(error: any): void {
         this.errorMessage = <any>error;
-        console.log('performArtistSearch ERROR: ' + this.errorMessage);
+        console.log('Artist search ERROR: ' + this.errorMessage);
     }
 }

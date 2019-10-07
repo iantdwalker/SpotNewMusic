@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ISpotifyAccessToken } from '../shared/model/Authentication/spotifyAccessToken';
 import { SpotifyService } from '../shared/services/spotify.service';
+import { Subscription } from 'rxjs';
 
 @Component ({
     selector: 'app-session',
     templateUrl: './session.component.html',
     styleUrls: ['./session.component.css']
 })
-export class SessionComponent implements OnInit {
+export class SessionComponent implements OnInit, OnDestroy {
     accessTokenNotGrantedMessage = 'Spotify access token has expired or could not be granted';
     accessTokenGrantedMessage = 'Spotify access token granted and will expire in: ';
     spotifyAccessToken: ISpotifyAccessToken;
     errorMessage: string;
     accessTokenTimeLeft: number;
     interval: any;
+    getClientCredentialsAccessTokenSubscription: Subscription;
 
     constructor(private _spotifyService: SpotifyService) {
     }
@@ -22,21 +24,23 @@ export class SessionComponent implements OnInit {
         this.getClientCredentialsAccessToken();
     }
 
-    getClientCredentialsAccessToken(): void {
-        this._spotifyService.getClientCredentialsAccessToken().subscribe(
-            spotifyAccessToken => {
-                this.spotifyAccessToken = spotifyAccessToken;
-                this.accessTokenTimeLeft = parseInt(this.spotifyAccessToken.expires_in, 10);
-                this.startAccessTokenExpiryTimer();
-            },
-            error => {
-                this.errorMessage = <any>error;
-                console.log('getClientCredentialsAccessToken ERROR: ' + this.errorMessage);
-            }
-        );
+    ngOnDestroy(): void {
+        this.getClientCredentialsAccessTokenSubscription.unsubscribe();
     }
 
-    startAccessTokenExpiryTimer() {
+    getClientCredentialsAccessToken(): void {
+        this.getClientCredentialsAccessTokenSubscription = this._spotifyService.getClientCredentialsAccessToken()
+            .subscribe(spotifyAccessToken => this.setSpotifyAccessToken(spotifyAccessToken),
+            error => this.onGetClientCredentialsAccessTokenError(error));
+    }
+
+    setSpotifyAccessToken(spotifyAccessToken: ISpotifyAccessToken): void {
+        this.spotifyAccessToken = spotifyAccessToken;
+        this.accessTokenTimeLeft = parseInt(this.spotifyAccessToken.expires_in, 10);
+        this.startAccessTokenExpiryTimer();
+    }
+
+    startAccessTokenExpiryTimer(): void {
         this.interval = setInterval(() => {
             if (this.accessTokenTimeLeft > 0) {
                 this.accessTokenTimeLeft--;
@@ -47,7 +51,12 @@ export class SessionComponent implements OnInit {
         }, 1000);
       }
 
-      stopAccessTokenExpiryTimer() {
+      stopAccessTokenExpiryTimer(): void {
         clearInterval(this.interval);
+      }
+
+      onGetClientCredentialsAccessTokenError(error: any): void {
+        this.errorMessage = <any>error;
+        console.log('getClientCredentialsAccessToken ERROR: ' + this.errorMessage);
       }
 }
