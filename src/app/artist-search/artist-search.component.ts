@@ -32,13 +32,9 @@ export class ArtistSearchComponent implements OnInit {
 
     performArtistSearch(artistSearchTerm: string): void {
         this.artistSearchString = artistSearchTerm;
-        this._spotifyService.getArtists(this.artistSearchString).subscribe(
-            searchedArtists => {
-                this.setArtists(searchedArtists);
-            },
-            error => {
-                this.performArtistSearchError(error);
-            });
+        this._spotifyService.getArtists(this.artistSearchString)
+            .subscribe(searchedArtists => this.setArtists(searchedArtists),
+            error => this.performArtistSearchError(error));
     }
 
     setArtists(searchedArtists: ISearchedArtists): void {
@@ -49,16 +45,12 @@ export class ArtistSearchComponent implements OnInit {
     }
 
     getRelatedArtists(): void {
-        this._spotifyService.getRelatedArtists(this.selectedArtist.id).subscribe(
-            relatedArtists => {
-                this.setRelatedArtists(relatedArtists);
-            },
-            error => {
-                this.performArtistSearchError(error);
-            });
+        this._spotifyService.getRelatedArtists(this.selectedArtist.id)
+            .subscribe(relatedArtists => this.setRelatedArtists(relatedArtists),
+            error => this.performArtistSearchError(error));
     }
 
-    setRelatedArtists(relatedArtists: IRelatedArtists) : void {
+    setRelatedArtists(relatedArtists: IRelatedArtists): void {
         if (relatedArtists.artists.length >= 1) {
             this.relatedArtists = relatedArtists.artists;
         }
