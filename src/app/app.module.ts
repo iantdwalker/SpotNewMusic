@@ -10,6 +10,7 @@ import { ArtistSearchComponent } from './artist-search/artist-search.component';
 import { ArtistComponent } from './artist/artist.component';
 import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
 import { LimitItemsPipe } from './shared/pipes/limit-items-pipe';
+import { HeadingComponent } from './heading/heading.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LimitItemsPipe } from './shared/pipes/limit-items-pipe';
     ArtistSearchComponent,
     ArtistComponent,
     ConvertToSpacesPipe,
-    LimitItemsPipe
+    LimitItemsPipe,
+    HeadingComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,7 @@ import { LimitItemsPipe } from './shared/pipes/limit-items-pipe';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [HeadingComponent]
 })
 export class AppModule { }
