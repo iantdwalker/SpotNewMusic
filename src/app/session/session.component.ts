@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { ISpotifyAccessToken } from '../shared/model/Authentication/spotifyAccessToken';
 import { SpotifyService } from '../shared/services/spotify.service';
 import { Subscription } from 'rxjs';
@@ -16,6 +16,7 @@ export class SessionComponent implements OnInit, OnDestroy {
     accessTokenTimeLeft: number;
     interval: any;
     getClientCredentialsAccessTokenSubscription: Subscription;
+    @Output() notifySpotifyAccessTokenGranted: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     constructor(private _spotifyService: SpotifyService) {
     }
@@ -35,6 +36,7 @@ export class SessionComponent implements OnInit, OnDestroy {
     }
 
     setSpotifyAccessToken(spotifyAccessToken: ISpotifyAccessToken): void {
+        this.notifySpotifyAccessTokenGranted.emit(true);
         this.spotifyAccessToken = spotifyAccessToken;
         this.accessTokenTimeLeft = parseInt(this.spotifyAccessToken.expires_in, 10);
         this.startAccessTokenExpiryTimer();
@@ -56,6 +58,7 @@ export class SessionComponent implements OnInit, OnDestroy {
       }
 
       onGetClientCredentialsAccessTokenError(error: any): void {
+        this.notifySpotifyAccessTokenGranted.emit(false);
         this.errorMessage = <any>error;
         console.log('getClientCredentialsAccessToken ERROR: ' + this.errorMessage);
       }

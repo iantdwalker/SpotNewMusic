@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, Input } from '@angular/core';
 import { SpotifyService } from '../shared/services/spotify.service';
 import { IArtist } from '../shared/model/Artist/artist';
 import { IRelatedArtists } from '../shared/model/Artist/relatedArtists';
@@ -18,6 +18,7 @@ export class ArtistSearchComponent implements OnDestroy {
     relatedArtists: IArtist[];
     getArtistSubscription: Subscription;
     getRelatedArtistsSubscription: Subscription;
+    @Input() spotifyAccessTokenGranted = false;
 
     constructor(private _spotifyService: SpotifyService) {
     }

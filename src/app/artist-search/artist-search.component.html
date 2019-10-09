@@ -1,16 +1,17 @@
-<!--Artist search box-->
+<!--Artist search bar-->
 <div class="row row-searchBar">
     <div class="col-3 mtb-2"></div>
     <div class="col-6 mtb-2">        
         <div class="d-flex justify-content-center h-100">
             <div class="searchbar">                
                     <input class="search_input"
-                            type="search"
-                            name="q"
-                            #searchArtistsInput (keyup.enter)="onSearchArtistsEnterKeyPress(searchArtistsInput.value)"
-                            placeholder="Search artists..."
-                            aria-label="Search artists"
-                            value="{{artistSearchString}}">
+                           type="search"
+                           name="q"
+                           #searchArtistsInput (keyup.enter)="onSearchArtistsEnterKeyPress(searchArtistsInput.value)"
+                           placeholder="Search artists..."
+                           aria-label="Search artists"
+                           value="{{artistSearchString}}"
+                           [disabled]='!spotifyAccessTokenGranted'>
                     <!--<a href="#" class="search_icon"><i class="fas fa-search"></i></a>-->
                     <div class="search_icon fas fa-search"></div>
             </div>            

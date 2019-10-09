@@ -8,12 +8,12 @@
         <div class="col-5 bg-dark">
         </div>        
         <div class="col-3 bg-dark">
-            <app-session></app-session>
+            <app-session (notifySpotifyAccessTokenGranted)='onNotifySpotifyAccessTokenGranted($event)'></app-session>
         </div>        
       </div>
       <div class="row artist-search-component-selector">
         <div class="col-12 bg-dark">
-          <app-artist-search></app-artist-search>
+          <app-artist-search [spotifyAccessTokenGranted]='spotifyAccessTokenGranted'></app-artist-search>
         </div>
       </div>      
     </div>

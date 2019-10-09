@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Spot New Music';
+  spotifyAccessTokenGranted = false;
+
+  onNotifySpotifyAccessTokenGranted(tokenGranted: boolean): void {
+    this.spotifyAccessTokenGranted = tokenGranted;
+  }
 }
