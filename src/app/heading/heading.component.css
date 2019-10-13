@@ -17,27 +17,7 @@ img {
   margin-right: 0%;
 }
 
-/* X-Small devices (landscape phones, 0px and up) */
-@media (min-width: 575px) {  
-  .responsive-heading {font-size: 22px;}
-}
-
-/* Small devices (landscape phones, 544px and up) */
-@media (min-width: 576px) {  
-  .responsive-heading {font-size: 28px;}
-}
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {  
-  .responsive-heading {font-size: 32px;}
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
-  .responsive-heading {font-size: 40px;}
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {  
-  .responsive-heading {font-size: 48px;}
+.responsive-heading {
+  font-size: 3.5vw;
+  line-height: 3.5vw;
 }
