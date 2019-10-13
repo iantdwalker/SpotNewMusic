@@ -2,20 +2,19 @@
 <div class="row row-searchBar">
     <div class="col-3 mtb-2"></div>
     <div class="col-6 mtb-2">        
-        <div class="d-flex justify-content-center h-100">
-            <div class="searchbar">                
-                    <input class="search_input"
-                           type="search"
-                           name="q"
-                           #searchArtistsInput (keyup.enter)="onSearchArtistsEnterKeyPress(searchArtistsInput.value)"
-                           placeholder="Search artists..."
-                           aria-label="Search artists"
-                           value="{{artistSearchString}}"
-                           [disabled]='!spotifyAccessTokenGranted'>
-                    <!--<a href="#" class="search_icon"><i class="fas fa-search"></i></a>-->
-                    <div class="search_icon fas fa-search"></div>
-            </div>            
-        </div>        
+        <div class="searchbar">                
+            <input class="searchbar-input"
+                    type="search"
+                    name="q"
+                    #searchArtistsInput (keyup.enter)="onSearchArtistsEnterKeyPress(searchArtistsInput.value)"
+                    placeholder="Search artists..."
+                    aria-label="Search artists"
+                    value="{{artistSearchString}}"
+                    [disabled]='!spotifyAccessTokenGranted'>            
+            <div class="search_icon fas fa-search"
+                 (click)='onSearchArtistsEnterKeyPress(searchArtistsInput.value)'>
+            </div>
+        </div>       
     </div>
     <div class="col-3 mtb-2"></div>
 </div>
@@ -23,7 +22,7 @@
 <!--Selected Artist-->
 <div class="row">
     <div class="col-12 mtb-2 d-flex justify-content-center">
-        <app-artist [artist]='selectedArtist' [showLargeArtistImage]='true'></app-artist>
+        <app-artist [artist]='selectedArtist' [showLargeArtistImage]='true'></app-artist>        
     </div>    
 </div>
 

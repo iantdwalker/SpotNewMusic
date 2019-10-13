@@ -4,33 +4,44 @@
 }
 
 .searchbar {
-    margin-bottom: auto;
-    margin-top: auto;
-    height: 60px;    
-    border-radius: 30px;
-    border-color: green;
-    border-style: solid;
-    padding: 10px;
+  border-radius: 30px;
+  border-color: green;
+  border-style: solid;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
-.search_input {
-    color: white;
-    border: 0;
-    outline: 0;
-    background: none;
-    width: 450px;
-    line-height: 40px;
-    padding: 0 10px;
-    caret-color:green;
+.searchbar-input {
+  border-radius: 10px;
+  border: 0;
+  outline: 0;
+  color: white;
+  background: none;
+  caret-color: green;
+  text-align: center;
+  font-size: 2vw;  
+  flex: 0 90%;
 }
 
 .search_icon {
-  height: 40px;
-  width: 40px;
+  border-radius: 10px;
+  color: green;
+  font-size: 2vw;
   float: right;
-  display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  color:green;
+  display: flex;  
+  flex: 0 10%;
+  cursor: pointer;
 }
+
+/* clears the input field 'X' button from Internet Explorer */
+input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal {  display: none; width : 0; height: 0; }
+
+/* clears the input field  'X' button from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }

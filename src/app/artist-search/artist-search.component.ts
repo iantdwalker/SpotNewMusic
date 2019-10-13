@@ -19,6 +19,7 @@ export class ArtistSearchComponent implements OnDestroy {
     getArtistSubscription: Subscription;
     getRelatedArtistsSubscription: Subscription;
     @Input() spotifyAccessTokenGranted = false;
+    noArtistFound = 'Nope! no artists have been found matching your search term';
 
     constructor(private _spotifyService: SpotifyService) {
     }
