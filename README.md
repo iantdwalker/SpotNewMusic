@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
+V1.0 Features:
+
+-Create a Spotify session using the authentication API that issues an active token.  
+-Search for artists using exact match search term.  
+-The artist search result and their related artists are displayed below the search bar.  
+-Artist information displaye includes the artist name, popularity rating and list of genres.  
+-Clicking on an artist sets that artist as the selected artist and displays their related artists.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
