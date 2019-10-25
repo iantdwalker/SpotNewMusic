@@ -1,16 +1,17 @@
-import { Component, OnDestroy, Input } from '@angular/core';
+import { Component, OnDestroy, Input, OnInit } from '@angular/core';
 import { SpotifyService } from '../shared/services/spotify.service';
 import { IArtist } from '../shared/model/Artist/artist';
 import { IRelatedArtists } from '../shared/model/Artist/relatedArtists';
 import { ISearchedArtists } from '../shared/model/Artist/searchedArtists';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 @Component ({
     selector: 'app-artist-search',
     templateUrl: './artist-search.component.html',
     styleUrls: ['./artist-search.component.css']
 })
-export class ArtistSearchComponent implements OnDestroy {
+export class ArtistSearchComponent implements OnInit, OnDestroy {
     artistSearchString = '';
     errorMessage: string;
     selectedArtist: IArtist;
@@ -19,9 +20,16 @@ export class ArtistSearchComponent implements OnDestroy {
     getArtistSubscription: Subscription;
     getRelatedArtistsSubscription: Subscription;
     @Input() spotifyAccessTokenGranted = false;
-    noArtistFound = 'Nope! no artists have been found matching your search term';
+    artistSearchResults: any[] = [];
+    searchInput: FormControl = new FormControl();
 
     constructor(private _spotifyService: SpotifyService) {
+    }
+
+    ngOnInit() : void {
+        this.searchInput.valueChanges
+        .subscribe(searchInputValue => this.getArtists(searchInputValue)
+        .subscribe(response => this.artistSearchResults = response.artists.items));
     }
 
     ngOnDestroy(): void {
@@ -33,15 +41,24 @@ export class ArtistSearchComponent implements OnDestroy {
        this.performArtistSearch(searchQuery);
     }
 
-    onNotifyArtistClicked(artistName: string): void {
-        this.performArtistSearch(artistName);
+    onRelatedArtistClickedEvent(relatedArtistName: string): void {
+        this.performArtistSearch(relatedArtistName);
     }
 
     performArtistSearch(artistSearchTerm: string): void {
+        this.artistSearchResults = [];
         this.artistSearchString = artistSearchTerm;
-        this.getArtistSubscription = this._spotifyService.getArtists(this.artistSearchString)
-            .subscribe(searchedArtists => this.setArtists(searchedArtists),
+
+        this.getArtistSubscription = this.getArtists(this.artistSearchString)
+        .subscribe(searchedArtists => this.setArtists(searchedArtists),
             error => this.onArtistSearchError(error));
+    }
+
+    getArtists(artistSearchTerm: string): Observable<ISearchedArtists> {
+        if (!artistSearchTerm) {
+            this.artistSearchResults = [];
+        }
+        return this._spotifyService.getArtists(artistSearchTerm);
     }
 
     setArtists(searchedArtists: ISearchedArtists): void {
@@ -53,7 +70,7 @@ export class ArtistSearchComponent implements OnDestroy {
 
     getRelatedArtists(): void {
         this.getRelatedArtistsSubscription = this._spotifyService.getRelatedArtists(this.selectedArtist.id)
-            .subscribe(relatedArtists => this.setRelatedArtists(relatedArtists),
+        .subscribe(relatedArtists => this.setRelatedArtists(relatedArtists), 
             error => this.onArtistSearchError(error));
     }
 

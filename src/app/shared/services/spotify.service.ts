@@ -33,7 +33,7 @@ export class SpotifyService {
         const httpParams = new HttpParams()
             .set('q', artistSearchTerm)
             .set('type', 'artist')
-            .set('limit', '1');
+            .set('limit', '5');
 
         const httpHeaders = new HttpHeaders()
             .set('Authorization', 'Bearer ' + this._spotifyAccessToken.access_token);
@@ -43,11 +43,11 @@ export class SpotifyService {
             params: httpParams
         };
 
-        return this.http.get<ISearchedArtists>(this._spotifySearchUrl, httpOptions).pipe(
+        return this.http.get<ISearchedArtists>(this._spotifySearchUrl, httpOptions).pipe(            
             map(response => {
                 return response;
             }),
-            catchError(this.handleError));
+            catchError(this.handleError));        
     }
 
     getRelatedArtists(artistId: string): Observable<IRelatedArtists> {
