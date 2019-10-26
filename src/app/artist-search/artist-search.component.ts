@@ -26,7 +26,7 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     constructor(private _spotifyService: SpotifyService) {
     }
 
-    ngOnInit() : void {
+    ngOnInit(): void {
         this.searchInput.valueChanges
         .subscribe(searchInputValue => this.getArtists(searchInputValue)
         .subscribe(response => this.artistSearchResults = response.artists.items));
@@ -70,7 +70,7 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
 
     getRelatedArtists(): void {
         this.getRelatedArtistsSubscription = this._spotifyService.getRelatedArtists(this.selectedArtist.id)
-        .subscribe(relatedArtists => this.setRelatedArtists(relatedArtists), 
+        .subscribe(relatedArtists => this.setRelatedArtists(relatedArtists),
             error => this.onArtistSearchError(error));
     }
 

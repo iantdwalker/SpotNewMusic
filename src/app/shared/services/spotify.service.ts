@@ -43,11 +43,11 @@ export class SpotifyService {
             params: httpParams
         };
 
-        return this.http.get<ISearchedArtists>(this._spotifySearchUrl, httpOptions).pipe(            
+        return this.http.get<ISearchedArtists>(this._spotifySearchUrl, httpOptions).pipe(
             map(response => {
                 return response;
             }),
-            catchError(this.handleError));        
+            catchError(this.handleError));
     }
 
     getRelatedArtists(artistId: string): Observable<IRelatedArtists> {

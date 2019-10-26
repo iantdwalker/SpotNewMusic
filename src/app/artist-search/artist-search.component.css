@@ -114,11 +114,11 @@ body {
   color: #ccc
 } */
 
-.results-list {
+.searchInputResultsList {
   width: 100%;
   list-style: none;
-  font-size: 1.1em;
-  color: rgb(105, 105, 105);
+  font-size: 1.5vw; /*1.1em;*/
+  color: white; /* rgb(105, 105, 105); */
   border: 1.5px solid green; /* #ccc */
   /*border-top: none;*/
   border-left: none;

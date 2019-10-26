@@ -17,7 +17,7 @@
                         (click)='onSearchArtistsEnterKeyPress(searchArtistsInput.value)'>
                     </div>
                 </div>
-                <ul *ngIf='artistSearchResults.length' class="results-list">
+                <ul *ngIf='artistSearchResults.length' class="searchInputResultsList">
                     <li *ngFor="let artistSearchResult of artistSearchResults" class="results-list-item" (click)="onSearchArtistsEnterKeyPress(artistSearchResult.name)">
                         <img src="{{artistSearchResult.images['2']?.url}}" alt="" width="50" height="50">
                         <p class="artist-name">
