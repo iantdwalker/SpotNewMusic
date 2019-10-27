@@ -146,23 +146,23 @@ body {
   top: -10px;
 }
 
-.results-list-item:hover .tags {
-  color: #fff;
-}
-
 .results-list-item {
   cursor: pointer;
   padding: 5px 10px;
 }
 
+.results-list-item:hover {
+  background: rgba(117, 134, 118, 0.137);
+  color: #fff
+}
+
+.results-list-item:hover .genres {
+  color: #fff;
+}
+
 .artist-name {
   display: inline-block;
   position: absolute;
-}
-
-.results-list-item:hover {
-  background:  #C0C0C0;
-  color: #fff
 }
 
 /* NOT USED? */
