@@ -21,14 +21,14 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     getRelatedArtistsSubscription: Subscription;
     @Input() spotifyAccessTokenGranted = false;
     artistSearchResults: any[] = [];
-    searchInput: FormControl = new FormControl();
+    searchbarInput: FormControl = new FormControl();
 
     constructor(private _spotifyService: SpotifyService) {
     }
 
     ngOnInit(): void {
-        this.searchInput.valueChanges
-        .subscribe(searchInputValue => this.getArtists(searchInputValue)
+        this.searchbarInput.valueChanges
+        .subscribe(searchbarInputValue => this.getArtists(searchbarInputValue)
         .subscribe(response => this.artistSearchResults = response.artists.items));
     }
 

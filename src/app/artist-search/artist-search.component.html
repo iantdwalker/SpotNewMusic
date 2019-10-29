@@ -1,48 +1,44 @@
 <!--Artist search bar-->
-<div class="row row-searchBar">        
+<div class="row search-row">        
     <div class="col-3 mtb-2"></div>
     <div class="col-6 mtb-2">
-        <div class="search-wrapper searchbar">
-                <div class="search-input-div">
-                    <input [formControl]="searchInput"
-                        type="text"
-                        id="search-input"
-                        #searchArtistsInput (keyup.enter)="onSearchArtistsEnterKeyPress(searchArtistsInput.value)"
-                        placeholder="Search for artists..."
-                        aria-label="Search artists"
-                        value="{{artistSearchString}}"                            
-                        [disabled]='!spotifyAccessTokenGranted'
-                        autofocus />
-                    <div class="searchbar-icon fas fa-search"
-                        (click)='onSearchArtistsEnterKeyPress(searchArtistsInput.value)'>
-                    </div>
+        <div class="search-wrapper">
+            <div class="searchbar-wrapper">
+                <input class="searchbar-input"
+                    [formControl]="searchbarInput"
+                    type="text"
+                    #searchArtistsInput (keyup.enter)="onSearchArtistsEnterKeyPress(searchArtistsInput.value)"
+                    placeholder="Search for artists..."
+                    aria-label="Search for artists"
+                    value="{{artistSearchString}}"                            
+                    [disabled]='!spotifyAccessTokenGranted'
+                    autofocus />
+                <div class="searchbar-icon fas fa-search"
+                    (click)='onSearchArtistsEnterKeyPress(searchArtistsInput.value)'>
                 </div>
-                <ul *ngIf='artistSearchResults.length' class="searchInputResultsList">
-                    <li *ngFor="let artistSearchResult of artistSearchResults" class="results-list-item" (click)="onSearchArtistsEnterKeyPress(artistSearchResult.name)">
-                        <img src="{{artistSearchResult.images['2']?.url}}" alt="" width="70" height="70">
-                        <p class="artist-name">
+            </div>
+            <ul class="searchbar-results" *ngIf='artistSearchResults.length'>
+                <li class="searchbar-results-listitem"
+                    *ngFor="let artistSearchResult of artistSearchResults"
+                    (click)="onSearchArtistsEnterKeyPress(artistSearchResult.name)">
+                    
+                        
+                    <img src="{{artistSearchResult.images['2']?.url}}"
+                     alt="Artist Image"
+                     class="searchbar-results-artistImage">
+                    
+                    
+                        <p class="searchbar-results-artistName">
                             {{artistSearchResult.name}}
                         </p>
-                        <span class="genres" *ngFor='let genre of artistSearchResult?.genres | slice:0:3'>
+                        <!-- <span class="searchbar-results-artistGenres" *ngFor='let genre of artistSearchResult?.genres | slice:0:3'>
                             {{genre}}
-                        </span>
-                    </li>                    
-                </ul>                
+                        </span> -->
+                        <label class="searchbar-results-artistGenres">{{artistSearchResult?.genres.toString() | limitItems: 5 | convertToSpaces: ','}}</label>
+                    
+                </li>                    
+            </ul>                
         </div>
-                        
-        <!-- <div class="searchbar">                
-            <input class="searchbar-input"
-                    type="search"
-                    name="q"
-                    #searchArtistsInput (keyup.enter)="onSearchArtistsEnterKeyPress(searchArtistsInput.value)"
-                    placeholder="Search artists..."
-                    aria-label="Search artists"
-                    value="{{artistSearchString}}"
-                    [disabled]='!spotifyAccessTokenGranted'>            
-            <div class="searchbar-icon fas fa-search"
-                 (click)='onSearchArtistsEnterKeyPress(searchArtistsInput.value)'>
-            </div>
-        </div> -->
     </div>
     <div class="col-3 mtb-2"></div>
 </div>

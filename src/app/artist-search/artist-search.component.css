@@ -1,87 +1,30 @@
-.row-searchBar {
+.search-row {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.searchbar {
+.search-wrapper {
   border-radius: 30px;
   border-color: green;
   border-style: solid;
   padding: 10px;
   display: flex;
   flex-direction: row;
-}
-
-/*.searchbar-input {
-  border-radius: 10px;
-  border: 0;
-  outline: 0;
-  color: white;
-  background: none;
-  caret-color: green;
-  text-align: center;
-  font-size: 2vw;  
-  flex: 0 90%;
-}*/
-
-.searchbar-icon {
-  border-radius: 10px;
-  color: green;
-  font-size: 2vw;
-  float: right;
-  justify-content: center;
-  align-items: center;
-  display: flex;  
-  flex: 0 10%;
-  cursor: pointer;
-}
-
-/* clears the input field 'X' button from Internet Explorer */
-/* input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }
-input[type=search]::-ms-reveal {  display: none; width : 0; height: 0; } */
-
-/* clears the input field  'X' button from Chrome */
-/* input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration { display: none; } */
-
-/* *::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box
-}
-html,
-body {
-  height: calc(100% + 1px)
-}
-body {
-  font: 100% 'Arimo', sans-serif;
-} */
-
-.search-wrapper,
-.search-input-div {
-  display: flex;
-  /* justify-content: center; this displays search bar in vertical center of page */ 
-}
-
-.search-wrapper {
-  /* min-height: 100%; this grows the search bar green section to the height of the results panel */ 
   flex-flow: column wrap;
-  position: relative;
+  /* min-height: 100%; /*this grows the search bar green section to the height of the results panel */ 
+  /* position: relative; */
 }
 
-.search-input-div {
-  width: 100%;
-  position: relative;
+.searchbar-wrapper {
+  display: flex;
+  /* justify-content: center; /* this displays search bar in vertical center of page */ 
+  /* position: relative; */
 }
 
-#search-input {
+.searchbar-input {
   /*border: 1px solid #ccc;*/
   /*padding: 10px;*/
   /*font: 1.5em 'Arimo', sans-serif;*/
-  /*width: 100%;*/
   /*outline: none;*/
   /*transition: border 0.5s ease-in-out;*/
   border-radius: 10px;
@@ -95,32 +38,25 @@ body {
   flex: 0 90%;
 }
 
-#search-input:focus {
-  border-color : rgba(81, 203, 238, 1);;
+.searchbar-icon {
+  border-radius: 10px;
+  color: green;
+  font-size: 2vw;
+  float: right;
+  justify-content: center;
+  align-items: center;
+  display: flex;  
+  flex: 0 10%;
+  cursor: pointer;
 }
 
-/* NOT USED? */
-/* #search-input-button {
-  position: absolute;
-  right: 26%;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.7em;
-  color: #8DB9ED
-} */
-
-/* NOT USED? */
-/* #search-input-button:hover {
-  color: #ccc
-} */
-
-.searchInputResultsList {
-  width: 100%;
-  list-style: none;
-  font-size: 1.5vw; /*1.1em;*/
-  color: white; /* rgb(105, 105, 105); */
-  border: 1.5px solid green; /* #ccc */
-  /*border-top: none;*/
+.searchbar-results {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+  color: white;
+  background: none;
+  border-top: 1.5px solid green;
   border-left: none;
   border-right: none;
   border-bottom: none;
@@ -130,49 +66,58 @@ body {
   /*top: calc(50% + 25px);*/
   /*max-height: calc(50% - 15px);*/
   overflow-y: auto;
-  background: none; /*#fff - the old white background */
 }
 
-.results-list-item img {
-  margin-right: 30px;
-}
-
-.genres {
-  font-size: 12px;
-  font-style: italic;
-  color: #c6c6c6;
-  margin-right: 10px;
-  /*position: relative; this part seems to run the genres list over the artist name */
-  top: -10px;
-}
-
-.results-list-item {
+.searchbar-results-listitem {
   cursor: pointer;
   padding: 5px 10px;
 }
 
-.results-list-item:hover {
+.searchbar-results-listitem:hover {
   background: rgba(117, 134, 118, 0.137);
-  color: #fff
+  color: white;
 }
 
-.results-list-item:hover .genres {
-  color: #fff;
+.searchbar-results-listitem:hover .searchbar-results-artistGenres {
+  color: white;
 }
 
-.artist-name {
+.searchbar-results-artistImage {
+  width: 70px;
+  height: 70px;
+  margin-right: 20px;
+}
+
+.searchbar-results-artistName {
+  font-size: 1.5vw;
   display: inline-block;
   position: absolute;
+  /* padding-top: 10px; */
 }
 
-/* NOT USED? */
-/* .list-highlight,
-.list-highlight:hover {
-  background: rgb(55, 55, 55);
-  color: #fff
-} */
+.searchbar-results-artistGenres {
+  font-size: 1vw;
+  font-style: italic;
+  color: gray;
+  /* margin-right: 10px; */
+  /* padding-top: 40px; */
+  
+  /*position: relative; this part seems to run the genres list over the artist name */
+  /* top: -10px; */
+ }
 
-/* ARE THESE PARTS REQUIRED? */
+/* NOT USED SECTIONS? */
+
+/* clears the input field 'X' button from Internet Explorer */
+/* input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal {  display: none; width : 0; height: 0; } */
+
+/* clears the input field  'X' button from Chrome */
+/* input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; } */
+
 /*@media only screen and (max-width: 768px) {
   .filter-select,
   #keyword {
