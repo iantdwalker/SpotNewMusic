@@ -22,6 +22,7 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     @Input() spotifyAccessTokenGranted = false;
     artistSearchResults: any[] = [];
     searchbarInput: FormControl = new FormControl();
+    noResultsMessage = 'No results found.';
 
     constructor(private _spotifyService: SpotifyService) {
     }

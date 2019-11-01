@@ -21,25 +21,25 @@
                 <li class="searchbar-results-listitem"
                     *ngFor="let artistSearchResult of artistSearchResults"
                     (click)="onSearchArtistsEnterKeyPress(artistSearchResult.name)">
-                    
-                        
-                    <img src="{{artistSearchResult.images['2']?.url}}"
-                     alt="Artist Image"
-                     class="searchbar-results-artistImage">
-                    
-                    
-                        <p class="searchbar-results-artistName">
-                            {{artistSearchResult.name}}
-                        </p>
-                        <!-- <span class="searchbar-results-artistGenres" *ngFor='let genre of artistSearchResult?.genres | slice:0:3'>
-                            {{genre}}
-                        </span> -->
-                        <label class="searchbar-results-artistGenres">{{artistSearchResult?.genres.toString() | limitItems: 5 | convertToSpaces: ','}}</label>
-                    
+                        <img src="{{artistSearchResult.images['2']?.url}}"
+                            alt="Artist Image"
+                            class="searchbar-results-artistImage">
+                            <p class="searchbar-results-artistName">
+                                {{artistSearchResult.name}}
+                            </p>
+                            <!-- <span class="searchbar-results-artistGenres" *ngFor='let genre of artistSearchResult?.genres | slice:0:3'>
+                                {{genre}}
+                            </span> -->
+                            <label class="searchbar-results-artistGenres">
+                                {{artistSearchResult?.genres.toString() | limitItems: 5 | convertToSpaces: ','}}
+                            </label>
                 </li>                    
-            </ul>                
+            </ul>                            
         </div>
-    </div>
+        <p class="no-results-message" *ngIf='!artistSearchResults.length && !selectedArtist'>
+            {{noResultsMessage}}
+        </p>
+    </div>    
     <div class="col-3 mtb-2"></div>
 </div>
 
