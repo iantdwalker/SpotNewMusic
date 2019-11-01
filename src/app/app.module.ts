@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { SessionComponent } from './session/session.component';
 import { ArtistSearchComponent } from './artist-search/artist-search.component';
 import { ArtistComponent } from './artist/artist.component';
-import { ConvertToSpacesPipe } from './shared/pipes/convert-to-spaces.pipe';
+import { ReplaceValuePipe } from './shared/pipes/replace-value-pipe';
 import { LimitItemsPipe } from './shared/pipes/limit-items-pipe';
 import { HeadingComponent } from './heading/heading.component';
 
@@ -19,7 +19,7 @@ import { HeadingComponent } from './heading/heading.component';
     SessionComponent,
     ArtistSearchComponent,
     ArtistComponent,
-    ConvertToSpacesPipe,
+    ReplaceValuePipe,
     LimitItemsPipe,
     HeadingComponent
   ],

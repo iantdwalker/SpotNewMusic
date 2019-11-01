@@ -3,7 +3,7 @@
         <img src='{{artist.images[1].url}}' alt='artist' class="img-fluid d-block mx-auto {{showLargeArtistImage ? 'largeImage' : 'image'}}">
         <div class="{{showLargeArtistImage ? 'largeArtistDetails' : 'artistDetails'}}">
             <label class="artistText">{{artist.name}}</label>
-            <label class="genresText">{{artist.genres.toString() | limitItems: 3 | convertToSpaces: ','}}</label>
+            <label class="genresText">{{artist.genres.toString() | limitItems: 3 | replaceValue: ',' : ' - '}}</label>
             <br/>
             <label class="popularityText">Popularity: {{artist.popularity}}%</label>                        
         </div>        
