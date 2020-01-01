@@ -24,6 +24,7 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     artistSearchResults: any[] = [];
     searchbarInput: FormControl = new FormControl();
     noResultsMessage = 'No results found.';
+    artistPlaceholderImageUrl = 'assets/images/artistPlaceholder.png';
 
     constructor(private _spotifyService: SpotifyService) {
     }

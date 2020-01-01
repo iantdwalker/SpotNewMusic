@@ -24,7 +24,8 @@
                     (click)="onSearchArtistsEnterKeyPress(artistSearchResult.name)"
                     (keyup.enter)="onSearchArtistsEnterKeyPress(artistSearchResult.name)"
                     tabindex="0">
-                        <img src="{{artistSearchResult.images['2']?.url}}"
+                        <img src="{{artistSearchResult.images[2] ?
+                                artistSearchResult.images[2].url : artistPlaceholderImageUrl}}"
                             alt="Artist Image"
                             class="searchbar-results-artistImage">
                         <p class="searchbar-results-artistName">
