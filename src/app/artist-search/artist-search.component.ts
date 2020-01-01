@@ -4,6 +4,7 @@ import { IArtist } from '../shared/model/Artist/artist';
 import { IRelatedArtists } from '../shared/model/Artist/relatedArtists';
 import { ISearchedArtists } from '../shared/model/Artist/searchedArtists';
 import { Subscription, Observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
 @Component ({
@@ -29,6 +30,9 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.searchbarInput.valueChanges
+        .pipe(
+            debounceTime(200),
+            distinctUntilChanged())
         .subscribe(searchbarInputValue => this.getArtists(searchbarInputValue)
         .subscribe(response => this.artistSearchResults = response.artists.items));
     }

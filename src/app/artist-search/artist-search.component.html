@@ -27,12 +27,12 @@
                         <img src="{{artistSearchResult.images['2']?.url}}"
                             alt="Artist Image"
                             class="searchbar-results-artistImage">
-                            <p class="searchbar-results-artistName">
-                                {{artistSearchResult.name}}
-                            </p>
-                            <label class="searchbar-results-artistGenres">
-                                {{artistSearchResult?.genres.toString() | limitItems: 5 | replaceValue: ',' : ' - ' }}
-                            </label>
+                        <p class="searchbar-results-artistName">
+                            {{artistSearchResult.name}}
+                        </p>
+                        <label class="searchbar-results-artistGenres">
+                            {{artistSearchResult?.genres.toString() | limitItems: 5 | replaceValue: ',' : ' - ' }}
+                        </label>
                 </li>                    
             </ul>                            
         </div>
