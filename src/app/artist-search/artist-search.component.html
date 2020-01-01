@@ -32,7 +32,9 @@
                             {{artistSearchResult.name}}
                         </p>
                         <label class="searchbar-results-artistGenres">
-                            {{artistSearchResult?.genres.toString() | limitItems: 5 | replaceValue: ',' : ' - ' }}
+                            {{artistSearchResult.genres.length > 0
+                                ? (artistSearchResult.genres.toString() | limitItems: 5 | replaceValue: ',' : ' - ')
+                                : genresUnknown}}
                         </label>
                 </li>                    
             </ul>                            
