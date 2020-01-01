@@ -105,14 +105,12 @@
    margin-left: 25px;
  }
 
-/* NOT USED SECTIONS? */
+/* clears the text input field's 'X' button from Internet Explorer */
+input[type=text]::-ms-clear { display: none; width: 0; height: 0; }
+input[type=text]::-ms-reveal { display: none; width: 0; height: 0; }
 
-/* clears the input field 'X' button from Internet Explorer */
-/* input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }
-input[type=search]::-ms-reveal {  display: none; width : 0; height: 0; } */
-
-/* clears the input field  'X' button from Chrome */
-/* input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration { display: none; } */
+/* clears the text input field's 'X' button from Chrome */
+input[type="text"]::-webkit-search-decoration,
+input[type="text"]::-webkit-search-cancel-button,
+input[type="text"]::-webkit-search-results-button,
+input[type="text"]::-webkit-search-results-decoration { display: none; }
