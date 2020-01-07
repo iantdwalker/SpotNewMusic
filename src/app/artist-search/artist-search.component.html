@@ -24,7 +24,33 @@
                     (click)="onSearchArtistsEnterKeyPress(artistSearchResult.name)"
                     (keyup.enter)="onSearchArtistsEnterKeyPress(artistSearchResult.name)"
                     tabindex="0">
-                        <img src="{{artistSearchResult.images[2] ?
+                    <div class="row">
+                        <div class="col-2 redColumn d-flex justify-content-center">
+                            <img src="{{artistSearchResult.images[2] ?
+                                artistSearchResult.images[2].url : artistPlaceholderImageUrl}}"
+                            alt="Artist Image"
+                            class="searchbar-results-artistImage">
+                        </div>
+                        <div class="col-10 blueColumn">
+                            <div class="row yellowRow">
+                                <div class="col-12">
+                                    <p class="searchbar-results-artistName">
+                                            {{artistSearchResult.name}}
+                                    </p>
+                                </div>                                
+                            </div>
+                            <div class="row greenRow">
+                                <div class="col-12">
+                                    <label class="searchbar-results-artistGenres">
+                                            {{artistSearchResult.genres.length > 0
+                                                ? (artistSearchResult.genres.toString() | limitItems: 5 | replaceValue: ',' : ' - ')
+                                                : genresUnknown}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <!-- <img src="{{artistSearchResult.images[2] ?
                                 artistSearchResult.images[2].url : artistPlaceholderImageUrl}}"
                             alt="Artist Image"
                             class="searchbar-results-artistImage">
@@ -35,7 +61,7 @@
                             {{artistSearchResult.genres.length > 0
                                 ? (artistSearchResult.genres.toString() | limitItems: 5 | replaceValue: ',' : ' - ')
                                 : genresUnknown}}
-                        </label>
+                        </label> -->
                 </li>                    
             </ul>                            
         </div>

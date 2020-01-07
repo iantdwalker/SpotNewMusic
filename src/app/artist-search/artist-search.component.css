@@ -1,3 +1,23 @@
+.redColumn {
+  background: red;
+  
+}
+
+.blueColumn {
+  background: blue;
+}
+
+.yellowRow {
+  background: yellow;
+  height: 50%;
+}
+
+.greenRow {
+  background: green;
+  height: 50%;
+}
+
+
 .search-row {
   margin-top: 10px;
   margin-bottom: 10px;
