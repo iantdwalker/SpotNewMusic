@@ -1,21 +1,28 @@
 .redColumn {
-  background: red;
-  
+  /* background: red; */
 }
 
 .blueColumn {
-  background: blue;
+  /* background: blue; */
 }
 
 .yellowRow {
-  background: yellow;
-  height: 50%;
+  /* background: yellow; */
+  height: 40%;
 }
 
 .greenRow {
-  background: green;
-  height: 50%;
+  /* background: green; */
+  height: 60%;
 }
+
+.parentRow {
+  /* background: green; */
+  max-height: 50px;
+}
+
+
+
 
 
 .search-row {
@@ -100,15 +107,18 @@
 }
 
 .searchbar-results-artistImage {
-  width: 70px;
-  height: 70px;
-  margin-right: 20px;
+  /* width: 100px; */
+  /* height: 70px; */
+  /* margin-right: 20px; */
+  /* max-width: 500px;
+  width: 100%; */
+  max-height: 50px;
 }
 
 .searchbar-results-artistName {
   font-size: 1.5vw;
-  display: inline-block;
-  position: absolute;  
+  /* display: inline-block;
+  position: absolute; */
 }
 
 .searchbar-results-artistGenres {
