@@ -1,29 +1,31 @@
-.redColumn {
-  /* background: red; */
+.col-image {
+  background: red;
+  padding: 0px;
+  margin: 0px;
 }
 
-.blueColumn {
-  /* background: blue; */
+.the-img {
+  max-width: 70px;
+  max-height: 70px;
 }
 
-.yellowRow {
-  /* background: yellow; */
+.col-text {
+  background: blue;
+}
+
+.row-ArtistName {
+  background: green;
   height: 40%;
 }
 
-.greenRow {
-  /* background: green; */
+.row-Genres {
+  background: yellow;
   height: 60%;
 }
 
 .parentRow {
-  /* background: green; */
-  max-height: 50px;
+  background: pink;
 }
-
-
-
-
 
 .search-row {
   margin-top: 10px;
@@ -106,19 +108,8 @@
   color: white;
 }
 
-.searchbar-results-artistImage {
-  /* width: 100px; */
-  /* height: 70px; */
-  /* margin-right: 20px; */
-  /* max-width: 500px;
-  width: 100%; */
-  max-height: 50px;
-}
-
 .searchbar-results-artistName {
   font-size: 1.5vw;
-  /* display: inline-block;
-  position: absolute; */
 }
 
 .searchbar-results-artistGenres {
