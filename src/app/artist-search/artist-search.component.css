@@ -1,5 +1,5 @@
 .col-image {
-  background: red;
+  /* background: red; */
   padding: 0px;
   margin: 0px;
 }
@@ -10,21 +10,21 @@
 }
 
 .col-text {
-  background: blue;
+  /* background: blue; */
 }
 
 .row-ArtistName {
-  background: green;
+  /* background: green; */
   height: 40%;
 }
 
 .row-Genres {
-  background: yellow;
+  /* background: yellow; */
   height: 60%;
 }
 
 .parentRow {
-  background: pink;
+  /* background: pink; */
 }
 
 .search-row {
@@ -36,7 +36,7 @@
   border-radius: 30px;
   border-color: green;
   border-style: solid;
-  padding: 10px;
+  padding: 5px;
   display: flex;
   flex-direction: row;
   flex-flow: column wrap;
@@ -81,6 +81,7 @@
   border-right: none;
   border-bottom: none;
   overflow-y: auto;
+  /* background: purple; */
 }
 
 .searchbar-results-listitem {
