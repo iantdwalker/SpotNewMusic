@@ -35,9 +35,13 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
         this.searchbarInput.valueChanges
         .pipe(
             debounceTime(200),
-            distinctUntilChanged())
+            distinctUntilChanged()
+        )
         .subscribe(searchbarInputValue => this.getArtists(searchbarInputValue)
-        .subscribe(response => this.artistSearchResults = response.artists.items));
+        .subscribe(
+            response => this.artistSearchResults = response.artists.items,
+            error => this.onArtistSearchError(error)
+        ));
     }
 
     ngOnDestroy(): void {
@@ -57,10 +61,11 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
         this.artistSearchResults = [];
         this.relatedArtists = [];
         this.artistSearchString = artistSearchTerm;
-
         this.getArtistSubscription = this.getArtists(this.artistSearchString)
-        .subscribe(searchedArtists => this.setArtists(searchedArtists),
-            error => this.onArtistSearchError(error));
+        .subscribe(
+            searchedArtists => this.setArtists(searchedArtists),
+            error => this.onArtistSearchError(error)
+        );
     }
 
     getArtists(artistSearchTerm: string): Observable<ISearchedArtists> {
@@ -79,8 +84,10 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
 
     getRelatedArtists(): void {
         this.getRelatedArtistsSubscription = this._spotifyService.getRelatedArtists(this.selectedArtist.id)
-        .subscribe(relatedArtists => this.setRelatedArtists(relatedArtists),
-            error => this.onArtistSearchError(error));
+        .subscribe(
+            relatedArtists => this.setRelatedArtists(relatedArtists),
+            error => this.onArtistSearchError(error)
+        );
     }
 
     setRelatedArtists(relatedArtists: IRelatedArtists): void {
