@@ -10,6 +10,7 @@ export class ArtistComponent {
     @Input() artist: IArtist;
     @Input() showLargeArtistImage: boolean;
     @Output() notifyArtistClicked: EventEmitter<string> = new EventEmitter<string>();
+    artistPlaceholderImageUrl = 'assets/images/artistPlaceholder.png';
 
     onArtistClicked(): void {
         this.notifyArtistClicked.emit(this.artist.name);
