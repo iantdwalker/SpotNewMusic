@@ -1,21 +1,3 @@
-.col-image {
-  padding: 0px;
-  margin: 0px;
-}
-
-.artistSearchImg {
-  max-width: 70px;
-  max-height: 70px;
-}
-
-.row-artistName {
-  height: 40%;
-}
-
-.row-genres {
-  height: 60%;
-}
-
 .search-row {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -95,6 +77,24 @@
 
 .searchbar-results-listitem:focus .searchbar-results-artistGenres {
   color: white;
+}
+
+.col-image {
+  padding: 0px;
+  margin: 0px;
+}
+
+.artistSearchImg {
+  max-width: 70px;
+  max-height: 70px;
+}
+
+.row-artistName {
+  height: 40%;
+}
+
+.row-genres {
+  height: 60%;
 }
 
 .searchbar-results-artistName {

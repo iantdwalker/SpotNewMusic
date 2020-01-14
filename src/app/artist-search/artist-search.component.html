@@ -55,9 +55,9 @@
                 </li>
             </ul>                            
         </div>
-        <p class="no-results-message" *ngIf="!artistSearchResults.length && !selectedArtist">
-            {{noResultsMessage}}
-        </p>
+        <label class="no-results-message" *ngIf="!artistSearchResults.length && !selectedArtist">
+            {{noArtistResultsMessage}}
+        </label>
     </div>    
     <div class="col-3 mtb-2"></div>
 </div>
@@ -66,12 +66,23 @@
 <div class="row">
     <div class="col-12 mtb-2 d-flex justify-content-center">
         <app-artist [artist]="selectedArtist" [showLargeArtistImage]="true"></app-artist>
-    </div>    
+    </div>
 </div>
 
 <!--Related Artists-->
 <div class="row">
-    <div class="col-6 col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2" *ngFor="let relatedArtist of relatedArtists">
-        <app-artist [artist]="relatedArtist" (notifyArtistClicked)="onRelatedArtistClickedEvent($event)"></app-artist>
-    </div>
+    <ng-container *ngIf="relatedArtists">
+        <div class="col-6 col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2" *ngFor="let relatedArtist of relatedArtists">
+            <app-artist [artist]="relatedArtist" (notifyArtistClicked)="onRelatedArtistClickedEvent($event)"></app-artist>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="selectedArtist && !relatedArtists.length">
+        <div class="col-3 mtb-2"></div>
+        <div class="col-6 mtb-2">
+            <label class="no-results-message">
+                {{noRelatedArtistsMessage}}
+            </label>
+        </div>
+        <div class="col-3 mtb-2"></div>
+    </ng-container>
 </div>

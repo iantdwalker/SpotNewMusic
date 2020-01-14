@@ -23,7 +23,8 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     @Input() spotifyAccessTokenGranted = false;
     artistSearchResults: any[] = [];
     searchbarInput: FormControl = new FormControl();
-    noResultsMessage = 'No results found.';
+    noArtistResultsMessage = 'No results found.';
+    noRelatedArtistsMessage = 'No related artists found.';
     artistPlaceholderImageUrl = 'assets/images/artistPlaceholder.png';
     genresUnknown = 'genre(s) unknown';
 
@@ -54,6 +55,7 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
 
     performArtistSearch(artistSearchTerm: string): void {
         this.artistSearchResults = [];
+        this.relatedArtists = [];
         this.artistSearchString = artistSearchTerm;
 
         this.getArtistSubscription = this.getArtists(this.artistSearchString)
