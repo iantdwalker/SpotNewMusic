@@ -5,6 +5,7 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { ISpotifyAccessToken } from 'src/app/shared/model/Authentication/spotifyAccessToken';
 import { ISearchedArtists } from '../model/Artist/searchedArtists';
 import { IRelatedArtists } from '../model/Artist/relatedArtists';
+import { IArtist } from '../model/Artist/artist';
 
 @Injectable({
     providedIn: 'root'
@@ -45,7 +46,7 @@ export class SpotifyService {
         );
     }
 
-    getRelatedArtists(artistId: string): Observable<IRelatedArtists> {
+    getRelatedArtists(artistId: string): Observable<IArtist[]> {
         artistId = artistId.trim();
         const getRelatedArtistsUrl = this._spotifyRelatedArtistsUrl.replace('{id}', artistId);
         const httpHeaders = new HttpHeaders()
@@ -56,6 +57,7 @@ export class SpotifyService {
 
         return this.http.get<IRelatedArtists>(getRelatedArtistsUrl, httpOptions)
         .pipe(
+            map(relatedArtists => relatedArtists.artists),
             catchError(error => this.handleError(error))
         );
     }

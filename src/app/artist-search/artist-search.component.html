@@ -70,8 +70,8 @@
 </div>
 
 <!--Related Artists-->
-<div class="row">
-    <ng-container *ngIf="relatedArtists">
+<div class="row" *ngIf="relatedArtists$ | async as relatedArtists">
+    <ng-container >
         <div class="col-6 col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2" *ngFor="let relatedArtist of relatedArtists">
             <app-artist [artist]="relatedArtist" (notifyArtistClicked)="onRelatedArtistClickedEvent($event)"></app-artist>
         </div>

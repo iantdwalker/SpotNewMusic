@@ -3,8 +3,8 @@ import { SpotifyService } from '../shared/services/spotify.service';
 import { IArtist } from '../shared/model/Artist/artist';
 import { IRelatedArtists } from '../shared/model/Artist/relatedArtists';
 import { ISearchedArtists } from '../shared/model/Artist/searchedArtists';
-import { Subscription, Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { Subscription, Observable, EMPTY } from 'rxjs';
+import { debounceTime, distinctUntilChanged, catchError } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
 @Component ({
@@ -17,9 +17,10 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     errorMessage: string;
     selectedArtist: IArtist;
     canSearch = false;
-    relatedArtists: IArtist[];
+    /* relatedArtists: IArtist[]; */
+    relatedArtists$: Observable<IArtist[]>;
     getArtistSubscription: Subscription;
-    getRelatedArtistsSubscription: Subscription;
+    /* getRelatedArtistsSubscription: Subscription; */
     @Input() spotifyAccessTokenGranted = false;
     artistSearchResults: any[] = [];
     searchbarInput: FormControl = new FormControl();
@@ -46,7 +47,7 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.getArtistSubscription.unsubscribe();
-        this.getRelatedArtistsSubscription.unsubscribe();
+        /* this.getRelatedArtistsSubscription.unsubscribe(); */
     }
 
     onSearchArtistsEnterKeyPress(searchQuery: string): void {
@@ -59,7 +60,8 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
 
     performArtistSearch(artistSearchTerm: string): void {
         this.artistSearchResults = [];
-        this.relatedArtists = [];
+        /* this.relatedArtists = []; */
+        /* this.relatedArtists$ = undefined; */
         this.artistSearchString = artistSearchTerm;
         this.getArtistSubscription = this.getArtists(this.artistSearchString)
         .subscribe(
@@ -83,21 +85,26 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     }
 
     getRelatedArtists(): void {
-        this.getRelatedArtistsSubscription = this._spotifyService.getRelatedArtists(this.selectedArtist.id)
+        /* this.getRelatedArtistsSubscription = this._spotifyService.getRelatedArtists(this.selectedArtist.id)
         .subscribe(
             relatedArtists => this.setRelatedArtists(relatedArtists),
             error => this.onArtistSearchError(error)
+        ); */
+        this.relatedArtists$ = this._spotifyService.getRelatedArtists(this.selectedArtist.id)
+        .pipe(
+            catchError(error => this.onArtistSearchError(error))
         );
     }
 
     setRelatedArtists(relatedArtists: IRelatedArtists): void {
-        if (relatedArtists.artists.length >= 1) {
+        /* if (relatedArtists.artists.length >= 1) {
             this.relatedArtists = relatedArtists.artists;
-        }
+        } */
     }
 
-    onArtistSearchError(error: any): void {
+    onArtistSearchError(error: any): Observable<never> {
         this.errorMessage = <any>error;
         console.log('Artist search ERROR: ' + this.errorMessage);
+        return EMPTY;
     }
 }
