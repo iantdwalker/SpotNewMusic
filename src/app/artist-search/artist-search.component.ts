@@ -13,14 +13,14 @@ import { FormControl } from '@angular/forms';
 })
 export class ArtistSearchComponent implements OnInit, OnDestroy {
     @Input() spotifyAccessTokenGranted = false;
-    artistSearchString = '';
+    artistSearchValue = '';
     errorMessage: string;
     selectedArtist: IArtist;
     canSearch = false;
     relatedArtists$: Observable<IArtist[]>;
     getArtistSubscription: Subscription;
     artistSearchResults: any[] = [];
-    searchbarInput: FormControl = new FormControl();
+    artistSearchbarInputFormControl: FormControl = new FormControl();
     noArtistResultsMessage = 'No results found.';
     noRelatedArtistsMessage = 'No related artists found.';
     artistPlaceholderImageUrl = 'assets/images/artistPlaceholder.png';
@@ -30,12 +30,12 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.searchbarInput.valueChanges
+        this.artistSearchbarInputFormControl.valueChanges
         .pipe(
             debounceTime(200),
             distinctUntilChanged()
         )
-        .subscribe(searchbarInputValue => this.getArtists(searchbarInputValue)
+        .subscribe(artistSearchbarInputValue => this.getArtists(artistSearchbarInputValue)
         .subscribe(
             response => this.artistSearchResults = response.artists.items,
             error => this.onArtistSearchError(error)
@@ -46,9 +46,13 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
         this.getArtistSubscription.unsubscribe();
     }
 
-    onSearchArtistsEnterKeyPress(searchQuery: string): void {
+    onArtistSearchQueryPerformed(searchQuery: string): void {
        this.performArtistSearch(searchQuery);
     }
+
+    onArtistSearchResultSelected(artistName: string): void {
+        this.performArtistSearch(artistName);
+     }
 
     onRelatedArtistClickedEvent(relatedArtistName: string): void {
         this.performArtistSearch(relatedArtistName);
@@ -56,8 +60,8 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
 
     performArtistSearch(artistSearchTerm: string): void {
         this.artistSearchResults = [];
-        this.artistSearchString = artistSearchTerm;
-        this.getArtistSubscription = this.getArtists(this.artistSearchString)
+        this.artistSearchValue = artistSearchTerm;
+        this.getArtistSubscription = this.getArtists(this.artistSearchValue)
         .subscribe(
             searchedArtists => this.setArtists(searchedArtists),
             error => this.onArtistSearchError(error)
