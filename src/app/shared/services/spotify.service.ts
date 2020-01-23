@@ -27,7 +27,7 @@ export class SpotifyService {
         );
     }
 
-    getArtists(artistSearchTerm: string): Observable<ISearchedArtists> {
+    getArtists(artistSearchTerm: string): Observable<IArtist[]> {
         artistSearchTerm = artistSearchTerm.trim();
         const httpParams = new HttpParams()
             .set('q', artistSearchTerm)
@@ -42,6 +42,7 @@ export class SpotifyService {
 
         return this.http.get<ISearchedArtists>(this._spotifySearchUrl, httpOptions)
         .pipe(
+            map(searchedArtists => searchedArtists.artists.items),
             catchError(error => this.handleError(error))
         );
     }

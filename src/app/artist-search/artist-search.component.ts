@@ -37,7 +37,7 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
         )
         .subscribe(artistSearchbarInputValue => this.getArtists(artistSearchbarInputValue)
         .subscribe(
-            response => this.artistSearchResults = response.artists.items,
+            response => this.artistSearchResults = response,
             error => this.onArtistSearchError(error)
         ));
     }
@@ -68,16 +68,16 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
         );
     }
 
-    getArtists(artistSearchTerm: string): Observable<ISearchedArtists> {
+    getArtists(artistSearchTerm: string): Observable<IArtist[]> {
         if (!artistSearchTerm) {
             this.artistSearchResults = [];
         }
         return this._spotifyService.getArtists(artistSearchTerm);
     }
 
-    setArtists(searchedArtists: ISearchedArtists): void {
-        if (searchedArtists.artists.items.length >= 1) {
-            this.selectedArtist = searchedArtists.artists.items[0];
+    setArtists(searchedArtists: IArtist[]): void {
+        if (searchedArtists.length >= 1) {
+            this.selectedArtist = searchedArtists[0];
             this.getRelatedArtists();
         }
     }
