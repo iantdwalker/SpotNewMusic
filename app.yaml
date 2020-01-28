@@ -1,0 +1,10 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  static_files: dist/SpotNewMusic/index.html
+  upload: dist/SpotNewMusic/index.html
+- url: /
+  static_dir: dist/SpotNewMusic
