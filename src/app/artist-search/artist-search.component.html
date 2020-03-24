@@ -18,11 +18,11 @@
                     (click)="onArtistSearchQueryPerformed(artistSearchbarInput.value)">
                 </div>
             </div>
-            <ul class="artist-searchbar-results" *ngIf="artistSearchResults.length">
+            <ul class="artist-searchbar-results" *ngIf="artistSearchResults$ | async as artistSearchResults">
                 <li class="artist-searchbar-results-listitem"
                     *ngFor="let artistSearchResult of artistSearchResults"
-                    (click)="onArtistSearchResultSelected(artistSearchResult.name)"
-                    (keyup.enter)="onArtistSearchResultSelected(artistSearchResult.name)"
+                    (click)="onArtistSearchResultSelected(artistSearchResult)"
+                    (keyup.enter)="onArtistSearchResultSelected(artistSearchResult)"
                     tabindex="0">
                     <div class="container no-gutters">
                         <div class="row">
@@ -54,10 +54,7 @@
                     </div>                        
                 </li>
             </ul>                            
-        </div>
-        <label class="no-results-message" *ngIf="!artistSearchResults.length && !selectedArtist">
-            {{noArtistResultsMessage}}
-        </label>
+        </div>        
     </div>    
     <div class="col-3 mtb-2"></div>
 </div>

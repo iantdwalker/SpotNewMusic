@@ -1,9 +1,8 @@
-import { Component, OnDestroy, Input, OnInit } from '@angular/core';
+import { Component, OnDestroy, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { SpotifyService } from '../shared/services/spotify.service';
 import { IArtist } from '../shared/model/Artist/artist';
-import { ISearchedArtists } from '../shared/model/Artist/searchedArtists';
-import { Subscription, Observable, EMPTY } from 'rxjs';
-import { debounceTime, distinctUntilChanged, catchError } from 'rxjs/operators';
+import { Subscription, Observable, EMPTY, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, catchError, tap, switchMap, map } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
 @Component ({
@@ -13,15 +12,16 @@ import { FormControl } from '@angular/forms';
 })
 export class ArtistSearchComponent implements OnInit, OnDestroy {
     @Input() spotifyAccessTokenGranted = false;
-    artistSearchValue = '';
+    artistSearchValue: string;
     errorMessage: string;
     selectedArtist: IArtist;
     canSearch = false;
     relatedArtists$: Observable<IArtist[]>;
-    getArtistSubscription: Subscription;
-    artistSearchResults: any[] = [];
+    artistSearchResults$: Observable<IArtist[]>;
+    artistSearchResultsSubject = new Subject<string>();
+    relatedArtistsSubject = new Subject<string>();
+    getArtistManualSubscription: Subscription;
     artistSearchbarInputFormControl: FormControl = new FormControl();
-    noArtistResultsMessage = 'No results found.';
     noRelatedArtistsMessage = 'No related artists found.';
     artistPlaceholderImageUrl = 'assets/images/artistPlaceholder.png';
     genresUnknown = 'genre(s) unknown';
@@ -30,63 +30,65 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.artistSearchbarInputFormControl.valueChanges
-        .pipe(
+        this.initialiseArtistSearch();
+        this.initialiseRelatedArtistSearch();
+
+        this.artistSearchbarInputFormControl.valueChanges.pipe(
             debounceTime(200),
             distinctUntilChanged()
         )
-        .subscribe(artistSearchbarInputValue => this.getArtists(artistSearchbarInputValue)
         .subscribe(
-            response => this.artistSearchResults = response,
-            error => this.onArtistSearchError(error)
+            artistSearchbarInputValue => this.artistSearchResultsSubject.next(artistSearchbarInputValue)
+        );
+    }
+
+    initialiseArtistSearch(): void {
+        this.artistSearchResults$ = this.artistSearchResultsSubject.pipe(
+            switchMap(artistSearchTerm => this._spotifyService.getArtists(artistSearchTerm).pipe(
+                catchError(error => this.onArtistSearchError(error))
+            )
+        ));
+    }
+
+    initialiseRelatedArtistSearch(): void {
+        this.relatedArtists$ = this.relatedArtistsSubject.pipe(
+            switchMap(artistId => this._spotifyService.getRelatedArtists(artistId).pipe(
+                catchError(error => this.onRelatedArtistSearchError(error))
+            )
         ));
     }
 
     ngOnDestroy(): void {
-        this.getArtistSubscription.unsubscribe();
+        this.getArtistManualSubscription.unsubscribe();
     }
 
     onArtistSearchQueryPerformed(searchQuery: string): void {
-       this.performArtistSearch(searchQuery);
+       this.getArtistManualSubscription = this._spotifyService.getArtists(searchQuery)
+       .subscribe(
+           searchedArtists => {
+               this.selectArtist(searchedArtists[0]);
+               this.initialiseArtistSearch();
+            },
+           error => this.onArtistSearchError(error)
+        );
     }
 
-    onArtistSearchResultSelected(artistName: string): void {
-        this.performArtistSearch(artistName);
+    onArtistSearchResultSelected(artist: IArtist): void {
+        this.selectArtist(artist);
+        this.initialiseArtistSearch();
      }
 
-    onRelatedArtistClickedEvent(relatedArtistName: string): void {
-        this.performArtistSearch(relatedArtistName);
+    onRelatedArtistClickedEvent(artist: IArtist): void {
+        this.selectArtist(artist);
+        this.initialiseArtistSearch();
     }
 
-    performArtistSearch(artistSearchTerm: string): void {
-        this.artistSearchResults = [];
-        this.artistSearchValue = artistSearchTerm;
-        this.getArtistSubscription = this.getArtists(this.artistSearchValue)
-        .subscribe(
-            searchedArtists => this.setArtists(searchedArtists),
-            error => this.onArtistSearchError(error)
-        );
-    }
-
-    getArtists(artistSearchTerm: string): Observable<IArtist[]> {
-        if (!artistSearchTerm) {
-            this.artistSearchResults = [];
+    selectArtist(artist: IArtist): void {
+        if (artist != null) {
+            this.artistSearchValue = artist.name;
+            this.selectedArtist = artist;
+            this.relatedArtistsSubject.next(artist.id);
         }
-        return this._spotifyService.getArtists(artistSearchTerm);
-    }
-
-    setArtists(searchedArtists: IArtist[]): void {
-        if (searchedArtists.length >= 1) {
-            this.selectedArtist = searchedArtists[0];
-            this.getRelatedArtists();
-        }
-    }
-
-    getRelatedArtists(): void {
-        this.relatedArtists$ = this._spotifyService.getRelatedArtists(this.selectedArtist.id)
-        .pipe(
-            catchError(error => this.onRelatedArtistSearchError(error))
-        );
     }
 
     onArtistSearchError(error: any): Observable<never> {
