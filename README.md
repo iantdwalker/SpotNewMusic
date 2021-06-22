@@ -2,8 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
-V1.1 Features:
+# Version History
+v1.2:
+-General: Deploy client and server to a cloud native environment (GCP)
+-General: RxJs improvements
+-Search Results UI/UX: Display message if no results are found
+-Searching: Fine tuneed the filtered artist search
+-Searching: Modified search bar to use a paged results list on each key press
+-Searching: Now uses a stock template image for broken/null artist image links
+-Searching: Add 'genre unknown' label to artists without any genres
+-Searching: BUG: Genres can no longer overlap artist name
+-Searching/Search Results UI/UX: BUG: Artists without related artists no longer leave previous results on display
+-Searching: BUG: broken artist selection fixed
+-Searching: Ensure duplicate search results are not added to the search results list
 
+v1.1:
 -Spotify access token is now requested and granted automatically without need for button click  
 -Spotify access token expiry is shown via an on-screen count down  
 -Spotify access token text is now responsive and better sized  
@@ -16,8 +29,7 @@ V1.1 Features:
 -Split up the Angular components more logically  
 -General code refactoring/tidy ups
 
-V1.0 Features:
-
+v1.0:
 -Create a Spotify session using the authentication API that issues an active token.  
 -Search for artists using exact match search term.  
 -The artist search result and their related artists are displayed below the search bar.  
