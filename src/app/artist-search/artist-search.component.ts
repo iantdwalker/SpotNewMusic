@@ -1,6 +1,6 @@
 import { Component, OnDestroy, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { SpotifyService } from '../shared/services/spotify.service';
-import { IArtist } from '../shared/model/Artist/artist';
+import { SpotifyService } from '@app/shared/services/spotify.service';
+import { IArtist } from '@app/shared/model/Artist/artist';
 import { Subscription, Observable, EMPTY, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, catchError, tap, switchMap, map } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
