@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "rootDir": "src",
     "baseUrl": ".",
     "paths": {
       "@app/*": ["src/app/*"],
