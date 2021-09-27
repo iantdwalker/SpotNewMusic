@@ -11,8 +11,12 @@ import { IArtist } from '../model/Artist/artist';
     providedIn: 'root'
 })
 export class SpotifyService {
-    /* _clientCredentialsAccessTokenUrl = 'http://localhost:8888/clientCredentialsAccessToken'; */
-    _clientCredentialsAccessTokenUrl = 'https://spotnewmusic-266315.appspot.com/clientCredentialsAccessToken';
+    /* Spot New Music Node Server API (Local) */
+    _clientCredentialsAccessTokenUrl = 'http://localhost:8888/clientCredentialsAccessToken';
+
+    /* Spot New Music Node Server API (Google Cloud) */
+    /* _clientCredentialsAccessTokenUrl = 'https://spotnewmusic-266315.appspot.com/clientCredentialsAccessToken'; */
+
     _spotifyAccessToken: ISpotifyAccessToken;
     _spotifySearchUrl = 'https://api.spotify.com/v1/search';
     _spotifyRelatedArtistsUrl = 'https://api.spotify.com/v1/artists/{id}/related-artists';
