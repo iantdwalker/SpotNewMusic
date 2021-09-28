@@ -6,10 +6,9 @@
     "paths": {
       "@app/*": ["src/app/*"],
       "@assets/*": ["src/assets/*"],
-      "@e2e/*": ["src/e2e/*"],
       "@environments/*": ["src/environments/*"]
     },
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist/SpotNewMusic",
     "sourceMap": true,
     "declaration": false,
     "module": "es2015",
