@@ -6,6 +6,7 @@
     "paths": {
       "@app/*": ["src/app/*"],
       "@assets/*": ["src/assets/*"],
+      "@e2e/*": ["src/e2e/*"],
       "@environments/*": ["src/environments/*"]
     },
     "outDir": "./dist/out-tsc",
@@ -24,9 +25,5 @@
       "es2018",
       "dom"
     ]
-  },
-  "include": [
-    "src",
-    "src/**/*.ts"
-  ]
+  }
 }
