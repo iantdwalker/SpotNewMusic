@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { IArtist } from 'src/app/shared/model/artist/artist';
+import { IArtist } from '@artist/artist';
 
 @Component ({
     selector: 'app-artist',

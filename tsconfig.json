@@ -1,10 +1,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": "src",
     "baseUrl": ".",
     "paths": {
       "@app/*": ["src/app/*"],
+      "@artist/*": ["src/app/shared/model/artist/*"],
       "@assets/*": ["src/assets/*"],
       "@environments/*": ["src/environments/*"]
     },
