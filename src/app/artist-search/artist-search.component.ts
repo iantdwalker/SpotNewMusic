@@ -7,8 +7,8 @@ import { FormControl } from '@angular/forms';
 
 @Component ({
     selector: 'app-artist-search',
-    templateUrl: '@app/artist-search.component.html',
-    styleUrls: ['@app/artist-search.component.css']
+    templateUrl: './artist-search.component.html',
+    styleUrls: ['./artist-search.component.css']
 })
 export class ArtistSearchComponent implements OnInit, OnDestroy {
     @Input() spotifyAccessTokenGranted = false;

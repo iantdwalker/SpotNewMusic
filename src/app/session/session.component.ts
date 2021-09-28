@@ -5,8 +5,8 @@ import { Subscription } from 'rxjs';
 
 @Component ({
     selector: 'app-session',
-    templateUrl: '@app/session.component.html',
-    styleUrls: ['@app/session.component.css']
+    templateUrl: './session.component.html',
+    styleUrls: ['./session.component.css']
 })
 export class SessionComponent implements OnInit, OnDestroy {
     accessTokenNotGrantedMessage = 'Spotify access token has expired or could not be granted';

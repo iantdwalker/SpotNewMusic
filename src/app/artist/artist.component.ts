@@ -3,8 +3,8 @@ import { IArtist } from '@app/shared/model/artist/artist';
 
 @Component ({
     selector: 'app-artist',
-    templateUrl: '@app/artist.component.html',
-    styleUrls: ['@app/artist.component.css']
+    templateUrl: './artist.component.html',
+    styleUrls: ['./artist.component.css']
 })
 export class ArtistComponent {
     @Input() artist: IArtist;
