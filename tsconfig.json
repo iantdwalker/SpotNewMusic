@@ -4,11 +4,10 @@
     "baseUrl": ".",
     "paths": {
       "@app/*": ["src/app/*"],
-      "@artist/*": ["src/app/shared/model/artist/*"],
       "@assets/*": ["src/assets/*"],
       "@environments/*": ["src/environments/*"]
     },
-    "outDir": "./dist/SpotNewMusic",
+    "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "module": "es2015",
