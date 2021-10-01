@@ -1,5 +1,5 @@
-import { IArtist } from './artist';
+import { Artist } from './artist';
 
 export interface IRelatedArtists {
-    artists: Array<IArtist>;
+    artists: Array<Artist>;
 }
