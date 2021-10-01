@@ -2,7 +2,7 @@ import { IExternalUrl } from './externalUrl';
 import { IFollower } from './follower';
 import { IImage } from './image';
 
-export class Artist {
+export interface Artist {
     external_urls: IExternalUrl;
     followers: IFollower;
     genres: Array<string>;
