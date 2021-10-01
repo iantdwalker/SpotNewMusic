@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
-import { ISpotifyAccessToken } from '../model/Authentication/spotifyAccessToken';
-import { ISearchedArtists } from '../model/Artist/searchedArtists';
-import { IRelatedArtists } from '../model/Artist/relatedArtists';
-import { IArtist } from '../model/Artist/artist';
+import { ISpotifyAccessToken } from '../model/authentication/spotifyAccessToken';
+import { ISearchedArtists } from '../model/artist/searchedArtists';
+import { IRelatedArtists } from '../model/artist/relatedArtists';
+import { IArtist } from '../model/artist/artist';
 @Injectable({
     providedIn: 'root'
 })

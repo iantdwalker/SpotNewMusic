@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
-import { ISpotifyAccessToken } from '../shared/model/Authentication/spotifyAccessToken';
+import { ISpotifyAccessToken } from '../shared/model/authentication/spotifyAccessToken';
 import { SpotifyService } from '../shared/services/spotify.service';
 import { Subscription } from 'rxjs';
 
