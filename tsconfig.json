@@ -2,6 +2,20 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@components/*": ["src/app/components/*"],
+      "@artist/*": ["src/app/components/artist/*"],
+      "@artist-search/*": ["src/app/components/artist-search/*"],
+      "@heading/*": ["src/app/components/heading/*"],
+      "@session/*": ["src/app/components/session/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@models/*": ["src/app/shared/models/*"],
+      "@pipes/*": ["src/app/shared/pipes/*"],
+      "@services/*": ["src/app/shared/services/*"],
+      "@assets/*": ["src/assets/*"],
+      "@environments/*": ["src/environments/*"]
+    },
     "downlevelIteration": true,
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
