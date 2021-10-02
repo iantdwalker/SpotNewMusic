@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
-import { ISpotifyAccessToken } from '../model/authentication/spotifyAccessToken';
-import { ISearchedArtists } from '../model/artist/searchedArtists';
-import { IRelatedArtists } from '../model/artist/relatedArtists';
-import { Artist } from '../model/artist/artist';
+import { ISpotifyAccessToken } from '../models/authentication/spotify-access-token';
+import { ISearchedArtists } from '../models/artist/searched-artists';
+import { IRelatedArtists } from '../models/artist/related-artists';
+import { IArtist } from '../models/artist/artist';
 @Injectable({
     providedIn: 'root'
 })
@@ -31,7 +31,7 @@ export class SpotifyService {
         );
     }
 
-    getArtists(artistSearchTerm: string): Observable<Artist[]> {
+    getArtists(artistSearchTerm: string): Observable<IArtist[]> {
         artistSearchTerm = artistSearchTerm.trim();
         const httpParams = new HttpParams()
             .set('q', artistSearchTerm)
@@ -51,7 +51,7 @@ export class SpotifyService {
         );
     }
 
-    getRelatedArtists(artistId: string): Observable<Artist[]> {
+    getRelatedArtists(artistId: string): Observable<IArtist[]> {
         artistId = artistId.trim();
         const getRelatedArtistsUrl = this._spotifyRelatedArtistsUrl.replace('{id}', artistId);
         const httpHeaders = new HttpHeaders()

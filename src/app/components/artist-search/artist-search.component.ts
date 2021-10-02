@@ -1,6 +1,6 @@
 import { Component, OnDestroy, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { SpotifyService } from '../shared/services/spotify.service';
-import { Artist } from '../shared/model/artist/artist';
+import { SpotifyService } from '../../shared/services/spotify-service';
+import { IArtist } from '../../shared/models/artist/artist';
 import { Subscription, Observable, EMPTY, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, catchError, tap, switchMap, map } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
@@ -14,10 +14,10 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     @Input() spotifyAccessTokenGranted = false;
     artistSearchValue: string;
     errorMessage: string;
-    selectedArtist: Artist;
+    selectedArtist: IArtist;
     canSearch = false;
-    relatedArtists$: Observable<Artist[]>;
-    artistSearchResults$: Observable<Artist[]>;
+    relatedArtists$: Observable<IArtist[]>;
+    artistSearchResults$: Observable<IArtist[]>;
     artistSearchResultsSubject = new Subject<string>();
     relatedArtistsSubject = new Subject<string>();
     getArtistManualSubscription: Subscription;
@@ -73,17 +73,17 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
         );
     }
 
-    onArtistSearchResultSelected(artist: Artist): void {
+    onArtistSearchResultSelected(artist: IArtist): void {
         this.selectArtist(artist);
         this.initialiseArtistSearch();
      }
 
-    onRelatedArtistClickedEvent(artist: Artist): void {
+    onRelatedArtistClickedEvent(artist: IArtist): void {
         this.selectArtist(artist);
         this.initialiseArtistSearch();
     }
 
-    selectArtist(artist: Artist): void {
+    selectArtist(artist: IArtist): void {
         if (artist != null) {
             this.artistSearchValue = artist.name;
             this.selectedArtist = artist;

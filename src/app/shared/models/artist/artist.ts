@@ -1,8 +1,8 @@
-import { IExternalUrl } from './externalUrl';
+import { IExternalUrl } from './external-url';
 import { IFollower } from './follower';
 import { IImage } from './image';
 
-export interface Artist {
+export interface IArtist {
     external_urls: IExternalUrl;
     followers: IFollower;
     genres: Array<string>;

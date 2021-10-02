@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Artist } from '../shared/model/artist/artist';
+import { IArtist } from '../../shared/models/artist/artist';
 
 @Component ({
     selector: 'app-artist',
@@ -7,9 +7,9 @@ import { Artist } from '../shared/model/artist/artist';
     styleUrls: ['./artist.component.css']
 })
 export class ArtistComponent {
-    @Input() artist: Artist;
+    @Input() artist: IArtist;
     @Input() showLargeArtistImage: boolean;
-    @Output() notifyArtistClicked: EventEmitter<Artist> = new EventEmitter<Artist>();
+    @Output() notifyArtistClicked: EventEmitter<IArtist> = new EventEmitter<IArtist>();
     artistPlaceholderImageUrl = 'assets/images/artistPlaceholder.png';
 
     onArtistClicked(): void {

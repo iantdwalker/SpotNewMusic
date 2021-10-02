@@ -1,8 +1,8 @@
-import { Artist } from './artist';
+import { IArtist } from './artist';
 
 export interface IArtists {
     href: string;
-    items: Array<Artist>;
+    items: Array<IArtist>;
     limit: number;
     next: string;
     offset: number;
