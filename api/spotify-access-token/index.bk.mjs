@@ -1,8 +1,8 @@
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-    context.log('azure function runtime version: ' + process.env.FUNCTIONS_EXTENSION_VERSION);
-    context.log('node js runtime version: ' + process.env.WEBSITE_NODE_DEFAULT_VERSION);
-    /* const encodedClientValue = Buffer.from(process.env.clientId + ':' + process.env.clientSecret).toString('base64');    
+import fetch from 'node-fetch';
+
+export default async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');    
+    const encodedClientValue = Buffer.from(process.env.clientId + ':' + process.env.clientSecret).toString('base64');    
     
     try {
         const response = await fetch(process.env.spotifyRequestTokenUrl, {
@@ -26,7 +26,7 @@ module.exports = async function (context, req) {
                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'
             }); */
         
-            /*context.res = { status: response.status, body: data };
+            context.res = { status: response.status, body: data };
         } else {
             context.log('Spotify clientCredentialsAccessToken fetch error. response.status is not ok: ' + response.status);
             context.res = { status: response.status };
@@ -34,5 +34,5 @@ module.exports = async function (context, req) {
     }
     catch (error) {
         context.log('Spotify clientCredentialsAccessToken fetch error: ' + error);
-    } */
+    }
 }
