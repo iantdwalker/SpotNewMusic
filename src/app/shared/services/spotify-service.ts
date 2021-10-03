@@ -10,11 +10,14 @@ import { IArtist } from '@models/artist/artist';
     providedIn: 'root'
 })
 export class SpotifyService {
-    /* Spot New Music Node Server API (Local) */
-    _clientCredentialsAccessTokenUrl = 'http://localhost:8888/clientCredentialsAccessToken';
+    // Spot New Music Node Server API (Local):
+    //_clientCredentialsAccessTokenUrl = 'http://localhost:8888/clientCredentialsAccessToken';
 
-    /* Spot New Music Node Server API (Google Cloud) */
-    /* _clientCredentialsAccessTokenUrl = 'https://spotnewmusic-266315.appspot.com/clientCredentialsAccessToken'; */
+    //Spot New Music Node Server API (Google Cloud)
+    //_clientCredentialsAccessTokenUrl = 'https://spotnewmusic-266315.appspot.com/clientCredentialsAccessToken';
+    
+    //Spot New Music Node Serverless API (Azure Function app embedded):
+    _clientCredentialsAccessTokenUrl = '/api/spotify-access-token';
 
     _spotifyAccessToken: ISpotifyAccessToken;
     _spotifySearchUrl = 'https://api.spotify.com/v1/search';

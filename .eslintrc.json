@@ -40,6 +40,31 @@
     },
     {
       "files": [
+        "*.js"
+      ],
+      "env": {
+        "node": true,
+        "es6": true
+      },
+      "parserOptions": {
+        "ecmaVersion": 8
+      }
+    },
+    {
+      "files": [
+        "*.mjs"
+      ],
+      "env": {
+        "node": true,
+        "es6": true
+      },
+      "parserOptions": {
+        "ecmaVersion": 8,
+        "sourceType": "module"
+      }
+    },
+    {
+      "files": [
         "*.html"
       ],
       "extends": [
