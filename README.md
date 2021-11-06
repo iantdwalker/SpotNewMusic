@@ -1,3 +1,5 @@
+An Angular SPA that will help to discover new music artists and genres using the public Spotify web API. Still in active development as of October 2021.
+
 # SpotNewMusic
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
