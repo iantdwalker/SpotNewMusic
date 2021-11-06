@@ -1,4 +1,4 @@
-An Angular SPA that will help to discover new music artists and genres using the public Spotify web API. Still in active development as of October 2021.
+An Angular SPA started in 2019 that will help to discover new music artists and genres using the public Spotify web API. Still in active development.
 
 # SpotNewMusic
 
