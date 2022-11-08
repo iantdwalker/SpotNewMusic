@@ -26,7 +26,7 @@ v2.1 - 08/11/2022:
 -Converted Azure Managed Function embedded API to an ESM module for Node.js v16  
 -Updated Microsoft Azure Static Web App Node.js runtime to v16 for Client and API
 
-v2.0 - 08/11/2022:  
+v2.0 - 06/11/2021 (tagged 08/11/2022):  
 -Migrate from Google Cloud to Microsoft Azure Static Web App  
 -Replace SpotNewMusic-Server with Microsoft Azure Managed Function embedded API  
 -Non-functional code path improvements  
@@ -46,7 +46,7 @@ v1.2 - 22/06/2021:
 -Searching: BUG: broken artist selection fixed  
 -Searching: Ensure duplicate search results are not added to the search results list
 
-v1.1 - 23/10/2019:  
+v1.1 - 14/10/2019:  
 -Spotify access token is now requested and granted automatically without need for button click  
 -Spotify access token expiry is shown via an on-screen count down  
 -Spotify access token text is now responsive and better sized  
