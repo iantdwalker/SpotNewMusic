@@ -23,12 +23,12 @@ export default async function (context, req) {
             const data = await response.json();
             context.log('Spotify Client Credentials Token Response OK: ' + response.status + ': Token Data: ' + JSON.stringify(data));
 
-            // headers for CORS - does not seem to be required via Azure Function api
-            /* context.res.set({
+            // headers for CORS
+            context.res.set({
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Content-type',
                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'
-            }); */
+            });
 
             context.res = { status: response.status, body: data };
         } else {
