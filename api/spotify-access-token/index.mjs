@@ -1,9 +1,13 @@
+// ESM module format for use with Azure managed Functions on Node.js v16
 import fetch from 'node-fetch';
 
 export default async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');    
-    const encodedClientValue = Buffer.from(process.env.clientId + ':' + process.env.clientSecret).toString('base64');    
-    
+    context.log('JavaScript HTTP trigger function processed a request.');
+    context.log('Azure function runtime version: ' + process.env.FUNCTIONS_EXTENSION_VERSION);
+    context.log('Node js runtime version: ' + process.env.WEBSITE_NODE_DEFAULT_VERSION);
+
+    const encodedClientValue = Buffer.from(process.env.clientId + ':' + process.env.clientSecret).toString('base64');
+
     try {
         const response = await fetch(process.env.spotifyRequestTokenUrl, {
             method: 'POST',
@@ -14,19 +18,24 @@ export default async function (context, req) {
             body: 'grant_type=client_credentials'
         });
 
+        // response.ok is within the 200 range
         if (response.ok) {
-            // response.status >= 200 && response.status < 300
             const data = await response.json();
-            context.log('Spotify Client Credentials Token Response OK: ' + response.status + ' Token Data: ' + JSON.stringify(data));
+            context.log('Spotify Client Credentials Token Response OK: ' + response.status + ': Token Data: ' + JSON.stringify(data));
 
-            // headers for CORS - does not seem to be required via Azure Function api
+            // headers for CORS
             /* context.res.set({
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Content-type',
                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'
             }); */
-        
-            context.res = { status: response.status, body: data };
+
+            context.res = {
+                // status: 200, /* Defaults to 200 */
+                body: data
+            };
+
+            // context.res = { status: response.status, body: data };
         } else {
             context.log('Spotify clientCredentialsAccessToken fetch error. response.status is not ok: ' + response.status);
             context.res = { status: response.status };
