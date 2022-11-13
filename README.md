@@ -24,7 +24,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Version History
 v2.2 - 13/11/2022:  
--Updated @angular-eslint/* packages to v14
+-Updated all other npm packages to their latst versions and removed redundant packages  
+-Updated @angular-eslint/* packages to v14  
 -Updated to Angular (v14)  
 -Updated to Angular (v13) and Typescript (4.6.4)  
 

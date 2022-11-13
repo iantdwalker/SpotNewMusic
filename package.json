@@ -21,13 +21,9 @@
     "@angular/platform-browser": "^14.2.10",
     "@angular/platform-browser-dynamic": "^14.2.10",
     "@angular/router": "^14.2.10",
-    "bootstrap": "^4.2.1",
-    "core-js": "^2.5.4",
-    "jquery": "^3.3.1",
-    "popper.js": "^1.14.7",
-    "rxjs": "~6.6.7",
-    "tslib": "^2.0.0",
-    "zone.js": "~0.11.4"
+    "bootstrap": "^5.2.2",
+    "rxjs": "^7.5.7",
+    "zone.js": "^0.12.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.9",
@@ -44,7 +40,6 @@
     "@types/node": "^16.08.1",
     "@typescript-eslint/eslint-plugin": "5.37.0",
     "@typescript-eslint/parser": "5.37.0",
-    "codelyzer": "^6.0.0",
     "eslint": "^8.23.1",
     "jasmine-core": "^3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
