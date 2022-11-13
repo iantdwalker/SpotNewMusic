@@ -24,26 +24,27 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Version History
 v2.2 - 13/11/2022:  
--Updated Angular (v14) to latest version  
--Updated Angular (v13) and Typescript (4.6.4) to latest versions  
+-Updated @angular-eslint/* packages to v14
+-Updated to Angular (v14)  
+-Updated to Angular (v13) and Typescript (4.6.4)  
 
 v2.1 - 08/11/2022:  
--Created a SWA preview environment for the GitHub development branch  
+-Created a Microsoft Azure Static Web App preview environment for the GitHub development branch  
 -Converted Azure Managed Function embedded API to an ESM module for Node.js v16  
 -Updated Microsoft Azure Static Web App Node.js runtime to v16 for Client and API
 
 v2.0 - 06/11/2021 (tagged 08/11/2022):  
--Migrate from Google Cloud to Microsoft Azure Static Web App  
--Replace SpotNewMusic-Server with Microsoft Azure Managed Function embedded API  
+-Migrated from Google Cloud to a Microsoft Azure Static Web App  
+-Replaced SpotNewMusic-Server API with a Microsoft Azure Managed Function embedded API  
 -Non-functional code path improvements  
--Updated Angular (v12) and Typescript (4.3.5) to latest versions  
--Migrate from TSLint to ESLint
+-Updated to Angular (v12) and Typescript (4.3.5)  
+-Migrated from TSLint to ESLint
 
 v1.2 - 22/06/2021:  
--General: Deploy client and server to a cloud native environment (GCP)  
+-General: Deployed client and server to a cloud native environment (GCP)  
 -General: RxJs improvements  
 -Search Results UI/UX: Display message if no results are found  
--Searching: Fine tuneed the filtered artist search  
+-Searching: Fine tuned the filtered artist search  
 -Searching: Modified search bar to use a paged results list on each key press  
 -Searching: Now uses a stock template image for broken/null artist image links  
 -Searching: Add 'genre unknown' label to artists without any genres  
@@ -66,10 +67,10 @@ v1.1 - 14/10/2019:
 -General code refactoring/tidy ups
 
 v1.0 - 06/07/2019:  
--Create a Spotify session using the authentication API that issues an active token.  
+-Created a Spotify session using the authentication API that issues an active token.  
 -Search for artists using exact match search term.  
 -The artist search result and their related artists are displayed below the search bar.  
--Artist information displaye includes the artist name, popularity rating and list of genres.  
+-Artist information display includes the artist name, popularity rating and list of genres.  
 -Clicking on an artist sets that artist as the selected artist and displays their related artists.
 
 ## Development server
