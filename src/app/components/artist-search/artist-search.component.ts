@@ -3,7 +3,7 @@ import { SpotifyService } from '@services/spotify-service';
 import { IArtist } from '@models/artist/artist';
 import { Subscription, Observable, EMPTY, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, catchError, tap, switchMap, map } from 'rxjs/operators';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component ({
     selector: 'app-artist-search',
@@ -21,7 +21,7 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     artistSearchResultsSubject = new Subject<string>();
     relatedArtistsSubject = new Subject<string>();
     getArtistManualSubscription: Subscription;
-    artistSearchbarInputFormControl: FormControl = new FormControl();
+    artistSearchbarInputFormControl: UntypedFormControl = new UntypedFormControl();
     noRelatedArtistsMessage = 'No related artists found.';
     artistPlaceholderImageUrl = 'assets/images/artistPlaceholder.png';
     genresUnknown = 'genre(s) unknown';
