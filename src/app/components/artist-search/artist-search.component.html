@@ -1,5 +1,5 @@
 <!--Artist Search-->
-<div class="row artist-search-row">        
+<div class="row artist-search-row">
     <div class="col-3 mtb-2"></div>
     <div class="col-6 mtb-2">
         <div class="artist-search-wrapper">
@@ -10,7 +10,7 @@
                     #artistSearchbarInput (keyup.enter)="onArtistSearchQueryPerformed(artistSearchbarInput.value)"
                     placeholder="Search for artists..."
                     aria-label="Artist Search"
-                    value="{{artistSearchValue}}"                            
+                    value="{{artistSearchValue}}"
                     [disabled]="!spotifyAccessTokenGranted"
                     tabindex="0"
                     autofocus />
@@ -38,7 +38,7 @@
                                         <label class="artist-searchbar-results-artistName">
                                             {{artistSearchResult.name}}
                                         </label>
-                                    </div>                                
+                                    </div>
                                 </div>
                                 <div class="row artist-searchbar-results-artistGenres-row">
                                     <div class="col-12">
@@ -51,11 +51,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                        
+                    </div>
                 </li>
-            </ul>                            
-        </div>        
-    </div>    
+            </ul>
+        </div>
+    </div>
     <div class="col-3 mtb-2"></div>
 </div>
 
