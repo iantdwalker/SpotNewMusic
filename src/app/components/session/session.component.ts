@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 @Component ({
     selector: 'app-session',
     templateUrl: './session.component.html',
-    styleUrls: ['./session.component.css']
+    styleUrls: ['./session.component.scss']
 })
 export class SessionComponent implements OnInit, OnDestroy {
     accessTokenNotGrantedMessage = 'Spotify api access not authorized';
