@@ -1,13 +1,11 @@
 {
   "name": "spot-new-music",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "scripts": {
     "ng": "ng",
     "lint": "ng lint",
     "build": "ng build --configuration production",
     "lbuild": "npm run lint && npm run build",
-    "test": "ng test",
-    "e2e": "ng e2e",
     "start": "ng serve -o",
     "swa": "swa start http://localhost:4200/ --api-location ./api",
     "swa-only": "swa start dist/SpotNewMusic --api-location ./api"
@@ -22,6 +20,7 @@
     "@angular/platform-browser": "^14.2.10",
     "@angular/platform-browser-dynamic": "^14.2.10",
     "@angular/router": "^14.2.10",
+    "@ng-bootstrap/ng-bootstrap": "^13.1.0",
     "bootstrap": "^5.2.2",
     "rxjs": "^7.5.7",
     "zone.js": "^0.12.0"
