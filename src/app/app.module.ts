@@ -12,6 +12,7 @@ import { ArtistComponent } from '@artist/artist.component';
 import { ReplaceValuePipe } from '@pipes/replace-value-pipe';
 import { LimitItemsPipe } from '@pipes/limit-items-pipe';
 import { HeadingComponent } from '@heading/heading.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HeadingComponent } from '@heading/heading.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
     AppRoutingModule
   ],
   providers: [],
