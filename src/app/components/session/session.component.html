@@ -1,6 +1,6 @@
-<div class="row h-100">
-    <div class="col-12 mtb-2 txt-box align-self-center justify-content-center" *ngIf="spotifyAccessTokenGranted === false">
-        <div class="font-italic text-danger">
+<div class="row">
+    <div class="col access-denied" *ngIf="spotifyAccessTokenGranted === false">
+        <div class="text-danger">
             {{accessTokenNotGrantedMessage}}
         </div>
     </div>

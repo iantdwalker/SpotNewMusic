@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
     styleUrls: ['./session.component.scss']
 })
 export class SessionComponent implements OnInit, OnDestroy {
-    accessTokenNotGrantedMessage = 'Spotify api access not authorized';
+    accessTokenNotGrantedMessage = 'Spotify api access not authorized - search disabled';
     spotifyAccessToken: ISpotifyAccessToken;
     spotifyAccessTokenGranted: boolean;
     errorMessage: string;
