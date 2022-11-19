@@ -1,14 +1,26 @@
-<div class="row h-100">
-    <div class="col-12 mtb-2">
-        <div class="row h-100 align-items-center">
-            <div class="col-2">              
-                <img class="img-fluid" alt="Spotify Logo" src="assets/images/spotify.svg">              
-            </div>
-            <div class="col-10 text-light no-padding">
-                <div class="responsive-heading">
-                    Spot New Music                
-                </div>
-            </div>            
-        </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <img src="assets/images/spotify.svg" alt="Spotify Logo" width="60" height="60" class="d-inline-block align-text-top me-lg-2">
+    <h1 class="text-light me-lg-2 heading-font">Spot New Music</h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-2 mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort Artists
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Alphabetically</a></li>
+            <li><a class="dropdown-item" href="#">By Popularity</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!-- <form class="d-flex" role="search">
+        <input class="form-control me-2 flex-lg-fill" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> -->
     </div>
-</div>
+  </div>
+</nav>
