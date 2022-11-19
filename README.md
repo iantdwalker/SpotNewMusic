@@ -25,10 +25,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Version History
 v3.0 - TBD:  
+-Changed the session token message handling, its position on screen and the wording  
+-Restructured the header component to utilise a responsive nav-bar for the image logo, heading and any future options  
 -Changed from using basic css to scss  
 -Removed all spec and e2e test source files, config files and packages  
 -Updated browser tab icon to the Spotify icon  
--Changed the session token message handling  
 
 v2.2 - 13/11/2022:  
 -Updated all other npm packages to their latst versions and removed redundant packages  
