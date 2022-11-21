@@ -7,6 +7,7 @@
       "@components/*": ["src/app/components/*"],
       "@artist/*": ["src/app/components/artist/*"],
       "@artist-search/*": ["src/app/components/artist-search/*"],
+      "@artist-search-results/*": ["src/app/components/artist-search-results/*"],
       "@heading/*": ["src/app/components/heading/*"],
       "@session/*": ["src/app/components/session/*"],
       "@shared/*": ["src/app/shared/*"],

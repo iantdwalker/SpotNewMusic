@@ -15,14 +15,11 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     artistSearchValue: string;
     errorMessage: string;
     selectedArtist: IArtist;
-    canSearch = false;
-    relatedArtists$: Observable<IArtist[]>;
     artistSearchResults$: Observable<IArtist[]>;
     artistSearchResultsSubject = new Subject<string>();
     relatedArtistsSubject = new Subject<string>();
     getArtistManualSubscription: Subscription;
     artistSearchbarInputFormControl: UntypedFormControl = new UntypedFormControl();
-    noRelatedArtistsMessage = 'No related artists found.';
     artistPlaceholderImageUrl = 'assets/images/artistPlaceholder.png';
     genresUnknown = 'genre(s) unknown';
 
@@ -31,8 +28,6 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.initialiseArtistSearch();
-        this.initialiseRelatedArtistSearch();
-
         this.artistSearchbarInputFormControl.valueChanges.pipe(
             debounceTime(200),
             distinctUntilChanged()
@@ -46,14 +41,6 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
         this.artistSearchResults$ = this.artistSearchResultsSubject.pipe(
             switchMap(artistSearchTerm => this._spotifyService.getArtists(artistSearchTerm).pipe(
                 catchError(error => this.onArtistSearchError(error))
-            )
-        ));
-    }
-
-    initialiseRelatedArtistSearch(): void {
-        this.relatedArtists$ = this.relatedArtistsSubject.pipe(
-            switchMap(artistId => this._spotifyService.getRelatedArtists(artistId).pipe(
-                catchError(error => this.onRelatedArtistSearchError(error))
             )
         ));
     }
@@ -94,12 +81,6 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     onArtistSearchError(error: any): Observable<never> {
         this.errorMessage = <any>error;
         console.log('Artist Search ERROR: ' + this.errorMessage);
-        return EMPTY;
-    }
-
-    onRelatedArtistSearchError(error: any): Observable<never> {
-        this.errorMessage = <any>error;
-        console.log('Related Artist Search ERROR: ' + this.errorMessage);
         return EMPTY;
     }
 }

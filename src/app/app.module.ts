@@ -12,6 +12,7 @@ import { ReplaceValuePipe } from '@pipes/replace-value-pipe';
 import { LimitItemsPipe } from '@pipes/limit-items-pipe';
 import { HeadingComponent } from '@heading/heading.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ArtistSearchResultsComponent } from '@artist-search-results/artist-search-results.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ArtistComponent,
     ReplaceValuePipe,
     LimitItemsPipe,
-    HeadingComponent
+    HeadingComponent,
+    ArtistSearchResultsComponent
   ],
   imports: [
     BrowserModule,
