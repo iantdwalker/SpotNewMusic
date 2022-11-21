@@ -8,7 +8,8 @@ The project is currently deployed as a Microsoft Azure Static Web App with an em
 -Install Azure Functions Core Tools v4  
 -Run: npm install  
 -Run: npm run build  
--Run: swa start dist/SpotNewMusic --api-location ./api
+-Run: npm run start to begin Angular project on http://localhost:4200 with hot refresh enabled  
+-Run: npm run swa  
 
 # Update History
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
@@ -23,6 +24,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 -30/09/2021 - Updated from Angular v7.2 to v8.2 and from Typescript v3.2.2 to v3.5.3  
 
 # Version History
+v3.0 - TBD:  
+-Changed the session token message handling, its position on screen and the wording  
+-Restructured the header component to utilise a responsive nav-bar for the image logo, heading and any future options  
+-Changed from using basic css to scss  
+-Removed all spec and e2e test source files, config files and packages  
+-Updated browser tab icon to the Spotify icon  
+
 v2.2 - 13/11/2022:  
 -Updated all other npm packages to their latst versions and removed redundant packages  
 -Updated @angular-eslint/* packages to v14  
@@ -88,10 +96,12 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
+!!Removed as of Spot New Music v3.0!!  
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests
 
+!!Removed as of Spot New Music v3.0!!  
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help

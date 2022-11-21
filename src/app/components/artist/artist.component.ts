@@ -4,7 +4,7 @@ import { IArtist } from '@models/artist/artist';
 @Component ({
     selector: 'app-artist',
     templateUrl: './artist.component.html',
-    styleUrls: ['./artist.component.css']
+    styleUrls: ['./artist.component.scss']
 })
 export class ArtistComponent {
     @Input() artist: IArtist;

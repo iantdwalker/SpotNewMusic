@@ -107,14 +107,6 @@
   color: gray;  
  }
 
- .no-results-message {
-   font-size: 1vw;
-   text-align: left;
-   color: grey;
-   margin-top: 15px;
-   margin-left: 25px;
- }
-
 /* clears the text input field's 'X' button from Internet Explorer */
 input[type=text]::-ms-clear { display: none; width: 0; height: 0; }
 input[type=text]::-ms-reveal { display: none; width: 0; height: 0; }

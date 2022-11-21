@@ -1,4 +1,4 @@
-<div class="container-fluid h-100 app-component-container">
+<!-- <div class="container-fluid h-100 app-component-container">
   <div class="row h-100">
     <div class="col-12 d-flex flex-column h-100 app-component-column">
       <div class="row top-selector">
@@ -18,6 +18,18 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<app-heading></app-heading>
+<div class="container-fluid">
+  <app-session (notifySpotifyAccessTokenGranted)='onNotifySpotifyAccessTokenGranted($event)'></app-session>
+  <!-- <div class="row">
+    <form class="col" role="search">
+      <input class="form-control" type="search" placeholder="Search for artists..." aria-label="Artist Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div> -->
+  <app-artist-search [spotifyAccessTokenGranted]='spotifyAccessTokenGranted'></app-artist-search>
 </div>
 
 <router-outlet></router-outlet>
