@@ -2,62 +2,61 @@
 <div class="row artist-search-row">
     <div class="col-md-2 col-lg-2 col-xl-3 mtb-2"></div>
     <div class="col-md-8 col-lg-8 col-xl-6 mtb-2">
-        <div class="artist-search-wrapper">
-            <div class="artist-searchbar-wrapper">
-                <input class="artist-searchbar-input"
-                    [formControl]="artistSearchbarInputFormControl"
-                    type="text"
-                    #artistSearchbarInput (keyup.enter)="onArtistSearchQueryPerformed(artistSearchbarInput.value)"
-                    placeholder="Search for artists..."
-                    aria-label="Artist Search"
-                    value="{{artistSearchValue}}"
-                    [disabled]="!spotifyAccessTokenGranted"
-                    tabindex="0"
-                    autofocus />
-                <div class="artist-searchbar-icon fas fa-search"
-                    (click)="onArtistSearchQueryPerformed(artistSearchbarInput.value)">
-                </div>
-            </div>
-            <ul class="artist-searchbar-results" *ngIf="artistSearchResults$ | async as artistSearchResults">
-                <li class="artist-searchbar-results-listitem"
-                    *ngFor="let artistSearchResult of artistSearchResults"
-                    (click)="onArtistSearchResultSelected(artistSearchResult)"
-                    (keyup.enter)="onArtistSearchResultSelected(artistSearchResult)"
-                    tabindex="0">
-                    <div class="container no-gutters">
-                        <div class="row">
-                            <div class="col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 artist-searchbar-results-image-col">
-                                <img class="rounded img-fluid w-100 h-100 float-right artist-searchbar-results-image"
-                                    src="{{artistSearchResult.images[2] ?
-                                        artistSearchResult.images[2].url : artistPlaceholderImageUrl}}"
-                                    alt="Artist Image">
-                            </div>
-                            <div class="col-10 col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
-                                <div class="row artist-searchbar-results-artistName-row">
-                                    <div class="col-12">
-                                        <label class="artist-searchbar-results-artistName">
-                                            {{artistSearchResult.name}}
-                                        </label>
-                                    </div>
+        <div class="search-bar-wrapper">
+            <input class="form-control"
+                [formControl]="artistSearchbarInputFormControl"
+                type="text"
+                #artistSearchbarInput (keyup.enter)="onArtistSearchQueryPerformed(artistSearchbarInput.value)"
+                placeholder="Search for artists..."
+                aria-label="Artist Search"
+                value="{{artistSearchValue}}"
+                [disabled]="!spotifyAccessTokenGranted"
+                tabindex="0"
+                autofocus />
+            <i class="fa fa-search fa-lg search-icon"
+                (click)="onArtistSearchQueryPerformed(artistSearchbarInput.value)">
+            </i>
+        </div>
+        <ul class="artist-searchbar-results" *ngIf="artistSearchResults$ | async as artistSearchResults">
+            <li class="artist-searchbar-results-listitem"
+                *ngFor="let artistSearchResult of artistSearchResults"
+                (click)="onArtistSearchResultSelected(artistSearchResult)"
+                (keyup.enter)="onArtistSearchResultSelected(artistSearchResult)"
+                tabindex="0">
+                <div class="container no-gutters">
+                    <div class="row">
+                        <div class="col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 artist-searchbar-results-image-col">
+                            <img class="rounded img-fluid w-100 h-100 float-right artist-searchbar-results-image"
+                                src="{{artistSearchResult.images[2] ?
+                                    artistSearchResult.images[2].url : artistPlaceholderImageUrl}}"
+                                alt="Artist Image">
+                        </div>
+                        <div class="col-10 col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
+                            <div class="row artist-searchbar-results-artistName-row">
+                                <div class="col-12">
+                                    <label class="artist-searchbar-results-artistName">
+                                        {{artistSearchResult.name}}
+                                    </label>
                                 </div>
-                                <div class="row artist-searchbar-results-artistGenres-row">
-                                    <div class="col-12">
-                                        <label class="artist-searchbar-results-artistGenres">
-                                            {{artistSearchResult.genres.length > 0
-                                                ? (artistSearchResult.genres.toString() | limitItems: 5 | replaceValue: ',' : ' - ')
-                                                : genresUnknown}}
-                                        </label>
-                                    </div>
+                            </div>
+                            <div class="row artist-searchbar-results-artistGenres-row">
+                                <div class="col-12">
+                                    <label class="artist-searchbar-results-artistGenres">
+                                        {{artistSearchResult.genres.length > 0
+                                            ? (artistSearchResult.genres.toString() | limitItems: 5 | replaceValue: ',' : ' - ')
+                                            : genresUnknown}}
+                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </li>
-            </ul>
-        </div>
+                </div>
+            </li>
+        </ul>
     </div>
     <div class="col-md-2 col-lg-2 col-xl-3 mtb-2"></div>
 </div>
+
 <!-- Artist Results -->
 <app-artist-search-results [selectedArtist]="selectedArtist"
     [relatedArtistsSubject]="relatedArtistsSubject"
