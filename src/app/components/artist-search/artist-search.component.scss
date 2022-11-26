@@ -1,6 +1,8 @@
 @import "../../../../node_modules/bootstrap/scss/functions";
 @import "../../../../node_modules/bootstrap/scss/variables";
 
+/* Artist search box & filtered results */
+
 .artist-search-row {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -44,33 +46,37 @@
   color: $green-500;
 }
 
+/* Artist filtered results list */
+
 .artist-searchbar-results {
   list-style-type: none;
   margin-left: 0;
   padding-left: 0;
   color: white;
   background: none;
-  /* border-top: 1.5px solid green; */
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
+  border: none;
   overflow-y: hidden;
 }
 
 .artist-searchbar-results-listitem {
   cursor: pointer;
-  padding: 5px 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .artist-searchbar-results-listitem:hover {
   outline: none;
-  background: rgba(117, 134, 118, 0.137);
+  // background: rgba(117, 134, 118, 0.137);
+  background: $gray-700;
   color: white;
 }
 
 .artist-searchbar-results-listitem:focus {
   outline: none;
-  background: rgba(117, 134, 118, 0.137);
+  // background: rgba(117, 134, 118, 0.137);
+  background: $gray-700;
   color: white;
 }
 
@@ -82,32 +88,35 @@
   color: white;
 }
 
-.artist-searchbar-results-image-col {
+.artist-searchbar-results-image {
+  /* max-width: 170px;
+  max-height: 170px; */
+  width: 100px; /* You can set the dimensions to whatever you want */
+  height: 100px;
+  object-fit: cover;
+}
+
+.artist-searchbar-results-text {
   padding: 0px;
   margin: 0px;
 }
 
-.artist-searchbar-results-image {
-  max-width: 70px;
-  max-height: 70px;
-}
-
-.artist-searchbar-results-artistName-row {
+/* .artist-searchbar-results-artistName-row {
   height: 40%;
 }
 
 .artist-searchbar-results-artistGenres-row {
   height: 60%;
-}
+} */
 
-.artist-searchbar-results-artistName {
+/* .artist-searchbar-results-artistName {
   font-size: 1.5vw;
-}
+} */
 
 .artist-searchbar-results-artistGenres {
-  font-size: 1vw;
+  // font-size: 1vw;
   font-style: italic;
-  color: gray;  
+  color: $gray-500;  
  }
 
 /* clears the text input field's 'X' button from Internet Explorer */
