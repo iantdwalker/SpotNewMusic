@@ -1,7 +1,7 @@
-<!--Artist search box & filtered results -->
+<!--Artist search box -->
 <div class="row artist-search-row">
-    <div class="col-md-2 col-lg-2 col-xl-3 mtb-2"></div>
-    <div class="col-md-8 col-lg-8 col-xl-6 mtb-2">
+    <div class="d-none d-lg-block col-lg-2 mtb-2"></div>
+    <div class="col-12 col-lg-8 mtb-2">
         <div class="search-bar-wrapper">
             <input class="form-control"
                 [formControl]="artistSearchbarInputFormControl"
@@ -17,22 +17,41 @@
                 (click)="onArtistSearchQueryPerformed(artistSearchbarInput.value)">
             </i>
         </div>
+        <!--Artist filtered results list -->
         <ul class="artist-searchbar-results" *ngIf="artistSearchResults$ | async as artistSearchResults">
             <li class="artist-searchbar-results-listitem"
                 *ngFor="let artistSearchResult of artistSearchResults"
                 (click)="onArtistSearchResultSelected(artistSearchResult)"
                 (keyup.enter)="onArtistSearchResultSelected(artistSearchResult)"
                 tabindex="0">
-                <div class="container no-gutters">
+                <!-- <div class="container no-gutters">-->
                     <div class="row">
-                        <div class="col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 artist-searchbar-results-image-col">
+                        <!-- <div class="col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 artist-searchbar-results-image-col">
                             <img class="rounded img-fluid w-100 h-100 float-right artist-searchbar-results-image"
                                 src="{{artistSearchResult.images[2] ?
                                     artistSearchResult.images[2].url : artistPlaceholderImageUrl}}"
                                 alt="Artist Image">
+                        </div> -->
+                        <div class="col-auto">
+                            <img class="rounded img-fluid artist-searchbar-results-image"
+                                src="{{artistSearchResult.images[2] ?
+                                    artistSearchResult.images[2].url : artistPlaceholderImageUrl}}"
+                                alt="Artist Image">
                         </div>
-                        <div class="col-10 col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10">
-                            <div class="row artist-searchbar-results-artistName-row">
+                        <div class="col artist-searchbar-results-text">
+                            <div class="row pt-sm-3">
+                                <div class="col fs-4">
+                                    {{artistSearchResult.name}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col artist-searchbar-results-artistGenres">
+                                    {{artistSearchResult.genres.length > 0
+                                        ? (artistSearchResult.genres.toString() | limitItems: 3 : true | replaceValue: ',' : ' - ')
+                                        : genresUnknown}}
+                                </div>
+                            </div>
+                            <!-- <div class="row artist-searchbar-results-artistName-row">
                                 <div class="col-12">
                                     <label class="artist-searchbar-results-artistName">
                                         {{artistSearchResult.name}}
@@ -47,14 +66,14 @@
                                             : genresUnknown}}
                                     </label>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                </div>
+                <!-- </div>-->
             </li>
         </ul>
     </div>
-    <div class="col-md-2 col-lg-2 col-xl-3 mtb-2"></div>
+    <div class="d-none d-lg-block col-lg-2 mtb-2"></div>
 </div>
 
 <!-- Artist Results -->
