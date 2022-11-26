@@ -33,7 +33,7 @@ export class SpotifyService {
         const httpParams = new HttpParams()
             .set('q', artistSearchTerm)
             .set('type', 'artist')
-            .set('limit', '5');
+            .set('limit', '10');
         const httpHeaders = new HttpHeaders()
             .set('Authorization', 'Bearer ' + this._spotifyAccessToken.access_token);
         const httpOptions = {
