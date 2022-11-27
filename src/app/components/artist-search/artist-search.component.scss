@@ -1,5 +1,6 @@
 @import "../../../../node_modules/bootstrap/scss/functions";
 @import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
 
 /* Artist search box & filtered results */
 
@@ -62,20 +63,18 @@
   cursor: pointer;
   padding-top: 5px;
   padding-bottom: 5px;
-  padding-left: 25px;
+  padding-left: 5px;
   padding-right: 25px;
 }
 
 .artist-searchbar-results-listitem:hover {
   outline: none;
-  // background: rgba(117, 134, 118, 0.137);
   background: $gray-700;
   color: white;
 }
 
 .artist-searchbar-results-listitem:focus {
   outline: none;
-  // background: rgba(117, 134, 118, 0.137);
   background: $gray-700;
   color: white;
 }
@@ -89,9 +88,7 @@
 }
 
 .artist-searchbar-results-image {
-  /* max-width: 170px;
-  max-height: 170px; */
-  width: 100px; /* You can set the dimensions to whatever you want */
+  width: 100px;
   height: 100px;
   object-fit: cover;
 }
@@ -101,23 +98,23 @@
   margin: 0px;
 }
 
-/* .artist-searchbar-results-artistName-row {
-  height: 40%;
+.artist-result-name {
+  font-size: $h5-font-size;
 }
 
-.artist-searchbar-results-artistGenres-row {
-  height: 60%;
-} */
-
-/* .artist-searchbar-results-artistName {
-  font-size: 1.5vw;
-} */
-
 .artist-searchbar-results-artistGenres {
-  // font-size: 1vw;
   font-style: italic;
-  color: $gray-500;  
+  color: $gray-500;
  }
+
+ @include media-breakpoint-up(sm) {
+  .artist-searchbar-results-listitem {
+    padding-left: 25px;
+  }
+  .artist-result-name {
+    font-size: $h4-font-size;
+  }
+}
 
 /* clears the text input field's 'X' button from Internet Explorer */
 input[type=text]::-ms-clear { display: none; width: 0; height: 0; }
