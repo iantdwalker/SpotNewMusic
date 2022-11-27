@@ -1,5 +1,6 @@
 @import "../../../../node_modules/bootstrap/scss/functions";
 @import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
 
 /* Artist search box & filtered results */
 
@@ -113,11 +114,21 @@
   font-size: 1.5vw;
 } */
 
+.artist-result-name {
+  font-size: $h5-font-size;
+}
+
 .artist-searchbar-results-artistGenres {
   // font-size: 1vw;
   font-style: italic;
   color: $gray-500;  
  }
+
+ @include media-breakpoint-up(sm) {
+  .artist-result-name {
+    font-size: $h4-font-size;
+  }
+}
 
 /* clears the text input field's 'X' button from Internet Explorer */
 input[type=text]::-ms-clear { display: none; width: 0; height: 0; }
