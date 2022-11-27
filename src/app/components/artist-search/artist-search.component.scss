@@ -63,7 +63,7 @@
   cursor: pointer;
   padding-top: 5px;
   padding-bottom: 5px;
-  padding-left: 25px;
+  padding-left: 5px;
   padding-right: 25px;
 }
 
@@ -125,6 +125,9 @@
  }
 
  @include media-breakpoint-up(sm) {
+  .artist-searchbar-results-listitem {
+    padding-left: 25px;
+  }
   .artist-result-name {
     font-size: $h4-font-size;
   }
