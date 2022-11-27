@@ -25,8 +25,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Version History
 v3.0 - TBD:  
+-Improved the artist search results filtered list in a few ways:  
+*It is now fully responsive  
+*Larger set size for artist images that does not shrink on screen resizing  
+*Maximised the space usage for the artist name and genres  
+*Genres are limited to three to avoid cluttering the space  
+-Simplified the look and feel of the search bar. Ensured it is fully responsive  
 -Changed the session token message handling, its position on screen and the wording  
--Restructured the header component to utilise a responsive nav-bar for the image logo, heading and any future options  
+-Restructured the header component to utilise a responsive nav-bar for the image logo, app heading and any future config/nav options  
 -Changed from using basic css to scss  
 -Removed all spec and e2e test source files, config files and packages  
 -Updated browser tab icon to the Spotify icon  
