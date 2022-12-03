@@ -1,63 +1,98 @@
-/* Template rows */
-
-.row-artist {
+.main-row {
   margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 10px;
 }
 
-/* Artist */
-
-.imageBox {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: #343a40;  
-}
-
-.largeImageBox {
+.large-artist-image-wrapper {
   position: relative;
   width: 250px;
   height: 250px;
-  border-radius: 50%;
-  background: #343a40;  
+  border-radius: 5%;
+}
+
+.large-artist-image {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 5%;
+  opacity: 1;
+  transition: 0.5s opacity;
+}
+
+.large-artist-details {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 5%;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transition: 0.5s padding;
+  overflow: hidden;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.large-artist-image-wrapper:hover .large-artist-image {
+  opacity: 0.5;
+}
+
+.large-artist-image-wrapper:hover .large-artist-details {
+  opacity: 0.9;
+}
+
+.artist-image-wrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 5%;
 }
 
 /* .imageBox {
-  background: #343a40;  
+  background: #343a40;
   padding: 0px;
   margin: 0px;
   position: relative;
-  text-align: center;  
+  text-align: center;
 } */
 
-.image {
+.artist-image {
   position: absolute;
   width: 200px;
   height: 200px;
-  border-radius: 50%;
+  border-radius: 5%;
   opacity: 1;
-  transition: 0.5s opacity;  
+  transition: 0.5s opacity;
 }
 
-.largeImage {
-  position: absolute;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  opacity: 1;
-  transition: 0.5s opacity;  
+.artist-details {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 5%;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transition: 0.5s padding;
+  overflow: hidden;
+  display: table-cell;
+  vertical-align: middle;
 }
+
+.artist-image-wrapper:hover .artist-image {
+  opacity: 0.5;
+}
+
+.artist-image-wrapper:hover .artist-details {
+  opacity: 0.9;
+}
+
+
 
 /* .image {
   width: 200px;
   height: 200px;  
-}
-
-.largeImage {
-  width: 250px;
-  height: 250px;  
 } */
 
 /* .imageBox img {
@@ -70,37 +105,37 @@
   opacity: 0.5;
 } */
 
-.artistDetails {
+/* .artistDetails {
   background-color: #343a40;
   width: 200px;
   height: 200px;
   position: relative;
-  border-radius: 50%;
+  // border-radius: 50%;
   color: white;
   text-align: center;
   opacity: 0;
-  transition: 0.5s padding;  
-  padding: 0 6%;
+  transition: 0.5s padding;
+  // padding: 0 6%;
   overflow: hidden;
-  display: table-cell;   
-  vertical-align: middle;  
-}
+  display: table-cell;
+  vertical-align: middle;
+} */
 
-.largeArtistDetails {
+/* .largeArtistDetails {
   background-color: #343a40;
   width: 250px;
   height: 250px;
   position: relative;
-  border-radius: 50%;
+  // border-radius: 50%;
   color: white;
   text-align: center;
   opacity: 0;
-  transition: 0.5s padding;  
-  padding: 0 6%;
+  transition: 0.5s padding;
+  // padding: 0 6%;
   overflow: hidden;
-  display: table-cell;   
-  vertical-align: middle;  
-}
+  display: table-cell;
+  vertical-align: middle;
+} */
 
 /* .artistName {
   opacity: 0;
@@ -118,35 +153,35 @@
   white-space: pre-wrap;
 } */
 
-.artistText {
+/* .artistText {
   font-size: 1.75em;  
-}
+} */
 
-.popularityText {
+/* .popularityText {
   font-size: 80%;
   color: whitesmoke;
-}
+} */
 
-.genresText {
+/* .genresText {
   font-size: 1em;
   color: whitesmoke;
-}
+} */
 
-.imageBox:hover .image {
+/* .imageBox:hover .image {
   opacity: 0.5;
-}
+} */
 
-.imageBox:hover .artistDetails {  
+/* .imageBox:hover .artistDetails {  
   opacity: 0.9;
-}
+} */
 
-.largeImageBox:hover .largeImage {
+/* .largeImageBox:hover .largeImage {
   opacity: 0.5;
-}
+} */
 
-.largeImageBox:hover .largeArtistDetails {  
+/* .largeImageBox:hover .largeArtistDetails {  
   opacity: 0.9;
-}
+} */
 
 /* .imageBox:hover .artistName {
   padding-top: 5%;

@@ -1,7 +1,9 @@
-.no-results-message {
-	font-size: 1vw;
-	text-align: left;
-	color: grey;
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+
+.no-related-artists-message {
+	font-size: $h5-font-size;
+	color: $gray-500;
 	margin-top: 15px;
 	margin-left: 25px;
   }

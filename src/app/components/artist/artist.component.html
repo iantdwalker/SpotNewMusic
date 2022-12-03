@@ -1,12 +1,20 @@
-<div class="row row-artist" *ngIf='artist'>
-    <div class="{{showLargeArtistImage ? 'largeImageBox' : 'imageBox'}}" (click)='onArtistClicked()'>
-        <img src="{{artist.images[1] ? artist.images[1].url : artistPlaceholderImageUrl}}"
-             alt='artist' class="img-fluid d-block mx-auto {{showLargeArtistImage ? 'largeImage' : 'image'}}">
-        <div class="{{showLargeArtistImage ? 'largeArtistDetails' : 'artistDetails'}}">
-            <label class="artistText">{{artist.name}}</label>
-            <label class="genresText">{{artist.genres.toString() | limitItems: 3 | replaceValue: ',' : ' - '}}</label>
-            <br/>
-            <label class="popularityText">Popularity: {{artist.popularity}}%</label>
+<div class="row main-row bg-primary d-block mx-auto" *ngIf="artist">
+    <div class="col">
+        <div class="d-block mx-auto {{showLargeArtistImage ? 'large-artist-image-wrapper' : 'artist-image-wrapper'}}" (click)='onArtistClicked()'>
+            <img src="{{artist.images[1] ? artist.images[1].url : artistPlaceholderImageUrl}}"
+                alt="The artist image"
+                class="img-fluid d-block mx-auto {{showLargeArtistImage ? 'large-artist-image' : 'artist-image'}}">
+            <div class="{{showLargeArtistImage ? 'large-artist-details' : 'artist-details'}} text-wrap">
+                <p>{{artist.name}}</p>
+            </div>
+            
+            
+            <!--<div class="{{showLargeArtistImage ? 'largeArtistDetails' : 'artistDetails'}}">-->
+                <!--<label class="artistText">{{artist.name}}</label>-->
+                <!--<label class="genresText">{{artist.genres.toString() | limitItems: 3 | replaceValue: ',' : ' - '}}</label>-->
+                <!--<br/>-->
+                <!-- <label class="popularityText">Popularity: {{artist.popularity}}%</label>-->
+            <!--</div>-->
         </div>
     </div>
 </div>

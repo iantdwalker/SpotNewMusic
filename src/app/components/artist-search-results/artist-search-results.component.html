@@ -1,24 +1,30 @@
 <!--Selected Artist-->
 <div class="row">
-    <div class="col-12 mtb-2 d-flex justify-content-center">
+    <div class="col bg-warning">
         <app-artist [artist]="selectedArtist" [showLargeArtistImage]="true"></app-artist>
     </div>
 </div>
 
 <!--Related Artists-->
-<div class="row" *ngIf="relatedArtists$ | async as relatedArtists">
+<div class="row bg-warning" *ngIf="relatedArtists$ | async as relatedArtists">
     <ng-container >
-        <div class="col-6 col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2" *ngFor="let relatedArtist of relatedArtists">
+        <div class="bg-danger col col-sm-6 col-md-4 col-lg-3" *ngFor="let relatedArtist of relatedArtists">
             <app-artist [artist]="relatedArtist" (notifyArtistClicked)="onRelatedArtistClickedEvent($event)"></app-artist>
         </div>
     </ng-container>
     <ng-container *ngIf="selectedArtist && !relatedArtists.length">
-        <div class="col-3 mtb-2"></div>
+        <!-- <div class="col-3 mtb-2"></div>
         <div class="col-6 mtb-2">
             <label class="no-results-message">
                 {{noRelatedArtistsMessage}}
             </label>
         </div>
-        <div class="col-3 mtb-2"></div>
+        <div class="col-3 mtb-2"></div> -->
+        <div class="col d-flex justify-content-center no-related-artists-message">
+            {{noRelatedArtistsMessage}}
+            <!-- <label class=" d-flex justify-content-center no-results-message">
+                {{noRelatedArtistsMessage}}
+            </label> -->
+        </div>
     </ng-container>
 </div>
