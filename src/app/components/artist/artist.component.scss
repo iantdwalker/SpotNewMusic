@@ -1,3 +1,7 @@
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+
 .main-row {
   margin-bottom: 10px;
   margin-left: 10px;
@@ -16,8 +20,7 @@
   width: 250px;
   height: 250px;
   border-radius: 5%;
-  opacity: 1;
-  transition: 0.5s opacity;
+  opacity: 0.3;
 }
 
 .large-artist-details {
@@ -27,19 +30,14 @@
   border-radius: 5%;
   color: white;
   text-align: center;
-  opacity: 0;
-  transition: 0.5s padding;
+  opacity: 1;
   overflow: hidden;
   display: table-cell;
   vertical-align: middle;
 }
 
-.large-artist-image-wrapper:hover .large-artist-image {
-  opacity: 0.5;
-}
-
-.large-artist-image-wrapper:hover .large-artist-details {
-  opacity: 0.9;
+.large-artist-name {
+  font-size: $h3-font-size;
 }
 
 .artist-image-wrapper {
@@ -49,21 +47,12 @@
   border-radius: 5%;
 }
 
-/* .imageBox {
-  background: #343a40;
-  padding: 0px;
-  margin: 0px;
-  position: relative;
-  text-align: center;
-} */
-
 .artist-image {
   position: absolute;
   width: 200px;
   height: 200px;
   border-radius: 5%;
-  opacity: 1;
-  transition: 0.5s opacity;
+  opacity: 0.3;
 }
 
 .artist-details {
@@ -73,138 +62,50 @@
   border-radius: 5%;
   color: white;
   text-align: center;
-  opacity: 0;
-  transition: 0.5s padding;
-  overflow: hidden;
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.artist-image-wrapper:hover .artist-image {
-  opacity: 0.5;
-}
-
-.artist-image-wrapper:hover .artist-details {
-  opacity: 0.9;
-}
-
-
-
-/* .image {
-  width: 200px;
-  height: 200px;  
-} */
-
-/* .imageBox img {
   opacity: 1;
-  transition: 0.5s opacity;
-  border-radius: 50%;
-} */
-
-/* .imageBox:hover img {
-  opacity: 0.5;
-} */
-
-/* .artistDetails {
-  background-color: #343a40;
-  width: 200px;
-  height: 200px;
-  position: relative;
-  // border-radius: 50%;
-  color: white;
-  text-align: center;
-  opacity: 0;
-  transition: 0.5s padding;
-  // padding: 0 6%;
   overflow: hidden;
   display: table-cell;
   vertical-align: middle;
-} */
-
-/* .largeArtistDetails {
-  background-color: #343a40;
-  width: 250px;
-  height: 250px;
-  position: relative;
-  // border-radius: 50%;
-  color: white;
-  text-align: center;
-  opacity: 0;
-  transition: 0.5s padding;
-  // padding: 0 6%;
-  overflow: hidden;
-  display: table-cell;
-  vertical-align: middle;
-} */
-
-/* .artistName {
-  opacity: 0;
-  background-color: #343a40;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  margin: 0px;
-  color: white;
-  font-size: 2em;
-  position: absolute;
-  transition: 0.5s padding;
-  text-align: center;
-  width: 100%;
-  white-space: pre-wrap;
-} */
-
-/* .artistText {
-  font-size: 1.75em;  
-} */
-
-/* .popularityText {
-  font-size: 80%;
-  color: whitesmoke;
-} */
-
-/* .genresText {
-  font-size: 1em;
-  color: whitesmoke;
-} */
-
-/* .imageBox:hover .image {
-  opacity: 0.5;
-} */
-
-/* .imageBox:hover .artistDetails {  
-  opacity: 0.9;
-} */
-
-/* .largeImageBox:hover .largeImage {
-  opacity: 0.5;
-} */
-
-/* .largeImageBox:hover .largeArtistDetails {  
-  opacity: 0.9;
-} */
-
-/* .imageBox:hover .artistName {
-  padding-top: 5%;
-  opacity: 0.9;
-} */
-
-/* .artistDesc {
-  opacity: 0;
-  background-color: #343a40;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin: 0px;
-  color: whitesmoke;
-  font-size: 0.8em;
-  position: absolute;
-  transition: 0.5s padding;
-  text-align: center;
-  width: 100%;
-  white-space: pre-wrap;
 }
 
-.imageBox:hover .artistDesc {
-  padding-bottom: 10%;
-  opacity: 0.8;
-} */
+.artist-name {
+  font-size: $h4-font-size;
+}
+
+@include media-breakpoint-up(lg) {
+  .large-artist-image {
+    opacity: 1;
+    transition: 0.5s opacity;
+  }
+
+  .large-artist-details {
+    opacity: 0;
+    transition: 0.5s padding;
+  }
+  
+  .large-artist-image-wrapper:hover .large-artist-image {
+    opacity: 0.3;
+  }
+  
+  .large-artist-image-wrapper:hover .large-artist-details {
+    opacity: 1;
+  }
+
+  .artist-image {
+    opacity: 1;
+    transition: 0.5s opacity;
+  }
+  
+  .artist-details {
+    opacity: 0;
+    transition: 0.5s padding;
+  }
+
+  .artist-image-wrapper:hover .artist-image {
+    opacity: 0.3;
+  }
+  
+  .artist-image-wrapper:hover .artist-details {
+    opacity: 1;
+  }
+}

@@ -25,6 +25,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Version History
 v3.0 - TBD:  
+-Improved the artist component in a few ways:  
+*Squares replace circles with no image or text warping  
+*It is now fully responsive  
 -Improved the artist search results filtered list in a few ways:  
 *It is now fully responsive  
 *Larger set size for artist images that does not shrink on screen resizing  
