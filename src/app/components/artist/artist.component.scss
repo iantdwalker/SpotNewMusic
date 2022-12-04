@@ -1,175 +1,111 @@
-/* Template rows */
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
 
-.row-artist {
+.main-row {
   margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 10px;
 }
 
-/* Artist */
-
-.imageBox {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: #343a40;  
-}
-
-.largeImageBox {
+.large-artist-image-wrapper {
   position: relative;
   width: 250px;
   height: 250px;
-  border-radius: 50%;
-  background: #343a40;  
+  border-radius: 5%;
 }
 
-/* .imageBox {
-  background: #343a40;  
-  padding: 0px;
-  margin: 0px;
-  position: relative;
-  text-align: center;  
-} */
-
-.image {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  opacity: 1;
-  transition: 0.5s opacity;  
-}
-
-.largeImage {
+.large-artist-image {
   position: absolute;
   width: 250px;
   height: 250px;
-  border-radius: 50%;
-  opacity: 1;
-  transition: 0.5s opacity;  
+  border-radius: 5%;
+  opacity: 0.3;
 }
 
-/* .image {
-  width: 200px;
-  height: 200px;  
-}
-
-.largeImage {
-  width: 250px;
-  height: 250px;  
-} */
-
-/* .imageBox img {
-  opacity: 1;
-  transition: 0.5s opacity;
-  border-radius: 50%;
-} */
-
-/* .imageBox:hover img {
-  opacity: 0.5;
-} */
-
-.artistDetails {
-  background-color: #343a40;
-  width: 200px;
-  height: 200px;
+.large-artist-details {
   position: relative;
-  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  border-radius: 5%;
   color: white;
   text-align: center;
-  opacity: 0;
-  transition: 0.5s padding;  
-  padding: 0 6%;
+  opacity: 1;
   overflow: hidden;
-  display: table-cell;   
-  vertical-align: middle;  
+  display: table-cell;
+  vertical-align: middle;
 }
 
-.largeArtistDetails {
-  background-color: #343a40;
-  width: 250px;
-  height: 250px;
+.large-artist-name {
+  font-size: $h3-font-size;
+}
+
+.artist-image-wrapper {
   position: relative;
-  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 5%;
+}
+
+.artist-image {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 5%;
+  opacity: 0.3;
+}
+
+.artist-details {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 5%;
   color: white;
   text-align: center;
-  opacity: 0;
-  transition: 0.5s padding;  
-  padding: 0 6%;
+  opacity: 1;
   overflow: hidden;
-  display: table-cell;   
-  vertical-align: middle;  
+  display: table-cell;
+  vertical-align: middle;
 }
 
-/* .artistName {
-  opacity: 0;
-  background-color: #343a40;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  margin: 0px;
-  color: white;
-  font-size: 2em;
-  position: absolute;
-  transition: 0.5s padding;
-  text-align: center;
-  width: 100%;
-  white-space: pre-wrap;
-} */
-
-.artistText {
-  font-size: 1.75em;  
+.artist-name {
+  font-size: $h4-font-size;
 }
 
-.popularityText {
-  font-size: 80%;
-  color: whitesmoke;
+@include media-breakpoint-up(lg) {
+  .large-artist-image {
+    opacity: 1;
+    transition: 0.5s opacity;
+  }
+
+  .large-artist-details {
+    opacity: 0;
+    transition: 0.5s padding;
+  }
+  
+  .large-artist-image-wrapper:hover .large-artist-image {
+    opacity: 0.3;
+  }
+  
+  .large-artist-image-wrapper:hover .large-artist-details {
+    opacity: 1;
+  }
+
+  .artist-image {
+    opacity: 1;
+    transition: 0.5s opacity;
+  }
+  
+  .artist-details {
+    opacity: 0;
+    transition: 0.5s padding;
+  }
+
+  .artist-image-wrapper:hover .artist-image {
+    opacity: 0.3;
+  }
+  
+  .artist-image-wrapper:hover .artist-details {
+    opacity: 1;
+  }
 }
-
-.genresText {
-  font-size: 1em;
-  color: whitesmoke;
-}
-
-.imageBox:hover .image {
-  opacity: 0.5;
-}
-
-.imageBox:hover .artistDetails {  
-  opacity: 0.9;
-}
-
-.largeImageBox:hover .largeImage {
-  opacity: 0.5;
-}
-
-.largeImageBox:hover .largeArtistDetails {  
-  opacity: 0.9;
-}
-
-/* .imageBox:hover .artistName {
-  padding-top: 5%;
-  opacity: 0.9;
-} */
-
-/* .artistDesc {
-  opacity: 0;
-  background-color: #343a40;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin: 0px;
-  color: whitesmoke;
-  font-size: 0.8em;
-  position: absolute;
-  transition: 0.5s padding;
-  text-align: center;
-  width: 100%;
-  white-space: pre-wrap;
-}
-
-.imageBox:hover .artistDesc {
-  padding-bottom: 10%;
-  opacity: 0.8;
-} */
