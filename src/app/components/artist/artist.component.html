@@ -7,9 +7,12 @@
             <div class="text-wrap {{showLargeArtistImage ? 'large-artist-details' : 'artist-details'}}">
                 <p class="{{showLargeArtistImage ? 'large-artist-name' : 'artist-name'}}">{{artist.name}}</p>
                 <p>Popularity: {{artist.popularity}}%</p>
-                <p *ngIf="showLargeArtistImage">{{artist.genres.toString() | limitItems: 3 : false | replaceValue: ',' : ' - '}}</p>
-                <p *ngIf="!showLargeArtistImage">{{artist.genres.toString() | limitItems: 1 : true  | replaceValue: ',' : ' - '}}</p>
+                <p *ngIf="showLargeArtistImage; else relatedArtistGenres">{{artist.genres.toString() | limitItems: 3 : false | replaceValue: ',' : ' - '}}</p>
             </div>
         </div>
     </div>
 </div>
+
+<ng-template #relatedArtistGenres>
+    <p>{{artist.genres.toString() | limitItems: 1 : true  | replaceValue: ',' : ' - '}}</p>
+</ng-template>
