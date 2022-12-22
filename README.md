@@ -25,15 +25,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Version History
 v3.0 - TBD:  
+-Re-developed the entire application mobile first to be fully responsive  
 -Improved the artist component in a few ways:  
-*Squares replace circles with no image or text warping  
-*It is now fully responsive  
+	*Squares replace circles with no image or text warping  
+	*Artist details are off by default but can be toggled for mobile users  
+	*Genres are limited to three on the selected artist to avoid cluttering the space and one on related artists  
 -Improved the artist search results filtered list in a few ways:  
-*It is now fully responsive  
-*Larger set size for artist images that does not shrink on screen resizing  
-*Maximised the space usage for the artist name and genres  
-*Genres are limited to three to avoid cluttering the space  
--Simplified the look and feel of the search bar. Ensured it is fully responsive  
+	*Larger set size for artist images that does not shrink on screen resizing  
+	*Maximised the space usage for the artist name and genres  
+	*Genres are limited to three to avoid cluttering the space  
+-Simplified the look and feel of the search bar  
 -Changed the session token message handling, its position on screen and the wording  
 -Restructured the header component to utilise a responsive nav-bar for the image logo, app heading and any future config/nav options  
 -Changed from using basic css to scss  
@@ -41,7 +42,7 @@ v3.0 - TBD:
 -Updated browser tab icon to the Spotify icon  
 
 v2.2 - 13/11/2022:  
--Updated all other npm packages to their latst versions and removed redundant packages  
+-Updated all other npm packages to their latest versions and removed redundant packages  
 -Updated @angular-eslint/* packages to v14  
 -Updated to Angular (v14)  
 -Updated to Angular (v13) and Typescript (4.6.4)  

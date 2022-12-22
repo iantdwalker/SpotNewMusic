@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ArtistSettingsService } from '@app/shared/services/artist-settings.service';
 import { IArtist } from '@models/artist/artist';
 
 @Component ({
@@ -11,6 +12,13 @@ export class ArtistComponent {
     @Input() showLargeArtistImage: boolean;
     @Output() notifyArtistClicked: EventEmitter<IArtist> = new EventEmitter<IArtist>();
     artistPlaceholderImageUrl = 'assets/images/artistPlaceholder.png';
+
+    constructor(private artistSettingsService: ArtistSettingsService) {
+    }
+
+    showArtistDetails(): boolean {
+        return this.artistSettingsService.showArtistDetails;
+    }
 
     onArtistClicked(): void {
         this.notifyArtistClicked.emit(this.artist);

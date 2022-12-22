@@ -9,11 +9,22 @@
       <ul class="navbar-nav me-2 mb-2 mb-lg-0">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sort Artists
+            Artists
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Alphabetically</a></li>
-            <li><a class="dropdown-item" href="#">By Popularity</a></li>
+            <li>
+              <div class="form-check form-switch ms-3">
+                <input 
+                  class="form-check-input me-auto"
+                  type="checkbox"
+                  role="switch"
+                  id="showArtistDetailsOveraly"
+                  [(ngModel)]="showArtistDetails">
+                <label class="form-check-label" for="showArtistDetailsOveraly">Artist Details</label>
+              </div>
+            </li>
+            <li><a class="dropdown-item disabled" href="#">Sort Alphabetically</a></li>
+            <li><a class="dropdown-item disabled" href="#">Sort By Popularity</a></li>
           </ul>
         </li>
       </ul>

@@ -8,104 +8,101 @@
   margin-right: 10px;
 }
 
-.large-artist-image-wrapper {
-  position: relative;
-  width: 250px;
-  height: 250px;
+.artist-image-wrapper-common {
   border-radius: 5%;
+  position: relative;
 }
 
-.large-artist-image {
-  position: absolute;
+.artist-image-wrapper-large {
+  @extend .artist-image-wrapper-common;
   width: 250px;
   height: 250px;
-  border-radius: 5%;
+}
+
+.artist-image-wrapper-regular {
+  @extend .artist-image-wrapper-common;
+  width: 200px;
+  height: 200px;
+}
+
+.artist-image-transparant {
   opacity: 0.3;
 }
 
-.large-artist-details {
-  position: relative;
+.artist-image-visible {
+  opacity: 1;
+}
+
+.artist-image-common {
+  border-radius: 5%;
+  position: absolute;
+}
+
+.artist-image-large {
+  @extend .artist-image-common;
   width: 250px;
   height: 250px;
+}
+
+.artist-image-regular {
+  @extend .artist-image-common;
+  width: 200px;
+  height: 200px;
+}
+
+.artist-details-hidden {
+  opacity: 0;
+}
+
+.artist-details-visible {
+  opacity: 1;
+}
+
+.artist-details-common {
   border-radius: 5%;
+  position: relative;
   color: white;
   text-align: center;
-  opacity: 1;
   overflow: hidden;
   display: table-cell;
   vertical-align: middle;
 }
 
-.large-artist-name {
+.artist-details-large {
+  @extend .artist-details-common;
+  width: 250px;
+  height: 250px;
+}
+
+.artist-details-regular {
+  @extend .artist-details-common;
+  width: 200px;
+  height: 200px;
+}
+
+.artist-name-large {
   font-size: $h3-font-size;
 }
 
-.artist-image-wrapper {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border-radius: 5%;
-}
-
-.artist-image {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 5%;
-  opacity: 0.3;
-}
-
-.artist-details {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border-radius: 5%;
-  color: white;
-  text-align: center;
-  opacity: 1;
-  overflow: hidden;
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.artist-name {
+.artist-name-regular {
   font-size: $h4-font-size;
 }
 
+/* Mouse hover opacity changes for large screens and above */
 @include media-breakpoint-up(lg) {
-  .large-artist-image {
-    opacity: 1;
+  .artist-image-common {
     transition: 0.5s opacity;
   }
 
-  .large-artist-details {
-    opacity: 0;
-    transition: 0.5s padding;
-  }
-  
-  .large-artist-image-wrapper:hover .large-artist-image {
-    opacity: 0.3;
-  }
-  
-  .large-artist-image-wrapper:hover .large-artist-details {
-    opacity: 1;
-  }
-
-  .artist-image {
-    opacity: 1;
-    transition: 0.5s opacity;
-  }
-  
-  .artist-details {
-    opacity: 0;
+  .artist-details-common {
     transition: 0.5s padding;
   }
 
-  .artist-image-wrapper:hover .artist-image {
+  .artist-image-wrapper-common:hover .artist-image-common {
     opacity: 0.3;
   }
-  
-  .artist-image-wrapper:hover .artist-details {
+
+  .artist-image-wrapper-common:hover .artist-details-common {
     opacity: 1;
   }
 }
