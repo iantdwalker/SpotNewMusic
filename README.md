@@ -14,6 +14,7 @@ The project is currently deployed as a Microsoft Azure Static Web App with an em
 # Update History
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
+-22/12/2022 - Updated from Angular v14.2.10 to v15.0.4 and from Typescript v4.6.4 to v4.8.4  
 -13/11/2022 - Updated from Angular v13.3.11 to v14.2.10  
 -12/11/2022 - Updated from Angular v12.2.8 to v13.3.11 and from Typescript v4.3.5 to v4.6.4  
 -02/10/2021 - Updated from Angular v11.2.14 to v12.2.8 and from Typescript v4.0.8 to v4.3.5  
@@ -24,8 +25,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 -30/09/2021 - Updated from Angular v7.2 to v8.2 and from Typescript v3.2.2 to v3.5.3  
 
 # Version History
-v3.0 - TBD:  
+v3.0 - 22/12/2022:  
 -Re-developed the entire application mobile first to be fully responsive  
+-Updated to Angular (v15) and Typescript (4.8.4)  
 -Improved the artist component in a few ways:  
 	*Squares replace circles with no image or text warping  
 	*Artist details are off by default but can be toggled for mobile users  
