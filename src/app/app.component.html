@@ -1,23 +1,7 @@
-<div class="container-fluid h-100 app-component-container">
-  <div class="row h-100">
-    <div class="col-12 d-flex flex-column h-100 app-component-column">
-      <div class="row top-selector">
-        <div class="col-5 bg-dark">
-          <app-heading></app-heading>
-        </div>
-        <div class="col-4 bg-dark">
-        </div>        
-        <div class="col-3 bg-dark">
-            <app-session (notifySpotifyAccessTokenGranted)='onNotifySpotifyAccessTokenGranted($event)'></app-session>
-        </div>        
-      </div>
-      <div class="row artist-search-component-selector">
-        <div class="col-12 bg-dark">
-          <app-artist-search [spotifyAccessTokenGranted]='spotifyAccessTokenGranted'></app-artist-search>
-        </div>
-      </div>      
-    </div>
-  </div>    
+<app-heading></app-heading>
+<div class="container-fluid">
+  <app-session (notifySpotifyAccessTokenGranted)='onNotifySpotifyAccessTokenGranted($event)'></app-session>
+  <app-artist-search [spotifyAccessTokenGranted]='spotifyAccessTokenGranted'></app-artist-search>
 </div>
 
 <router-outlet></router-outlet>

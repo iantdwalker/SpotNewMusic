@@ -1,7 +1,7 @@
-<div class="row h-100">    
-    <div class="col-12 mtb-2 txt-box align-self-center justify-content-center">                
-        <div class="{{spotifyAccessToken ? 'font-italic text-success' : 'font-italic text-danger'}}">
-                {{spotifyAccessToken ? accessTokenGrantedMessage+accessTokenTimeLeft : accessTokenNotGrantedMessage}}
-        </div>        
+<div class="row">
+    <div class="col access-denied" *ngIf="spotifyAccessTokenGranted === false">
+        <div class="text-dark">
+            {{accessTokenNotGrantedMessage}}
+        </div>
     </div>
 </div>

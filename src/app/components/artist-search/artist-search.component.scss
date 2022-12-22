@@ -1,0 +1,127 @@
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+
+/* Artist search box & filtered results */
+
+.artist-search-row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.search-bar-wrapper {
+  position: relative;
+}
+
+.form-control {
+  color: white;
+  text-indent: 15px;
+  border: none;
+  height: 45px;
+  font-size: 22px;
+  background-color: $gray-800;
+  border-radius: 0px;
+  border-bottom: 1px solid $gray-600;
+  text-align: center;
+}
+
+.form-control:focus {
+  color: white;
+  caret-color: white;
+  background-color: $gray-800;
+  border-color: $gray-800;
+  outline: 0;
+  box-shadow: none;
+  border-bottom: 2px solid $green-500;
+}
+
+.search-icon {
+  position: absolute;
+  top: 14px;
+  left: 4px;
+  color: $gray-600;
+  cursor: pointer;
+}
+
+.form-control:focus + i {
+  color: $green-500;
+}
+
+/* Artist filtered results list */
+
+.artist-searchbar-results {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+  color: white;
+  background: none;
+  border: none;
+  overflow-y: hidden;
+}
+
+.artist-searchbar-results-listitem {
+  cursor: pointer;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 25px;
+}
+
+.artist-searchbar-results-listitem:hover {
+  outline: none;
+  background: $gray-700;
+  color: white;
+}
+
+.artist-searchbar-results-listitem:focus {
+  outline: none;
+  background: $gray-700;
+  color: white;
+}
+
+.artist-searchbar-results-listitem:hover .artist-searchbar-results-artistGenres {
+  color: white;
+}
+
+.artist-searchbar-results-listitem:focus .artist-searchbar-results-artistGenres {
+  color: white;
+}
+
+.artist-searchbar-results-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.artist-searchbar-results-text {
+  padding: 0px;
+  margin: 0px;
+}
+
+.artist-result-name {
+  font-size: $h5-font-size;
+}
+
+.artist-searchbar-results-artistGenres {
+  font-style: italic;
+  color: $gray-500;
+ }
+
+ @include media-breakpoint-up(sm) {
+  .artist-searchbar-results-listitem {
+    padding-left: 25px;
+  }
+  .artist-result-name {
+    font-size: $h4-font-size;
+  }
+}
+
+/* clears the text input field's 'X' button from Internet Explorer */
+input[type=text]::-ms-clear { display: none; width: 0; height: 0; }
+input[type=text]::-ms-reveal { display: none; width: 0; height: 0; }
+
+/* clears the text input field's 'X' button from Chrome */
+input[type="text"]::-webkit-search-decoration,
+input[type="text"]::-webkit-search-cancel-button,
+input[type="text"]::-webkit-search-results-button,
+input[type="text"]::-webkit-search-results-decoration { display: none; }

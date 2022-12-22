@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
 import { SessionComponent } from '@session/session.component';
@@ -12,6 +11,7 @@ import { ArtistComponent } from '@artist/artist.component';
 import { ReplaceValuePipe } from '@pipes/replace-value-pipe';
 import { LimitItemsPipe } from '@pipes/limit-items-pipe';
 import { HeadingComponent } from '@heading/heading.component';
+import { ArtistSearchResultsComponent } from '@artist-search-results/artist-search-results.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { HeadingComponent } from '@heading/heading.component';
     ArtistComponent,
     ReplaceValuePipe,
     LimitItemsPipe,
-    HeadingComponent
+    HeadingComponent,
+    ArtistSearchResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +32,6 @@ import { HeadingComponent } from '@heading/heading.component';
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  exports: [HeadingComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

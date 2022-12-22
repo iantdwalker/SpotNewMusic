@@ -8,11 +8,13 @@ The project is currently deployed as a Microsoft Azure Static Web App with an em
 -Install Azure Functions Core Tools v4  
 -Run: npm install  
 -Run: npm run build  
--Run: swa start dist/SpotNewMusic --api-location ./api
+-Run: npm run start to begin Angular project on http://localhost:4200 with hot refresh enabled  
+-Run: npm run swa  
 
 # Update History
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
+-22/12/2022 - Updated from Angular v14.2.10 to v15.0.4 and from Typescript v4.6.4 to v4.8.4  
 -13/11/2022 - Updated from Angular v13.3.11 to v14.2.10  
 -12/11/2022 - Updated from Angular v12.2.8 to v13.3.11 and from Typescript v4.3.5 to v4.6.4  
 -02/10/2021 - Updated from Angular v11.2.14 to v12.2.8 and from Typescript v4.0.8 to v4.3.5  
@@ -23,8 +25,26 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 -30/09/2021 - Updated from Angular v7.2 to v8.2 and from Typescript v3.2.2 to v3.5.3  
 
 # Version History
+v3.0 - 22/12/2022:  
+-Re-developed the entire application mobile first to be fully responsive  
+-Updated to Angular (v15) and Typescript (4.8.4)  
+-Improved the artist component in a few ways:  
+	*Squares replace circles with no image or text warping  
+	*Artist details are off by default but can be toggled for mobile users  
+	*Genres are limited to three on the selected artist to avoid cluttering the space and one on related artists  
+-Improved the artist search results filtered list in a few ways:  
+	*Larger set size for artist images that does not shrink on screen resizing  
+	*Maximised the space usage for the artist name and genres  
+	*Genres are limited to three to avoid cluttering the space  
+-Simplified the look and feel of the search bar  
+-Changed the session token message handling, its position on screen and the wording  
+-Restructured the header component to utilise a responsive nav-bar for the image logo, app heading and any future config/nav options  
+-Changed from using basic css to scss  
+-Removed all spec and e2e test source files, config files and packages  
+-Updated browser tab icon to the Spotify icon  
+
 v2.2 - 13/11/2022:  
--Updated all other npm packages to their latst versions and removed redundant packages  
+-Updated all other npm packages to their latest versions and removed redundant packages  
 -Updated @angular-eslint/* packages to v14  
 -Updated to Angular (v14)  
 -Updated to Angular (v13) and Typescript (4.6.4)  
@@ -88,10 +108,12 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
+!!Removed as of Spot New Music v3.0!!  
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Running end-to-end tests
 
+!!Removed as of Spot New Music v3.0!!  
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help

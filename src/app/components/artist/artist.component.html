@@ -1,12 +1,23 @@
-<div class="row row-artist" *ngIf='artist'>         
-    <div class="{{showLargeArtistImage ? 'largeImageBox' : 'imageBox'}}" (click)='onArtistClicked()'>        
-        <img src="{{artist.images[1] ? artist.images[1].url : artistPlaceholderImageUrl}}"
-             alt='artist' class="img-fluid d-block mx-auto {{showLargeArtistImage ? 'largeImage' : 'image'}}">
-        <div class="{{showLargeArtistImage ? 'largeArtistDetails' : 'artistDetails'}}">
-            <label class="artistText">{{artist.name}}</label>
-            <label class="genresText">{{artist.genres.toString() | limitItems: 3 | replaceValue: ',' : ' - '}}</label>
-            <br/>
-            <label class="popularityText">Popularity: {{artist.popularity}}%</label>                        
-        </div>        
-    </div>    
+<div class="row main-row d-block mx-auto" *ngIf="artist">
+    <div class="col">
+        <div class="d-block mx-auto {{showLargeArtistImage ? 'artist-image-wrapper-large' : 'artist-image-wrapper-regular'}}"
+            (click)='onArtistClicked()'>
+            <img src="{{artist.images[1] ? artist.images[1].url : artistPlaceholderImageUrl}}"
+                alt="The artist image"
+                class="img-fluid d-block mx-auto
+                    {{showLargeArtistImage ? 'artist-image-large' : 'artist-image-regular'}}
+                    {{showArtistDetails() ? 'artist-image-transparant' : 'artist-image-visible'}}">
+            <div class="text-wrap
+                {{showLargeArtistImage ? 'artist-details-large' : 'artist-details-regular'}}
+                {{showArtistDetails() ? 'artist-details-visible' : 'artist-details-hidden'}}">
+                <p class="{{showLargeArtistImage ? 'artist-name-large' : 'artist-name-regular'}}">{{artist.name}}</p>
+                <p>Popularity: {{artist.popularity}}%</p>
+                <p *ngIf="showLargeArtistImage; else relatedArtistGenres">{{artist.genres.toString() | limitItems: 3 : false | replaceValue: ',' : ' - '}}</p>
+            </div>
+        </div>
+    </div>
 </div>
+
+<ng-template #relatedArtistGenres>
+    <p>{{artist.genres.toString() | limitItems: 1 : true  | replaceValue: ',' : ' - '}}</p>
+</ng-template>

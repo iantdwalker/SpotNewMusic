@@ -33,7 +33,7 @@ export class SpotifyService {
         const httpParams = new HttpParams()
             .set('q', artistSearchTerm)
             .set('type', 'artist')
-            .set('limit', '5');
+            .set('limit', '10');
         const httpHeaders = new HttpHeaders()
             .set('Authorization', 'Bearer ' + this._spotifyAccessToken.access_token);
         const httpOptions = {
@@ -67,6 +67,6 @@ export class SpotifyService {
     private handleError(error: HttpErrorResponse) {
         const errorMessage = 'SpotifyService ERROR: ' + error.message;
         console.error(errorMessage);
-        return throwError(errorMessage);
+        return throwError(() => new Error(errorMessage));
     }
 }

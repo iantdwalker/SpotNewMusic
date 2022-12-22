@@ -6,12 +6,12 @@ import { Subscription } from 'rxjs';
 @Component ({
     selector: 'app-session',
     templateUrl: './session.component.html',
-    styleUrls: ['./session.component.css']
+    styleUrls: ['./session.component.scss']
 })
 export class SessionComponent implements OnInit, OnDestroy {
-    accessTokenNotGrantedMessage = 'Spotify access token has expired or could not be granted';
-    accessTokenGrantedMessage = 'Spotify access token granted and will expire in: ';
+    accessTokenNotGrantedMessage = 'Spotify api access not authorized - search disabled';
     spotifyAccessToken: ISpotifyAccessToken;
+    spotifyAccessTokenGranted: boolean;
     errorMessage: string;
     accessTokenTimeLeft: number;
     interval: any;
@@ -38,6 +38,7 @@ export class SessionComponent implements OnInit, OnDestroy {
     setSpotifyAccessToken(spotifyAccessToken: ISpotifyAccessToken): void {
         this.notifySpotifyAccessTokenGranted.emit(true);
         this.spotifyAccessToken = spotifyAccessToken;
+        this.spotifyAccessTokenGranted = true;
         this.accessTokenTimeLeft = parseInt(this.spotifyAccessToken.expires_in, 10);
         this.startAccessTokenExpiryTimer();
     }
@@ -48,6 +49,7 @@ export class SessionComponent implements OnInit, OnDestroy {
                 this.accessTokenTimeLeft--;
             } else {
                 this.stopAccessTokenExpiryTimer();
+                this.spotifyAccessToken = null;
                 this.getClientCredentialsAccessToken();
             }
         }, 1000);
@@ -59,6 +61,7 @@ export class SessionComponent implements OnInit, OnDestroy {
 
       onGetClientCredentialsAccessTokenError(error: any): void {
         this.notifySpotifyAccessTokenGranted.emit(false);
+        this.spotifyAccessTokenGranted = false;
         this.errorMessage = <any>error;
         console.log('getClientCredentialsAccessToken ERROR: ' + this.errorMessage);
       }

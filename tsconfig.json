@@ -3,18 +3,45 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@app/*": ["src/app/*"],
-      "@components/*": ["src/app/components/*"],
-      "@artist/*": ["src/app/components/artist/*"],
-      "@artist-search/*": ["src/app/components/artist-search/*"],
-      "@heading/*": ["src/app/components/heading/*"],
-      "@session/*": ["src/app/components/session/*"],
-      "@shared/*": ["src/app/shared/*"],
-      "@models/*": ["src/app/shared/models/*"],
-      "@pipes/*": ["src/app/shared/pipes/*"],
-      "@services/*": ["src/app/shared/services/*"],
-      "@assets/*": ["src/assets/*"],
-      "@environments/*": ["src/environments/*"]
+      "@app/*": [
+        "src/app/*"
+      ],
+      "@components/*": [
+        "src/app/components/*"
+      ],
+      "@artist/*": [
+        "src/app/components/artist/*"
+      ],
+      "@artist-search/*": [
+        "src/app/components/artist-search/*"
+      ],
+      "@artist-search-results/*": [
+        "src/app/components/artist-search-results/*"
+      ],
+      "@heading/*": [
+        "src/app/components/heading/*"
+      ],
+      "@session/*": [
+        "src/app/components/session/*"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ],
+      "@models/*": [
+        "src/app/shared/models/*"
+      ],
+      "@pipes/*": [
+        "src/app/shared/pipes/*"
+      ],
+      "@services/*": [
+        "src/app/shared/services/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@environments/*": [
+        "src/environments/*"
+      ]
     },
     "downlevelIteration": true,
     "outDir": "./dist/out-tsc",
@@ -24,13 +51,14 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2020",
+    "target": "ES2022",
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "useDefineForClassFields": false
   }
 }
