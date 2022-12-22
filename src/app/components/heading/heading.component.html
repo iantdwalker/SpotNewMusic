@@ -13,13 +13,18 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" role="switch" id="showArtistDetailsOveraly">
+              <div class="form-check form-switch ms-3">
+                <input 
+                  class="form-check-input me-auto"
+                  type="checkbox"
+                  role="switch"
+                  id="showArtistDetailsOveraly"
+                  [(ngModel)]="showArtistDetails">
                 <label class="form-check-label" for="showArtistDetailsOveraly">Artist Details</label>
               </div>
             </li>
-            <li><a class="dropdown-item" href="#">Sort Alphabetically</a></li>
-            <li><a class="dropdown-item" href="#">Sort By Popularity</a></li>
+            <li><a class="dropdown-item disabled" href="#">Sort Alphabetically</a></li>
+            <li><a class="dropdown-item disabled" href="#">Sort By Popularity</a></li>
           </ul>
         </li>
       </ul>

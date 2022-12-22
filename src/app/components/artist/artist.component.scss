@@ -13,13 +13,13 @@
   position: relative;
 }
 
-.large-artist-image-wrapper {
+.artist-image-wrapper-large {
   @extend .artist-image-wrapper-common;
   width: 250px;
   height: 250px;
 }
 
-.artist-image-wrapper {
+.artist-image-wrapper-regular {
   @extend .artist-image-wrapper-common;
   width: 200px;
   height: 200px;
@@ -34,18 +34,17 @@
 }
 
 .artist-image-common {
-  @extend .artist-image-visible;
   border-radius: 5%;
   position: absolute;
 }
 
-.large-artist-image {
+.artist-image-large {
   @extend .artist-image-common;
   width: 250px;
   height: 250px;
 }
 
-.artist-image {
+.artist-image-regular {
   @extend .artist-image-common;
   width: 200px;
   height: 200px;
@@ -60,7 +59,6 @@
 }
 
 .artist-details-common {
-  @extend .artist-details-hidden;
   border-radius: 5%;
   position: relative;
   color: white;
@@ -70,23 +68,23 @@
   vertical-align: middle;
 }
 
-.large-artist-details {
+.artist-details-large {
   @extend .artist-details-common;
   width: 250px;
   height: 250px;
 }
 
-.artist-details {
+.artist-details-regular {
   @extend .artist-details-common;
   width: 200px;
   height: 200px;
 }
 
-.large-artist-name {
+.artist-name-large {
   font-size: $h3-font-size;
 }
 
-.artist-name {
+.artist-name-regular {
   font-size: $h4-font-size;
 }
 
