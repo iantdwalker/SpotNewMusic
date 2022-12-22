@@ -11,7 +11,6 @@ import { ArtistComponent } from '@artist/artist.component';
 import { ReplaceValuePipe } from '@pipes/replace-value-pipe';
 import { LimitItemsPipe } from '@pipes/limit-items-pipe';
 import { HeadingComponent } from '@heading/heading.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ArtistSearchResultsComponent } from '@artist-search-results/artist-search-results.component';
 
 @NgModule({
@@ -30,7 +29,6 @@ import { ArtistSearchResultsComponent } from '@artist-search-results/artist-sear
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule,
     AppRoutingModule
   ],
   providers: [],
