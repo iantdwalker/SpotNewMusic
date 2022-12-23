@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Input, OnInit } from '@angular/core';
+import { Component, OnDestroy, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SpotifyService } from '@services/spotify-service';
 import { IArtist } from '@models/artist/artist';
 import { Subscription, Observable, EMPTY, Subject } from 'rxjs';
@@ -25,6 +25,7 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     genresUnknown = 'genre(s) unknown';
     faSearch = faSearch;
     faClose = faClose;
+    @ViewChild("artistSearchbarInput") inputElementRef: ElementRef;
 
     constructor(private _spotifyService: SpotifyService) {
     }
@@ -66,11 +67,13 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     onArtistSearchResultSelected(artist: IArtist): void {
         this.selectArtist(artist);
         this.initialiseArtistSearch();
+        this.scrollToTopOfPage();
      }
 
     onRelatedArtistClickedEvent(artist: IArtist): void {
         this.selectArtist(artist);
         this.initialiseArtistSearch();
+        this.scrollToTopOfPage();
     }
 
     selectArtist(artist: IArtist): void {
@@ -90,5 +93,12 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     onClearArtistSearchbarInput() : void {
         this.artistSearchbarInputFormControl.setValue("");
         this.initialiseArtistSearch();
+        if (this.inputElementRef.nativeElement) {
+            this.inputElementRef.nativeElement.focus();
+        }
+    }
+
+    scrollToTopOfPage(): void {
+        window.scrollTo(0,0);
     }
 }
