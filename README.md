@@ -25,6 +25,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 -30/09/2021 - Updated from Angular v7.2 to v8.2 and from Typescript v3.2.2 to v3.5.3  
 
 # Version History
+v3.1 - TBD:  
+-Added a clear search icon button to the artist search bar  
+
 v3.0 - 22/12/2022:  
 -Re-developed the entire application mobile first to be fully responsive  
 -Updated to Angular (v15) and Typescript (4.8.4)  

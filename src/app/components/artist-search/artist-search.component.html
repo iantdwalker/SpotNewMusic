@@ -13,9 +13,13 @@
                 [disabled]="!spotifyAccessTokenGranted"
                 tabindex="0"
                 autofocus />
-            <i class="fa fa-search fa-lg search-icon"
+            <fa-icon [icon]="faSearch" size="xl" class="search-icon"
                 (click)="onArtistSearchQueryPerformed(artistSearchbarInput.value)">
-            </i>
+            </fa-icon>
+            <fa-icon [icon]="faClose" size="xl" class="close-icon"
+                *ngIf="artistSearchbarInput.value"
+                (click)="onClearArtistSearchbarInput()">
+            </fa-icon>
         </div>
         <!--Artist filtered results list -->
         <ul class="artist-searchbar-results" *ngIf="artistSearchResults$ | async as artistSearchResults">

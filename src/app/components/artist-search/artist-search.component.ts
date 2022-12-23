@@ -4,6 +4,7 @@ import { IArtist } from '@models/artist/artist';
 import { Subscription, Observable, EMPTY, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, catchError, switchMap } from 'rxjs/operators';
 import { UntypedFormControl } from '@angular/forms';
+import { faSearch, faClose } from '@fortawesome/free-solid-svg-icons';
 
 @Component ({
     selector: 'app-artist-search',
@@ -22,6 +23,8 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     artistSearchbarInputFormControl: UntypedFormControl = new UntypedFormControl();
     artistPlaceholderImageUrl = 'assets/images/artistPlaceholder.png';
     genresUnknown = 'genre(s) unknown';
+    faSearch = faSearch;
+    faClose = faClose;
 
     constructor(private _spotifyService: SpotifyService) {
     }
@@ -82,5 +85,10 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
         this.errorMessage = <any>error;
         console.log('Artist Search ERROR: ' + this.errorMessage);
         return EMPTY;
+    }
+
+    onClearArtistSearchbarInput() : void {
+        this.artistSearchbarInputFormControl.setValue("");
+        this.initialiseArtistSearch();
     }
 }
