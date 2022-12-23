@@ -12,6 +12,7 @@ import { ReplaceValuePipe } from '@pipes/replace-value-pipe';
 import { LimitItemsPipe } from '@pipes/limit-items-pipe';
 import { HeadingComponent } from '@heading/heading.component';
 import { ArtistSearchResultsComponent } from '@artist-search-results/artist-search-results.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ArtistSearchResultsComponent } from '@artist-search-results/artist-sear
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

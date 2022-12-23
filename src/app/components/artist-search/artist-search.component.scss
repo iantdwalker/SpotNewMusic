@@ -25,6 +25,23 @@
   text-align: center;
 }
 
+.search-bar-icon-common {
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  color: $gray-600;
+}
+
+.search-icon {
+  @extend .search-bar-icon-common;
+  left: 5px;
+}
+
+.close-icon {
+  @extend .search-bar-icon-common;
+  right: 5px;
+}
+
 .form-control:focus {
   color: white;
   caret-color: white;
@@ -33,18 +50,13 @@
   outline: 0;
   box-shadow: none;
   border-bottom: 2px solid $green-500;
-}
 
-.search-icon {
-  position: absolute;
-  top: 14px;
-  left: 4px;
-  color: $gray-600;
-  cursor: pointer;
-}
-
-.form-control:focus + i {
-  color: $green-500;
+    + .search-icon {
+      color: $green-500;
+      + .close-icon {
+        color: $green-500;
+      }
+    }
 }
 
 /* Artist filtered results list */
