@@ -8,20 +8,20 @@
   margin-right: 10px;
 }
 
-.artist-image-wrapper-common {
+%artist-image-wrapper-common {
   border-radius: 5%;
   position: relative;
 }
 
 .artist-image-wrapper-large {
-  @extend .artist-image-wrapper-common;
+  @extend %artist-image-wrapper-common;
 
   width: 250px;
   height: 250px;
 }
 
 .artist-image-wrapper-regular {
-  @extend .artist-image-wrapper-common;
+  @extend %artist-image-wrapper-common;
 
   width: 200px;
   height: 200px;
@@ -35,20 +35,20 @@
   opacity: 1;
 }
 
-.artist-image-common {
+%artist-image-common {
   border-radius: 5%;
   position: absolute;
 }
 
 .artist-image-large {
-  @extend .artist-image-common;
+  @extend %artist-image-common;
 
   width: 250px;
   height: 250px;
 }
 
 .artist-image-regular {
-  @extend .artist-image-common;
+  @extend %artist-image-common;
 
   width: 200px;
   height: 200px;
@@ -62,7 +62,7 @@
   opacity: 1;
 }
 
-.artist-details-common {
+%artist-details-common {
   border-radius: 5%;
   position: relative;
   color: white;
@@ -73,14 +73,14 @@
 }
 
 .artist-details-large {
-  @extend .artist-details-common;
+  @extend %artist-details-common;
 
   width: 250px;
   height: 250px;
 }
 
 .artist-details-regular {
-  @extend .artist-details-common;
+  @extend %artist-details-common;
 
   width: 200px;
   height: 200px;
@@ -96,19 +96,19 @@
 
 /* Mouse hover opacity changes for large screens and above */
 @include media-breakpoint-up(lg) {
-  .artist-image-common {
+  %artist-image-common {
     transition: 0.5s opacity;
   }
 
-  .artist-details-common {
+  %artist-details-common {
     transition: 0.5s padding;
   }
 
-  .artist-image-wrapper-common:hover .artist-image-common {
+  %artist-image-wrapper-common:hover %artist-image-common {
     opacity: 0.3;
   }
 
-  .artist-image-wrapper-common:hover .artist-details-common {
+  %artist-image-wrapper-common:hover %artist-details-common {
     opacity: 1;
   }
 }
