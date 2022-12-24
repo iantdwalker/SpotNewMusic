@@ -2,6 +2,8 @@
 @import "../../../../node_modules/bootstrap/scss/variables";
 @import "../../../../node_modules/bootstrap/scss/mixins";
 
+$spotify-green: #58f991;
+
 /* Artist search box & filtered results */
 
 .artist-search-row {
@@ -51,13 +53,13 @@
   border-color: $gray-800;
   outline: 0;
   box-shadow: none;
-  border-bottom: 2px solid $green-500;
+  border-bottom: 2px solid $spotify-green;
 
   + .search-icon {
-    color: $green-500;
+    color: $spotify-green;
 
     + .close-icon {
-      color: $green-500;
+      color: $spotify-green;
     }
   }
 }
