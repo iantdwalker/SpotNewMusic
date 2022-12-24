@@ -12,10 +12,11 @@ import { IArtist } from '@models/artist/artist';
 export class SpotifyService {
     //Spot New Music Node Serverless API (Azure Function app embedded):
     _clientCredentialsAccessTokenUrl = '/api/spotify-access-token';
-
     _spotifyAccessToken: ISpotifyAccessToken;
     _spotifySearchUrl = 'https://api.spotify.com/v1/search';
     _spotifyRelatedArtistsUrl = 'https://api.spotify.com/v1/artists/{id}/related-artists';
+    // default to true to avoid colour flash on render:
+    spotifyAccessTokenGranted: boolean = true;
 
     constructor(private http: HttpClient) {
     }

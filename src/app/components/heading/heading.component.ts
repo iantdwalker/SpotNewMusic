@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ArtistSettingsService } from '@app/shared/services/artist-settings.service';
+import { SpotifyService } from '@app/shared/services/spotify-service';
 
 @Component({
   selector: 'app-heading',
@@ -7,7 +8,9 @@ import { ArtistSettingsService } from '@app/shared/services/artist-settings.serv
   styleUrls: ['./heading.component.scss']
 })
 export class HeadingComponent {
-  constructor(private artistSettingsService: ArtistSettingsService) {
+  constructor(
+    private artistSettingsService: ArtistSettingsService,
+    private spotifyService: SpotifyService) {
   }
 
   get showArtistDetails(): boolean {
@@ -16,5 +19,9 @@ export class HeadingComponent {
 
   set showArtistDetails(value: boolean) {
     this.artistSettingsService.showArtistDetails = value;
+  }
+
+  get spotifyAccessTokenGranted(): boolean {
+    return this.spotifyService.spotifyAccessTokenGranted;
   }
 }

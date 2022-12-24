@@ -11,7 +11,6 @@ import { Subscription } from 'rxjs';
 export class SessionComponent implements OnInit, OnDestroy {
     accessTokenNotGrantedMessage = 'Spotify api access not authorized - search disabled';
     spotifyAccessToken: ISpotifyAccessToken;
-    spotifyAccessTokenGranted: boolean;
     errorMessage: string;
     accessTokenTimeLeft: number;
     interval: any;
@@ -38,7 +37,7 @@ export class SessionComponent implements OnInit, OnDestroy {
     setSpotifyAccessToken(spotifyAccessToken: ISpotifyAccessToken): void {
         this.notifySpotifyAccessTokenGranted.emit(true);
         this.spotifyAccessToken = spotifyAccessToken;
-        this.spotifyAccessTokenGranted = true;
+        this._spotifyService.spotifyAccessTokenGranted = true;
         this.accessTokenTimeLeft = parseInt(this.spotifyAccessToken.expires_in, 10);
         this.startAccessTokenExpiryTimer();
     }
@@ -61,8 +60,12 @@ export class SessionComponent implements OnInit, OnDestroy {
 
       onGetClientCredentialsAccessTokenError(error: any): void {
         this.notifySpotifyAccessTokenGranted.emit(false);
-        this.spotifyAccessTokenGranted = false;
+        this._spotifyService.spotifyAccessTokenGranted = false;
         this.errorMessage = <any>error;
         console.log('getClientCredentialsAccessToken ERROR: ' + this.errorMessage);
+      }
+
+      get spotifyAccessTokenGranted(): boolean {
+        return this._spotifyService.spotifyAccessTokenGranted;
       }
 }
