@@ -15,7 +15,6 @@ export class SessionComponent implements OnInit, OnDestroy {
     accessTokenTimeLeft: number;
     interval: any;
     getClientCredentialsAccessTokenSubscription: Subscription;
-    @Output() notifySpotifyAccessTokenGranted: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     constructor(private _spotifyService: SpotifyService) {
     }
@@ -35,7 +34,6 @@ export class SessionComponent implements OnInit, OnDestroy {
     }
 
     setSpotifyAccessToken(spotifyAccessToken: ISpotifyAccessToken): void {
-        this.notifySpotifyAccessTokenGranted.emit(true);
         this.spotifyAccessToken = spotifyAccessToken;
         this._spotifyService.spotifyAccessTokenGranted = true;
         this.accessTokenTimeLeft = parseInt(this.spotifyAccessToken.expires_in, 10);
@@ -59,7 +57,6 @@ export class SessionComponent implements OnInit, OnDestroy {
       }
 
       onGetClientCredentialsAccessTokenError(error: any): void {
-        this.notifySpotifyAccessTokenGranted.emit(false);
         this._spotifyService.spotifyAccessTokenGranted = false;
         this.errorMessage = <any>error;
         console.log('getClientCredentialsAccessToken ERROR: ' + this.errorMessage);

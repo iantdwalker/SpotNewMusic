@@ -1,4 +1,4 @@
-import { Component, OnDestroy, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { SpotifyService } from '@services/spotify-service';
 import { IArtist } from '@models/artist/artist';
 import { Subscription, Observable, EMPTY, Subject } from 'rxjs';
@@ -12,7 +12,6 @@ import { faSearch, faClose } from '@fortawesome/free-solid-svg-icons';
     styleUrls: ['./artist-search.component.scss']
 })
 export class ArtistSearchComponent implements OnInit, OnDestroy {
-    @Input() spotifyAccessTokenGranted = false;
     artistSearchValue: string;
     errorMessage: string;
     selectedArtist: IArtist;
@@ -31,14 +30,23 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.initialiseArtistSearch();
-        this.artistSearchbarInputFormControl.valueChanges.pipe(
-            debounceTime(200),
-            distinctUntilChanged()
-        )
-        .subscribe(
-            artistSearchbarInputValue => this.artistSearchResultsSubject.next(artistSearchbarInputValue)
-        );
+        this._spotifyService.spotifyAccessTokenGrantedChanged.subscribe(value => {
+            if (!value) {
+                this.artistSearchbarInputFormControl.disable();
+            }
+            else {
+                this.artistSearchbarInputFormControl.enable();
+
+                this.initialiseArtistSearch();
+                this.artistSearchbarInputFormControl.valueChanges.pipe(
+                    debounceTime(200),
+                    distinctUntilChanged()
+                )
+                .subscribe(
+                    artistSearchbarInputValue => this.artistSearchResultsSubject.next(artistSearchbarInputValue)
+                );
+            }
+        });
     }
 
     initialiseArtistSearch(): void {

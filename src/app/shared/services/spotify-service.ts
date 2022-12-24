@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, Subject, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { ISpotifyAccessToken } from '@models/authentication/spotify-access-token';
 import { ISearchedArtists } from '@models/artist/searched-artists';
@@ -16,9 +16,19 @@ export class SpotifyService {
     _spotifySearchUrl = 'https://api.spotify.com/v1/search';
     _spotifyRelatedArtistsUrl = 'https://api.spotify.com/v1/artists/{id}/related-artists';
     // default to true to avoid colour flash on render:
-    spotifyAccessTokenGranted: boolean = true;
+    _spotifyAccessTokenGranted: boolean = true;
+    spotifyAccessTokenGrantedChanged: Subject<boolean> = new Subject<boolean>();
 
     constructor(private http: HttpClient) {
+    }
+
+    get spotifyAccessTokenGranted() : boolean {
+        return this._spotifyAccessTokenGranted;
+    }
+    
+    set spotifyAccessTokenGranted(value: boolean) {
+        this._spotifyAccessTokenGranted = value;
+        this.spotifyAccessTokenGrantedChanged.next(this.spotifyAccessTokenGranted);
     }
 
     getClientCredentialsAccessToken(): Observable<ISpotifyAccessToken> {
