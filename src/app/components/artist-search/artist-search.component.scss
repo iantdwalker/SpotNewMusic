@@ -20,7 +20,7 @@
   height: 45px;
   font-size: 22px;
   background-color: $gray-800;
-  border-radius: 0px;
+  border-radius: 0;
   border-bottom: 1px solid $gray-600;
   text-align: center;
 }
@@ -34,11 +34,13 @@
 
 .search-icon {
   @extend .search-bar-icon-common;
+
   left: 5px;
 }
 
 .close-icon {
   @extend .search-bar-icon-common;
+
   right: 5px;
 }
 
@@ -51,12 +53,13 @@
   box-shadow: none;
   border-bottom: 2px solid $green-500;
 
-    + .search-icon {
+  + .search-icon {
+    color: $green-500;
+
+    + .close-icon {
       color: $green-500;
-      + .close-icon {
-        color: $green-500;
-      }
     }
+  }
 }
 
 /* Artist filtered results list */
@@ -106,8 +109,8 @@
 }
 
 .artist-searchbar-results-text {
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
 }
 
 .artist-result-name {
@@ -117,20 +120,21 @@
 .artist-searchbar-results-artistGenres {
   font-style: italic;
   color: $gray-500;
- }
+}
 
- @include media-breakpoint-up(sm) {
+@include media-breakpoint-up(sm) {
   .artist-searchbar-results-listitem {
     padding-left: 25px;
   }
+
   .artist-result-name {
     font-size: $h4-font-size;
   }
 }
 
 /* clears the text input field's 'X' button from Internet Explorer */
-input[type=text]::-ms-clear { display: none; width: 0; height: 0; }
-input[type=text]::-ms-reveal { display: none; width: 0; height: 0; }
+input[type="text"]::-ms-clear { display: none; width: 0; height: 0; }
+input[type="text"]::-ms-reveal { display: none; width: 0; height: 0; }
 
 /* clears the text input field's 'X' button from Chrome */
 input[type="text"]::-webkit-search-decoration,

@@ -15,12 +15,14 @@
 
 .artist-image-wrapper-large {
   @extend .artist-image-wrapper-common;
+
   width: 250px;
   height: 250px;
 }
 
 .artist-image-wrapper-regular {
   @extend .artist-image-wrapper-common;
+
   width: 200px;
   height: 200px;
 }
@@ -40,12 +42,14 @@
 
 .artist-image-large {
   @extend .artist-image-common;
+
   width: 250px;
   height: 250px;
 }
 
 .artist-image-regular {
   @extend .artist-image-common;
+
   width: 200px;
   height: 200px;
 }
@@ -70,12 +74,14 @@
 
 .artist-details-large {
   @extend .artist-details-common;
+
   width: 250px;
   height: 250px;
 }
 
 .artist-details-regular {
   @extend .artist-details-common;
+
   width: 200px;
   height: 200px;
 }
