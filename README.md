@@ -26,6 +26,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Version History
 v3.1.1 TBD:  
+-Fixed bug whereby the artist search field does not disable if the Spotify access token is not granted  
 -Spotify logo now changes to pink if the access token is not granted  
 -Artist search bar highlight and icon colours now match the Spotify logo green  
 -Added linting for scss styles  
