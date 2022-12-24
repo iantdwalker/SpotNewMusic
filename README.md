@@ -25,7 +25,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 -30/09/2021 - Updated from Angular v7.2 to v8.2 and from Typescript v3.2.2 to v3.5.3  
 
 # Version History
-v 3.1.1 TBD:  
+v3.1.1 TBD:  
+-Spotify logo now changes to pink if the access token is not granted  
+-Artist search bar highlight and icon colours now match the Spotify logo green  
 -Added linting for scss styles  
 
 v3.1.0 - 23/12/2022:  
