@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnDestroy, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { ArtistSearchResultsComponent } from '@components/artist-search-results/artist-search-results.component';
 import { SpotifyService } from '@services/spotify-service';
 import { IArtist } from '@models/artist/artist';
 import { Subscription, Observable, EMPTY, Subject } from 'rxjs';
@@ -11,7 +12,7 @@ import { faSearch, faClose } from '@fortawesome/free-solid-svg-icons';
     templateUrl: './artist-search.component.html',
     styleUrls: ['./artist-search.component.scss']
 })
-export class ArtistSearchComponent implements OnInit, OnDestroy {
+export class ArtistSearchComponent implements AfterViewInit, OnDestroy {
     artistSearchValue: string;
     errorMessage: string;
     selectedArtist: IArtist;
@@ -25,25 +26,34 @@ export class ArtistSearchComponent implements OnInit, OnDestroy {
     faSearch = faSearch;
     faClose = faClose;
     @ViewChild("artistSearchbarInput") inputElementRef: ElementRef;
+    @ViewChild("artistSearchResults") artistSearchResults: ArtistSearchResultsComponent;
 
     constructor(private _spotifyService: SpotifyService) {
     }
 
-    ngOnInit(): void {
+    ngAfterViewInit(): void {
         this._spotifyService.spotifyAccessTokenGrantedChanged.subscribe(value => {
             if (!value) {
                 this.artistSearchbarInputFormControl.disable();
             }
             else {
                 this.artistSearchbarInputFormControl.enable();
-
                 this.initialiseArtistSearch();
                 this.artistSearchbarInputFormControl.valueChanges.pipe(
                     debounceTime(200),
                     distinctUntilChanged()
                 )
                 .subscribe(
-                    artistSearchbarInputValue => this.artistSearchResultsSubject.next(artistSearchbarInputValue)
+                    artistSearchbarInputValue => {
+                        if (artistSearchbarInputValue) {
+                            this.artistSearchResultsSubject.next(artistSearchbarInputValue)
+                        }
+                        else {
+                            this.initialiseArtistSearch();
+                            this.selectedArtist = null;
+                            this.artistSearchResults.initialiseRelatedArtistSearch();
+                        }
+                    }
                 );
             }
         });

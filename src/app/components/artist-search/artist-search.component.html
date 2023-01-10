@@ -56,7 +56,8 @@
 </div>
 
 <!-- Artist Results -->
-<app-artist-search-results [selectedArtist]="selectedArtist"
+<app-artist-search-results #artistSearchResults
+    [selectedArtist]="selectedArtist"
     [relatedArtistsSubject]="relatedArtistsSubject"
     (notifyRelatedArtistClicked)="onRelatedArtistClickedEvent($event)">
 </app-artist-search-results>
