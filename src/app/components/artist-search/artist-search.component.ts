@@ -14,7 +14,6 @@ import { faSearch, faClose } from '@fortawesome/free-solid-svg-icons';
 })
 export class ArtistSearchComponent implements AfterViewInit, OnDestroy {
     artistSearchValue: string;
-    errorMessage: string;
     selectedArtist: IArtist;
     artistSearchResults$: Observable<IArtist[]>;
     artistSearchResultsSubject = new Subject<string>();
@@ -102,9 +101,8 @@ export class ArtistSearchComponent implements AfterViewInit, OnDestroy {
         }
     }
 
-    onArtistSearchError(error: any): Observable<never> {
-        this.errorMessage = <any>error;
-        console.log('Artist Search ERROR: ' + this.errorMessage);
+    onArtistSearchError(error: string): Observable<never> {
+        console.log('Artist Search ERROR: ' + error);
         return EMPTY;
     }
 

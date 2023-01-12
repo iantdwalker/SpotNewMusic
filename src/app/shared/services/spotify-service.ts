@@ -16,7 +16,7 @@ export class SpotifyService {
     _spotifySearchUrl = 'https://api.spotify.com/v1/search';
     _spotifyRelatedArtistsUrl = 'https://api.spotify.com/v1/artists/{id}/related-artists';
     // default to true to avoid colour flash on render:
-    _spotifyAccessTokenGranted: boolean = true;
+    _spotifyAccessTokenGranted = true;
     spotifyAccessTokenGrantedChanged: Subject<boolean> = new Subject<boolean>();
 
     constructor(private http: HttpClient) {

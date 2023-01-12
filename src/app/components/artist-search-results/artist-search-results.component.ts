@@ -15,7 +15,6 @@ export class ArtistSearchResultsComponent implements OnInit {
   @Output() notifyRelatedArtistClicked: EventEmitter<IArtist> = new EventEmitter<IArtist>();
   relatedArtists$: Observable<IArtist[]>;
   noRelatedArtistsMessage = 'No related artists found.';
-  errorMessage: string;
 
   constructor(private _spotifyService: SpotifyService) {
   }
@@ -36,9 +35,8 @@ export class ArtistSearchResultsComponent implements OnInit {
     this.notifyRelatedArtistClicked.emit(artist);
   }
 
-  onRelatedArtistSearchError(error: any): Observable<never> {
-    this.errorMessage = <any>error;
-    console.log('Related Artist Search ERROR: ' + this.errorMessage);
+  onRelatedArtistSearchError(error: string): Observable<never> {
+    console.log('Related Artist Search ERROR: ' + error);
     return EMPTY;
   }
 }

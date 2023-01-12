@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "lint-styles": "stylelint \"src/**/*.scss\" --fix",
-    "lint": "ng lint",
+    "lint": "npm run lint-styles && ng lint --fix",
     "build": "ng build --configuration production",
     "lbuild": "npm run lint && npm run build",
     "start": "ng serve -o",
