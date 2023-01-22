@@ -28,14 +28,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Version History
 
-v3.1.1 TBD:  
+v3.1.1 - 22/01/2023:  
 -Ensured that the selected artist and any related artists are cleared if the artist search term is deleted or is empty  
 -Ensured that the artist search results list is cleared if the artist search term is deleted or empty  
 -Fixed bug whereby the artist search field does not disable if the Spotify access token is not granted  
 -Spotify logo now changes to pink if the access token is not granted  
 -Artist search bar highlight and icon colours now match the Spotify logo's shade of green  
 -Added ESLint linting and Prettier formatting for ts/json files  
--Added Stylelint linting and Prettier formatting for scss styles
+-Added Stylelint linting and Prettier formatting for scss styles  
+-Fixed some deprecated RxJs code
 
 v3.1.0 - 23/12/2022:  
 -Added a clear search icon button to the artist search bar  

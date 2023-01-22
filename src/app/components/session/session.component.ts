@@ -30,10 +30,11 @@ export class SessionComponent implements OnInit, OnDestroy {
   getClientCredentialsAccessToken(): void {
     this.getClientCredentialsAccessTokenSubscription = this._spotifyService
       .getClientCredentialsAccessToken()
-      .subscribe(
-        (spotifyAccessToken) => this.setSpotifyAccessToken(spotifyAccessToken),
-        (error) => this.onGetClientCredentialsAccessTokenError(error)
-      );
+      .subscribe({
+        next: (spotifyAccessToken) =>
+          this.setSpotifyAccessToken(spotifyAccessToken),
+        error: (error) => this.onGetClientCredentialsAccessTokenError(error),
+      });
   }
 
   setSpotifyAccessToken(spotifyAccessToken: ISpotifyAccessToken): void {

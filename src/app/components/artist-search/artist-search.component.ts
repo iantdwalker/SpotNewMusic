@@ -81,13 +81,13 @@ export class ArtistSearchComponent implements AfterViewInit, OnDestroy {
   onArtistSearchQueryPerformed(searchQuery: string): void {
     this.getArtistManualSubscription = this._spotifyService
       .getArtists(searchQuery)
-      .subscribe(
-        (searchedArtists) => {
+      .subscribe({
+        next: (searchedArtists) => {
           this.selectArtist(searchedArtists[0]);
           this.initialiseArtistSearch();
         },
-        (error) => this.onArtistSearchError(error)
-      );
+        error: (error) => this.onArtistSearchError(error),
+      });
   }
 
   onArtistSearchResultSelected(artist: IArtist): void {
