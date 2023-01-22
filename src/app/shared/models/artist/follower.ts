@@ -1,4 +1,4 @@
 export interface IFollower {
-    href: string;
-    total: number;
+  href: string;
+  total: number;
 }

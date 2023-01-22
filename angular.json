@@ -5,12 +5,6 @@
   "schematics": {
     "@schematics/angular:component": {
       "style": "scss"
-    },
-    "@angular-eslint/schematics:application": {
-      "setParserOptionsProject": true
-    },
-    "@angular-eslint/schematics:library": {
-      "setParserOptionsProject": true
     }
   },
   "projects": {
@@ -63,7 +57,7 @@
                 "styles": {
                   "minify": true,
                   "inlineCritical": false
-                  },
+                },
                 "fonts": true
               },
               "outputHashing": "all",
@@ -115,5 +109,10 @@
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

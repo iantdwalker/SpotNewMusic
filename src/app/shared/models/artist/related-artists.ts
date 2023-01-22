@@ -1,5 +1,5 @@
-import { IArtist } from '@models/artist/artist';
+import { IArtist } from "@models/artist/artist";
 
 export interface IRelatedArtists {
-    artists: Array<IArtist>;
+  artists: Array<IArtist>;
 }
