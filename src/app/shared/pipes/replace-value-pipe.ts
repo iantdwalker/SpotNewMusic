@@ -1,10 +1,14 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
-    name: 'replaceValue'
+  name: "replaceValue",
 })
 export class ReplaceValuePipe implements PipeTransform {
-    transform(value: string, valueToReplace: string, replacementValue: string): string {
-        return value.replace(new RegExp(valueToReplace, 'g'), replacementValue);
-    }
+  transform(
+    value: string,
+    valueToReplace: string,
+    replacementValue: string
+  ): string {
+    return value.replace(new RegExp(valueToReplace, "g"), replacementValue);
+  }
 }

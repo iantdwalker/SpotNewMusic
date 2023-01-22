@@ -1,5 +1,5 @@
-import { IArtists } from '@models/artist/artists';
+import { IArtists } from "@models/artist/artists";
 
 export interface ISearchedArtists {
-    artists: IArtists;
+  artists: IArtists;
 }

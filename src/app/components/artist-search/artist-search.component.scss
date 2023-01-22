@@ -98,11 +98,13 @@ $spotify-green: #58f991;
   color: $gray-500;
 }
 
-.artist-searchbar-results-listitem:hover .artist-searchbar-results-artist-genres {
+.artist-searchbar-results-listitem:hover
+  .artist-searchbar-results-artist-genres {
   color: white;
 }
 
-.artist-searchbar-results-listitem:focus .artist-searchbar-results-artist-genres {
+.artist-searchbar-results-listitem:focus
+  .artist-searchbar-results-artist-genres {
   color: white;
 }
 
@@ -148,4 +150,6 @@ input[type="text"]::-ms-reveal {
 input[type="text"]::-webkit-search-decoration,
 input[type="text"]::-webkit-search-cancel-button,
 input[type="text"]::-webkit-search-results-button,
-input[type="text"]::-webkit-search-results-decoration { display: none; }
+input[type="text"]::-webkit-search-results-decoration {
+  display: none;
+}
