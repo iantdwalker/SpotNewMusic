@@ -4,10 +4,12 @@
   "scripts": {
     "ng": "ng",
     "lint-styles": "stylelint \"src/**/*.scss\" --fix",
-    "lint": "ng lint --fix",
-    "lint-all": "npm run lint-styles && ng lint",
+    "lint": "npm run lint-styles && ng lint --fix",
+    "pretty": "npx prettier --write src/",
+    "pretty-ts": "npx prettier --write \"src/**/*.ts\"",
+    "pretty-styles": "npx prettier --write \"src/**/*.scss\"",
     "build": "ng build --configuration production",
-    "lbuild": "npm run lint-all && npm run build",
+    "lbuild": "npm run lint && npm run build",
     "start": "ng serve -o",
     "swa": "swa start http://localhost:4200/ --api-location ./api",
     "swa-only": "swa start dist/SpotNewMusic --api-location ./api"
