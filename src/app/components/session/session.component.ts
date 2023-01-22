@@ -1,68 +1,72 @@
-import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
-import { ISpotifyAccessToken } from '@models/authentication/spotify-access-token';
-import { SpotifyService } from '@services/spotify-service';
-import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { ISpotifyAccessToken } from "@models/authentication/spotify-access-token";
+import { SpotifyService } from "@services/spotify-service";
+import { Subscription } from "rxjs";
 
-@Component ({
-    selector: 'app-session',
-    templateUrl: './session.component.html',
-    styleUrls: ['./session.component.scss']
+@Component({
+  selector: "app-session",
+  templateUrl: "./session.component.html",
+  styleUrls: ["./session.component.scss"],
 })
 export class SessionComponent implements OnInit, OnDestroy {
-    accessTokenNotGrantedMessage = 'Spotify api access not authorized - search disabled';
-    spotifyAccessToken: ISpotifyAccessToken;
-    spotifyAccessTokenGranted: boolean;
-    errorMessage: string;
-    accessTokenTimeLeft: number;
-    interval: any;
-    getClientCredentialsAccessTokenSubscription: Subscription;
-    @Output() notifySpotifyAccessTokenGranted: EventEmitter<boolean> = new EventEmitter<boolean>();
+  accessTokenNotGrantedMessage =
+    "Spotify api access not authorized - search disabled";
+  spotifyAccessToken: ISpotifyAccessToken;
+  errorMessage: string;
+  accessTokenTimeLeft: number;
+  interval: ReturnType<typeof setInterval>;
+  getClientCredentialsAccessTokenSubscription: Subscription;
 
-    constructor(private _spotifyService: SpotifyService) {
-    }
+  constructor(private _spotifyService: SpotifyService) {}
 
-    ngOnInit(): void {
+  ngOnInit(): void {
+    this.getClientCredentialsAccessToken();
+  }
+
+  ngOnDestroy(): void {
+    this.getClientCredentialsAccessTokenSubscription.unsubscribe();
+  }
+
+  getClientCredentialsAccessToken(): void {
+    this.getClientCredentialsAccessTokenSubscription = this._spotifyService
+      .getClientCredentialsAccessToken()
+      .subscribe({
+        next: (spotifyAccessToken) =>
+          this.setSpotifyAccessToken(spotifyAccessToken),
+        error: (error) => this.onGetClientCredentialsAccessTokenError(error),
+      });
+  }
+
+  setSpotifyAccessToken(spotifyAccessToken: ISpotifyAccessToken): void {
+    this.spotifyAccessToken = spotifyAccessToken;
+    this._spotifyService.spotifyAccessTokenGranted = true;
+    this.accessTokenTimeLeft = parseInt(this.spotifyAccessToken.expires_in, 10);
+    this.startAccessTokenExpiryTimer();
+  }
+
+  startAccessTokenExpiryTimer(): void {
+    this.interval = setInterval(() => {
+      if (this.accessTokenTimeLeft > 0) {
+        this.accessTokenTimeLeft--;
+      } else {
+        this.stopAccessTokenExpiryTimer();
+        this.spotifyAccessToken = null;
         this.getClientCredentialsAccessToken();
-    }
-
-    ngOnDestroy(): void {
-        this.getClientCredentialsAccessTokenSubscription.unsubscribe();
-    }
-
-    getClientCredentialsAccessToken(): void {
-        this.getClientCredentialsAccessTokenSubscription = this._spotifyService.getClientCredentialsAccessToken()
-            .subscribe(spotifyAccessToken => this.setSpotifyAccessToken(spotifyAccessToken),
-            error => this.onGetClientCredentialsAccessTokenError(error));
-    }
-
-    setSpotifyAccessToken(spotifyAccessToken: ISpotifyAccessToken): void {
-        this.notifySpotifyAccessTokenGranted.emit(true);
-        this.spotifyAccessToken = spotifyAccessToken;
-        this.spotifyAccessTokenGranted = true;
-        this.accessTokenTimeLeft = parseInt(this.spotifyAccessToken.expires_in, 10);
-        this.startAccessTokenExpiryTimer();
-    }
-
-    startAccessTokenExpiryTimer(): void {
-        this.interval = setInterval(() => {
-            if (this.accessTokenTimeLeft > 0) {
-                this.accessTokenTimeLeft--;
-            } else {
-                this.stopAccessTokenExpiryTimer();
-                this.spotifyAccessToken = null;
-                this.getClientCredentialsAccessToken();
-            }
-        }, 1000);
       }
+    }, 1000);
+  }
 
-      stopAccessTokenExpiryTimer(): void {
-        clearInterval(this.interval);
-      }
+  stopAccessTokenExpiryTimer(): void {
+    clearInterval(this.interval);
+  }
 
-      onGetClientCredentialsAccessTokenError(error: any): void {
-        this.notifySpotifyAccessTokenGranted.emit(false);
-        this.spotifyAccessTokenGranted = false;
-        this.errorMessage = <any>error;
-        console.log('getClientCredentialsAccessToken ERROR: ' + this.errorMessage);
-      }
+  onGetClientCredentialsAccessTokenError(error: string): void {
+    this._spotifyService.spotifyAccessTokenGranted = false;
+    this.errorMessage = error;
+    console.log("getClientCredentialsAccessToken ERROR: " + this.errorMessage);
+  }
+
+  get spotifyAccessTokenGranted(): boolean {
+    return this._spotifyService.spotifyAccessTokenGranted;
+  }
 }

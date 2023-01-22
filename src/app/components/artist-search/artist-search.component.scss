@@ -2,6 +2,8 @@
 @import "../../../../node_modules/bootstrap/scss/variables";
 @import "../../../../node_modules/bootstrap/scss/mixins";
 
+$spotify-green: #58f991;
+
 /* Artist search box & filtered results */
 
 .artist-search-row {
@@ -20,12 +22,12 @@
   height: 45px;
   font-size: 22px;
   background-color: $gray-800;
-  border-radius: 0px;
+  border-radius: 0;
   border-bottom: 1px solid $gray-600;
   text-align: center;
 }
 
-.search-bar-icon-common {
+%search-bar-icon-common {
   position: absolute;
   cursor: pointer;
   top: 10px;
@@ -33,12 +35,14 @@
 }
 
 .search-icon {
-  @extend .search-bar-icon-common;
+  @extend %search-bar-icon-common;
+
   left: 5px;
 }
 
 .close-icon {
-  @extend .search-bar-icon-common;
+  @extend %search-bar-icon-common;
+
   right: 5px;
 }
 
@@ -49,14 +53,15 @@
   border-color: $gray-800;
   outline: 0;
   box-shadow: none;
-  border-bottom: 2px solid $green-500;
+  border-bottom: 2px solid $spotify-green;
 
-    + .search-icon {
-      color: $green-500;
-      + .close-icon {
-        color: $green-500;
-      }
+  + .search-icon {
+    color: $spotify-green;
+
+    + .close-icon {
+      color: $spotify-green;
     }
+  }
 }
 
 /* Artist filtered results list */
@@ -73,10 +78,7 @@
 
 .artist-searchbar-results-listitem {
   cursor: pointer;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 25px;
+  padding: 5px 25px 5px 5px;
 }
 
 .artist-searchbar-results-listitem:hover {
@@ -91,11 +93,18 @@
   color: white;
 }
 
-.artist-searchbar-results-listitem:hover .artist-searchbar-results-artistGenres {
+.artist-searchbar-results-artist-genres {
+  font-style: italic;
+  color: $gray-500;
+}
+
+.artist-searchbar-results-listitem:hover
+  .artist-searchbar-results-artist-genres {
   color: white;
 }
 
-.artist-searchbar-results-listitem:focus .artist-searchbar-results-artistGenres {
+.artist-searchbar-results-listitem:focus
+  .artist-searchbar-results-artist-genres {
   color: white;
 }
 
@@ -106,34 +115,41 @@
 }
 
 .artist-searchbar-results-text {
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
 }
 
 .artist-result-name {
   font-size: $h5-font-size;
 }
 
-.artist-searchbar-results-artistGenres {
-  font-style: italic;
-  color: $gray-500;
- }
-
- @include media-breakpoint-up(sm) {
+@include media-breakpoint-up(sm) {
   .artist-searchbar-results-listitem {
     padding-left: 25px;
   }
+
   .artist-result-name {
     font-size: $h4-font-size;
   }
 }
 
 /* clears the text input field's 'X' button from Internet Explorer */
-input[type=text]::-ms-clear { display: none; width: 0; height: 0; }
-input[type=text]::-ms-reveal { display: none; width: 0; height: 0; }
+input[type="text"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type="text"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
 
 /* clears the text input field's 'X' button from Chrome */
 input[type="text"]::-webkit-search-decoration,
 input[type="text"]::-webkit-search-cancel-button,
 input[type="text"]::-webkit-search-results-button,
-input[type="text"]::-webkit-search-results-decoration { display: none; }
+input[type="text"]::-webkit-search-results-decoration {
+  display: none;
+}

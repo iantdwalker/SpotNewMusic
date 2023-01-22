@@ -1,7 +1,9 @@
 # SpotNewMusic
-An Angular SPA started in 2019 that will help to discover new music artists and genres using the public Spotify web API. Still in active development.
+
+An Angular SPA that will help to discover new music artists and genres using the public Spotify web API. Still in active development.
 
 # Build & Run
+
 The project is currently deployed as a Microsoft Azure Static Web App with an embeded Azure Fuction API. To run both locally via the Azure emulator:  
 -Install Node.js v16 LTS  
 -Run: npm install -g @azure/static-web-apps-cli  
@@ -9,9 +11,10 @@ The project is currently deployed as a Microsoft Azure Static Web App with an em
 -Run: npm install  
 -Run: npm run build  
 -Run: npm run start to begin Angular project on http://localhost:4200 with hot refresh enabled  
--Run: npm run swa  
+-Run: npm run swa
 
-# Update History
+# Angular Update History
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
 -22/12/2022 - Updated from Angular v14.2.10 to v15.0.4 and from Typescript v4.6.4 to v4.8.4  
@@ -20,38 +23,48 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 -02/10/2021 - Updated from Angular v11.2.14 to v12.2.8 and from Typescript v4.0.8 to v4.3.5  
 -01/10/2021 - Updated from Angular v10.2.5 to v11.2.14  
 -01/10/2021 - Updated from Angular v9.1.13 to v10.2.5 and from Typescript v3.8.3 to v4.0.8  
--01/10/2021 - Updated from Angular v9.1.13 to v10.2.5 and from Typescript v3.8.3 to v4.0.8  
 -30/09/2021 - Updated from Angular v8.2 to v9.1.13 and from Typescript v3.5.3 to v3.8.3  
--30/09/2021 - Updated from Angular v7.2 to v8.2 and from Typescript v3.2.2 to v3.5.3  
+-30/09/2021 - Updated from Angular v7.2 to v8.2 and from Typescript v3.2.2 to v3.5.3
 
 # Version History
-v3.1 - 23/12/2022:  
+
+v3.1.1 - 22/01/2023:  
+-Ensured that the selected artist and any related artists are cleared if the artist search term is deleted or is empty  
+-Ensured that the artist search results list is cleared if the artist search term is deleted or empty  
+-Fixed bug whereby the artist search field does not disable if the Spotify access token is not granted  
+-Spotify logo now changes to pink if the access token is not granted  
+-Artist search bar highlight and icon colours now match the Spotify logo's shade of green  
+-Added ESLint linting and Prettier formatting for ts/json files  
+-Added Stylelint linting and Prettier formatting for scss styles  
+-Fixed some deprecated RxJs code
+
+v3.1.0 - 23/12/2022:  
 -Added a clear search icon button to the artist search bar  
--Selecting an artist search list item or a related artist now scrolls back to the top of the screen  
+-Selecting an artist search list item or a related artist now scrolls back to the top of the screen
 
 v3.0 - 22/12/2022:  
 -Re-developed the entire application mobile first to be fully responsive  
 -Updated to Angular (v15) and Typescript (4.8.4)  
 -Improved the artist component in a few ways:  
-	*Squares replace circles with no image or text warping  
-	*Artist details are off by default but can be toggled for mobile users  
-	*Genres are limited to three on the selected artist to avoid cluttering the space and one on related artists  
+ *Squares replace circles with no image or text warping  
+ *Artist details are off by default but can be toggled for mobile users  
+ *Genres are limited to three on the selected artist to avoid cluttering the space and one on related artists  
 -Improved the artist search results filtered list in a few ways:  
-	*Larger set size for artist images that does not shrink on screen resizing  
-	*Maximised the space usage for the artist name and genres  
-	*Genres are limited to three to avoid cluttering the space  
+ *Larger set size for artist images that does not shrink on screen resizing  
+ *Maximised the space usage for the artist name and genres  
+ *Genres are limited to three to avoid cluttering the space  
 -Simplified the look and feel of the search bar  
 -Changed the session token message handling, its position on screen and the wording  
 -Restructured the header component to utilise a responsive nav-bar for the image logo, app heading and any future config/nav options  
 -Changed from using basic css to scss  
 -Removed all spec and e2e test source files, config files and packages  
--Updated browser tab icon to the Spotify icon  
+-Updated browser tab icon to the Spotify icon
 
 v2.2 - 13/11/2022:  
 -Updated all other npm packages to their latest versions and removed redundant packages  
--Updated @angular-eslint/* packages to v14  
+-Updated @angular-eslint/\* packages to v14  
 -Updated to Angular (v14)  
--Updated to Angular (v13) and Typescript (4.6.4)  
+-Updated to Angular (v13) and Typescript (4.6.4)
 
 v2.1 - 08/11/2022:  
 -Created a Microsoft Azure Static Web App preview environment for the GitHub development branch  

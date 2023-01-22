@@ -1,0 +1,10 @@
+**/node_modules
+**/dist
+**/.angular
+**/.github
+**/.vscode
+**/api
+**/resources
+
+# Ignore all HTML files:
+*.html
