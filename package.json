@@ -7,7 +7,7 @@
     "lint": "ng lint --fix",
     "lint-all": "npm run lint-styles && ng lint",
     "build": "ng build --configuration production",
-    "lbuild": "npm run lint && npm run build",
+    "lbuild": "npm run lint-all && npm run build",
     "start": "ng serve -o",
     "swa": "swa start http://localhost:4200/ --api-location ./api",
     "swa-only": "swa start dist/SpotNewMusic --api-location ./api"
@@ -43,8 +43,11 @@
     "@typescript-eslint/eslint-plugin": "5.48.1",
     "@typescript-eslint/parser": "5.48.1",
     "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
     "postcss-scss": "^4.0.6",
+    "prettier": "2.8.3",
     "stylelint": "^14.16.0",
+    "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-standard-scss": "^6.1.0",
     "typescript": "^4.9.4"
   }
