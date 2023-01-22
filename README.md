@@ -1,5 +1,5 @@
 # SpotNewMusic
-An Angular SPA started in 2019 that will help to discover new music artists and genres using the public Spotify web API. Still in active development.
+An Angular SPA that will help to discover new music artists and genres using the public Spotify web API. Still in active development.
 
 # Build & Run
 The project is currently deployed as a Microsoft Azure Static Web App with an embeded Azure Fuction API. To run both locally via the Azure emulator:  
@@ -11,7 +11,7 @@ The project is currently deployed as a Microsoft Azure Static Web App with an em
 -Run: npm run start to begin Angular project on http://localhost:4200 with hot refresh enabled  
 -Run: npm run swa  
 
-# Update History
+# Angular Update History
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
 -22/12/2022 - Updated from Angular v14.2.10 to v15.0.4 and from Typescript v4.6.4 to v4.8.4  
@@ -19,7 +19,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 -12/11/2022 - Updated from Angular v12.2.8 to v13.3.11 and from Typescript v4.3.5 to v4.6.4  
 -02/10/2021 - Updated from Angular v11.2.14 to v12.2.8 and from Typescript v4.0.8 to v4.3.5  
 -01/10/2021 - Updated from Angular v10.2.5 to v11.2.14  
--01/10/2021 - Updated from Angular v9.1.13 to v10.2.5 and from Typescript v3.8.3 to v4.0.8  
 -01/10/2021 - Updated from Angular v9.1.13 to v10.2.5 and from Typescript v3.8.3 to v4.0.8  
 -30/09/2021 - Updated from Angular v8.2 to v9.1.13 and from Typescript v3.5.3 to v3.8.3  
 -30/09/2021 - Updated from Angular v7.2 to v8.2 and from Typescript v3.2.2 to v3.5.3  
